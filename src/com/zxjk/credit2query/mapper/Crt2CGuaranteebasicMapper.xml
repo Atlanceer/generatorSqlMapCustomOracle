@@ -1,0 +1,549 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zxjk.credit2query.mapper.Crt2CGuaranteebasicMapper">
+  <resultMap id="BaseResultMap" type="com.zxjk.credit2query.pojo.Crt2CGuaranteebasic">
+    <result column="REPORTID" jdbcType="VARCHAR" property="reportid" />
+    <result column="GUARANTEEACCOUNTID" jdbcType="VARCHAR" property="guaranteeaccountid" />
+    <result column="GUARANTEEACCOUNTTYPE" jdbcType="VARCHAR" property="guaranteeaccounttype" />
+    <result column="MECHANISMTYPE" jdbcType="VARCHAR" property="mechanismtype" />
+    <result column="MECHANISMCODE" jdbcType="VARCHAR" property="mechanismcode" />
+    <result column="CREDITAGREEMENTID" jdbcType="VARCHAR" property="creditagreementid" />
+    <result column="CATEGORYSUBDIVISION" jdbcType="VARCHAR" property="categorysubdivision" />
+    <result column="CURRENCY" jdbcType="VARCHAR" property="currency" />
+    <result column="LSSUANCEDATE" jdbcType="VARCHAR" property="lssuancedate" />
+    <result column="MONEY" jdbcType="VARCHAR" property="money" />
+    <result column="EXPDATE" jdbcType="VARCHAR" property="expdate" />
+    <result column="ANTIGUARANTEE" jdbcType="VARCHAR" property="antiguarantee" />
+    <result column="OTHERREPAYMENT" jdbcType="VARCHAR" property="otherrepayment" />
+    <result column="MARGINLEVEL" jdbcType="VARCHAR" property="marginlevel" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    REPORTID, GUARANTEEACCOUNTID, GUARANTEEACCOUNTTYPE, MECHANISMTYPE, MECHANISMCODE, 
+    CREDITAGREEMENTID, CATEGORYSUBDIVISION, CURRENCY, LSSUANCEDATE, MONEY, EXPDATE, ANTIGUARANTEE, 
+    OTHERREPAYMENT, MARGINLEVEL
+  </sql>
+  <select id="selectByExample" parameterType="com.zxjk.credit2query.pojo.Crt2CGuaranteebasicExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from CRT2_C_GUARANTEEBASIC
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <delete id="deleteByExample" parameterType="com.zxjk.credit2query.pojo.Crt2CGuaranteebasicExample">
+    delete from CRT2_C_GUARANTEEBASIC
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.zxjk.credit2query.pojo.Crt2CGuaranteebasic">
+    insert into CRT2_C_GUARANTEEBASIC (REPORTID, GUARANTEEACCOUNTID, GUARANTEEACCOUNTTYPE, 
+      MECHANISMTYPE, MECHANISMCODE, CREDITAGREEMENTID, 
+      CATEGORYSUBDIVISION, CURRENCY, LSSUANCEDATE, 
+      MONEY, EXPDATE, ANTIGUARANTEE, 
+      OTHERREPAYMENT, MARGINLEVEL)
+    values (#{reportid,jdbcType=VARCHAR}, #{guaranteeaccountid,jdbcType=VARCHAR}, #{guaranteeaccounttype,jdbcType=VARCHAR}, 
+      #{mechanismtype,jdbcType=VARCHAR}, #{mechanismcode,jdbcType=VARCHAR}, #{creditagreementid,jdbcType=VARCHAR}, 
+      #{categorysubdivision,jdbcType=VARCHAR}, #{currency,jdbcType=VARCHAR}, #{lssuancedate,jdbcType=VARCHAR}, 
+      #{money,jdbcType=VARCHAR}, #{expdate,jdbcType=VARCHAR}, #{antiguarantee,jdbcType=VARCHAR}, 
+      #{otherrepayment,jdbcType=VARCHAR}, #{marginlevel,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.zxjk.credit2query.pojo.Crt2CGuaranteebasic">
+    insert into CRT2_C_GUARANTEEBASIC
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="reportid != null">
+        REPORTID,
+      </if>
+      <if test="guaranteeaccountid != null">
+        GUARANTEEACCOUNTID,
+      </if>
+      <if test="guaranteeaccounttype != null">
+        GUARANTEEACCOUNTTYPE,
+      </if>
+      <if test="mechanismtype != null">
+        MECHANISMTYPE,
+      </if>
+      <if test="mechanismcode != null">
+        MECHANISMCODE,
+      </if>
+      <if test="creditagreementid != null">
+        CREDITAGREEMENTID,
+      </if>
+      <if test="categorysubdivision != null">
+        CATEGORYSUBDIVISION,
+      </if>
+      <if test="currency != null">
+        CURRENCY,
+      </if>
+      <if test="lssuancedate != null">
+        LSSUANCEDATE,
+      </if>
+      <if test="money != null">
+        MONEY,
+      </if>
+      <if test="expdate != null">
+        EXPDATE,
+      </if>
+      <if test="antiguarantee != null">
+        ANTIGUARANTEE,
+      </if>
+      <if test="otherrepayment != null">
+        OTHERREPAYMENT,
+      </if>
+      <if test="marginlevel != null">
+        MARGINLEVEL,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="reportid != null">
+        #{reportid,jdbcType=VARCHAR},
+      </if>
+      <if test="guaranteeaccountid != null">
+        #{guaranteeaccountid,jdbcType=VARCHAR},
+      </if>
+      <if test="guaranteeaccounttype != null">
+        #{guaranteeaccounttype,jdbcType=VARCHAR},
+      </if>
+      <if test="mechanismtype != null">
+        #{mechanismtype,jdbcType=VARCHAR},
+      </if>
+      <if test="mechanismcode != null">
+        #{mechanismcode,jdbcType=VARCHAR},
+      </if>
+      <if test="creditagreementid != null">
+        #{creditagreementid,jdbcType=VARCHAR},
+      </if>
+      <if test="categorysubdivision != null">
+        #{categorysubdivision,jdbcType=VARCHAR},
+      </if>
+      <if test="currency != null">
+        #{currency,jdbcType=VARCHAR},
+      </if>
+      <if test="lssuancedate != null">
+        #{lssuancedate,jdbcType=VARCHAR},
+      </if>
+      <if test="money != null">
+        #{money,jdbcType=VARCHAR},
+      </if>
+      <if test="expdate != null">
+        #{expdate,jdbcType=VARCHAR},
+      </if>
+      <if test="antiguarantee != null">
+        #{antiguarantee,jdbcType=VARCHAR},
+      </if>
+      <if test="otherrepayment != null">
+        #{otherrepayment,jdbcType=VARCHAR},
+      </if>
+      <if test="marginlevel != null">
+        #{marginlevel,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.zxjk.credit2query.pojo.Crt2CGuaranteebasicExample" resultType="java.lang.Long">
+    select count(*) from CRT2_C_GUARANTEEBASIC
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update CRT2_C_GUARANTEEBASIC
+    <set>
+      <if test="record.reportid != null">
+        REPORTID = #{record.reportid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.guaranteeaccountid != null">
+        GUARANTEEACCOUNTID = #{record.guaranteeaccountid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.guaranteeaccounttype != null">
+        GUARANTEEACCOUNTTYPE = #{record.guaranteeaccounttype,jdbcType=VARCHAR},
+      </if>
+      <if test="record.mechanismtype != null">
+        MECHANISMTYPE = #{record.mechanismtype,jdbcType=VARCHAR},
+      </if>
+      <if test="record.mechanismcode != null">
+        MECHANISMCODE = #{record.mechanismcode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.creditagreementid != null">
+        CREDITAGREEMENTID = #{record.creditagreementid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.categorysubdivision != null">
+        CATEGORYSUBDIVISION = #{record.categorysubdivision,jdbcType=VARCHAR},
+      </if>
+      <if test="record.currency != null">
+        CURRENCY = #{record.currency,jdbcType=VARCHAR},
+      </if>
+      <if test="record.lssuancedate != null">
+        LSSUANCEDATE = #{record.lssuancedate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.money != null">
+        MONEY = #{record.money,jdbcType=VARCHAR},
+      </if>
+      <if test="record.expdate != null">
+        EXPDATE = #{record.expdate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.antiguarantee != null">
+        ANTIGUARANTEE = #{record.antiguarantee,jdbcType=VARCHAR},
+      </if>
+      <if test="record.otherrepayment != null">
+        OTHERREPAYMENT = #{record.otherrepayment,jdbcType=VARCHAR},
+      </if>
+      <if test="record.marginlevel != null">
+        MARGINLEVEL = #{record.marginlevel,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update CRT2_C_GUARANTEEBASIC
+    set REPORTID = #{record.reportid,jdbcType=VARCHAR},
+      GUARANTEEACCOUNTID = #{record.guaranteeaccountid,jdbcType=VARCHAR},
+      GUARANTEEACCOUNTTYPE = #{record.guaranteeaccounttype,jdbcType=VARCHAR},
+      MECHANISMTYPE = #{record.mechanismtype,jdbcType=VARCHAR},
+      MECHANISMCODE = #{record.mechanismcode,jdbcType=VARCHAR},
+      CREDITAGREEMENTID = #{record.creditagreementid,jdbcType=VARCHAR},
+      CATEGORYSUBDIVISION = #{record.categorysubdivision,jdbcType=VARCHAR},
+      CURRENCY = #{record.currency,jdbcType=VARCHAR},
+      LSSUANCEDATE = #{record.lssuancedate,jdbcType=VARCHAR},
+      MONEY = #{record.money,jdbcType=VARCHAR},
+      EXPDATE = #{record.expdate,jdbcType=VARCHAR},
+      ANTIGUARANTEE = #{record.antiguarantee,jdbcType=VARCHAR},
+      OTHERREPAYMENT = #{record.otherrepayment,jdbcType=VARCHAR},
+      MARGINLEVEL = #{record.marginlevel,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <resultMap id="BaseResultMap" type="com.zxjk.credit2query.pojo.Crt2CGuaranteebasic">
+    <result column="REPORTID" jdbcType="VARCHAR" property="reportid" />
+    <result column="GUARANTEEACCOUNTID" jdbcType="VARCHAR" property="guaranteeaccountid" />
+    <result column="GUARANTEEACCOUNTTYPE" jdbcType="VARCHAR" property="guaranteeaccounttype" />
+    <result column="MECHANISMTYPE" jdbcType="VARCHAR" property="mechanismtype" />
+    <result column="MECHANISMCODE" jdbcType="VARCHAR" property="mechanismcode" />
+    <result column="CREDITAGREEMENTID" jdbcType="VARCHAR" property="creditagreementid" />
+    <result column="CATEGORYSUBDIVISION" jdbcType="VARCHAR" property="categorysubdivision" />
+    <result column="LSSUANCEDATE" jdbcType="VARCHAR" property="lssuancedate" />
+    <result column="MONEY" jdbcType="VARCHAR" property="money" />
+    <result column="EXPDATE" jdbcType="VARCHAR" property="expdate" />
+    <result column="ANTIGUARANTEE" jdbcType="VARCHAR" property="antiguarantee" />
+    <result column="OTHERREPAYMENT" jdbcType="VARCHAR" property="otherrepayment" />
+    <result column="MARGINLEVEL" jdbcType="VARCHAR" property="marginlevel" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    REPORTID, GUARANTEEACCOUNTID, GUARANTEEACCOUNTTYPE, MECHANISMTYPE, MECHANISMCODE, 
+    CREDITAGREEMENTID, CATEGORYSUBDIVISION, LSSUANCEDATE, MONEY, EXPDATE, ANTIGUARANTEE, 
+    OTHERREPAYMENT, MARGINLEVEL
+  </sql>
+  <select id="selectByExample" parameterType="com.zxjk.credit2query.pojo.Crt2CGuaranteebasicExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from CRT2_C_GUARANTEEBASIC
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <delete id="deleteByExample" parameterType="com.zxjk.credit2query.pojo.Crt2CGuaranteebasicExample">
+    delete from CRT2_C_GUARANTEEBASIC
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.zxjk.credit2query.pojo.Crt2CGuaranteebasic">
+    insert into CRT2_C_GUARANTEEBASIC (REPORTID, GUARANTEEACCOUNTID, GUARANTEEACCOUNTTYPE, 
+      MECHANISMTYPE, MECHANISMCODE, CREDITAGREEMENTID, 
+      CATEGORYSUBDIVISION, LSSUANCEDATE, MONEY, 
+      EXPDATE, ANTIGUARANTEE, OTHERREPAYMENT, 
+      MARGINLEVEL)
+    values (#{reportid,jdbcType=VARCHAR}, #{guaranteeaccountid,jdbcType=VARCHAR}, #{guaranteeaccounttype,jdbcType=VARCHAR}, 
+      #{mechanismtype,jdbcType=VARCHAR}, #{mechanismcode,jdbcType=VARCHAR}, #{creditagreementid,jdbcType=VARCHAR}, 
+      #{categorysubdivision,jdbcType=VARCHAR}, #{lssuancedate,jdbcType=VARCHAR}, #{money,jdbcType=VARCHAR}, 
+      #{expdate,jdbcType=VARCHAR}, #{antiguarantee,jdbcType=VARCHAR}, #{otherrepayment,jdbcType=VARCHAR}, 
+      #{marginlevel,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.zxjk.credit2query.pojo.Crt2CGuaranteebasic">
+    insert into CRT2_C_GUARANTEEBASIC
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="reportid != null">
+        REPORTID,
+      </if>
+      <if test="guaranteeaccountid != null">
+        GUARANTEEACCOUNTID,
+      </if>
+      <if test="guaranteeaccounttype != null">
+        GUARANTEEACCOUNTTYPE,
+      </if>
+      <if test="mechanismtype != null">
+        MECHANISMTYPE,
+      </if>
+      <if test="mechanismcode != null">
+        MECHANISMCODE,
+      </if>
+      <if test="creditagreementid != null">
+        CREDITAGREEMENTID,
+      </if>
+      <if test="categorysubdivision != null">
+        CATEGORYSUBDIVISION,
+      </if>
+      <if test="lssuancedate != null">
+        LSSUANCEDATE,
+      </if>
+      <if test="money != null">
+        MONEY,
+      </if>
+      <if test="expdate != null">
+        EXPDATE,
+      </if>
+      <if test="antiguarantee != null">
+        ANTIGUARANTEE,
+      </if>
+      <if test="otherrepayment != null">
+        OTHERREPAYMENT,
+      </if>
+      <if test="marginlevel != null">
+        MARGINLEVEL,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="reportid != null">
+        #{reportid,jdbcType=VARCHAR},
+      </if>
+      <if test="guaranteeaccountid != null">
+        #{guaranteeaccountid,jdbcType=VARCHAR},
+      </if>
+      <if test="guaranteeaccounttype != null">
+        #{guaranteeaccounttype,jdbcType=VARCHAR},
+      </if>
+      <if test="mechanismtype != null">
+        #{mechanismtype,jdbcType=VARCHAR},
+      </if>
+      <if test="mechanismcode != null">
+        #{mechanismcode,jdbcType=VARCHAR},
+      </if>
+      <if test="creditagreementid != null">
+        #{creditagreementid,jdbcType=VARCHAR},
+      </if>
+      <if test="categorysubdivision != null">
+        #{categorysubdivision,jdbcType=VARCHAR},
+      </if>
+      <if test="lssuancedate != null">
+        #{lssuancedate,jdbcType=VARCHAR},
+      </if>
+      <if test="money != null">
+        #{money,jdbcType=VARCHAR},
+      </if>
+      <if test="expdate != null">
+        #{expdate,jdbcType=VARCHAR},
+      </if>
+      <if test="antiguarantee != null">
+        #{antiguarantee,jdbcType=VARCHAR},
+      </if>
+      <if test="otherrepayment != null">
+        #{otherrepayment,jdbcType=VARCHAR},
+      </if>
+      <if test="marginlevel != null">
+        #{marginlevel,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.zxjk.credit2query.pojo.Crt2CGuaranteebasicExample" resultType="java.lang.Long">
+    select count(*) from CRT2_C_GUARANTEEBASIC
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update CRT2_C_GUARANTEEBASIC
+    <set>
+      <if test="record.reportid != null">
+        REPORTID = #{record.reportid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.guaranteeaccountid != null">
+        GUARANTEEACCOUNTID = #{record.guaranteeaccountid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.guaranteeaccounttype != null">
+        GUARANTEEACCOUNTTYPE = #{record.guaranteeaccounttype,jdbcType=VARCHAR},
+      </if>
+      <if test="record.mechanismtype != null">
+        MECHANISMTYPE = #{record.mechanismtype,jdbcType=VARCHAR},
+      </if>
+      <if test="record.mechanismcode != null">
+        MECHANISMCODE = #{record.mechanismcode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.creditagreementid != null">
+        CREDITAGREEMENTID = #{record.creditagreementid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.categorysubdivision != null">
+        CATEGORYSUBDIVISION = #{record.categorysubdivision,jdbcType=VARCHAR},
+      </if>
+      <if test="record.lssuancedate != null">
+        LSSUANCEDATE = #{record.lssuancedate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.money != null">
+        MONEY = #{record.money,jdbcType=VARCHAR},
+      </if>
+      <if test="record.expdate != null">
+        EXPDATE = #{record.expdate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.antiguarantee != null">
+        ANTIGUARANTEE = #{record.antiguarantee,jdbcType=VARCHAR},
+      </if>
+      <if test="record.otherrepayment != null">
+        OTHERREPAYMENT = #{record.otherrepayment,jdbcType=VARCHAR},
+      </if>
+      <if test="record.marginlevel != null">
+        MARGINLEVEL = #{record.marginlevel,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update CRT2_C_GUARANTEEBASIC
+    set REPORTID = #{record.reportid,jdbcType=VARCHAR},
+      GUARANTEEACCOUNTID = #{record.guaranteeaccountid,jdbcType=VARCHAR},
+      GUARANTEEACCOUNTTYPE = #{record.guaranteeaccounttype,jdbcType=VARCHAR},
+      MECHANISMTYPE = #{record.mechanismtype,jdbcType=VARCHAR},
+      MECHANISMCODE = #{record.mechanismcode,jdbcType=VARCHAR},
+      CREDITAGREEMENTID = #{record.creditagreementid,jdbcType=VARCHAR},
+      CATEGORYSUBDIVISION = #{record.categorysubdivision,jdbcType=VARCHAR},
+      LSSUANCEDATE = #{record.lssuancedate,jdbcType=VARCHAR},
+      MONEY = #{record.money,jdbcType=VARCHAR},
+      EXPDATE = #{record.expdate,jdbcType=VARCHAR},
+      ANTIGUARANTEE = #{record.antiguarantee,jdbcType=VARCHAR},
+      OTHERREPAYMENT = #{record.otherrepayment,jdbcType=VARCHAR},
+      MARGINLEVEL = #{record.marginlevel,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+</mapper>

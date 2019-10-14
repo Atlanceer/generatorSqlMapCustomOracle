@@ -1,0 +1,578 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zxjk.credit2query.mapper.Crt2COrderMapper">
+  <resultMap id="BaseResultMap" type="com.zxjk.credit2query.pojo.Crt2COrder">
+    <id column="ORDERID" jdbcType="VARCHAR" property="orderid" />
+    <result column="APPLYSERINO" jdbcType="VARCHAR" property="applyserino" />
+    <result column="APPLYTIME" jdbcType="TIMESTAMP" property="applytime" />
+    <result column="SYSID" jdbcType="VARCHAR" property="sysid" />
+    <result column="SYSQUERYORGID" jdbcType="VARCHAR" property="sysqueryorgid" />
+    <result column="SYSQUERYUSERID" jdbcType="VARCHAR" property="sysqueryuserid" />
+    <result column="ORGCODE" jdbcType="VARCHAR" property="orgcode" />
+    <result column="USERID" jdbcType="VARCHAR" property="userid" />
+    <result column="PASSWORD" jdbcType="VARCHAR" property="password" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    ORDERID, APPLYSERINO, APPLYTIME, SYSID, SYSQUERYORGID, SYSQUERYUSERID, ORGCODE, USERID, 
+    PASSWORD
+  </sql>
+  <select id="selectByExample" parameterType="com.zxjk.credit2query.pojo.Crt2COrderExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from CRT2_C_ORDER
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from CRT2_C_ORDER
+    where ORDERID = #{orderid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from CRT2_C_ORDER
+    where ORDERID = #{orderid,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.zxjk.credit2query.pojo.Crt2COrderExample">
+    delete from CRT2_C_ORDER
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.zxjk.credit2query.pojo.Crt2COrder">
+    insert into CRT2_C_ORDER (ORDERID, APPLYSERINO, APPLYTIME, 
+      SYSID, SYSQUERYORGID, SYSQUERYUSERID, 
+      ORGCODE, USERID, PASSWORD
+      )
+    values (#{orderid,jdbcType=VARCHAR}, #{applyserino,jdbcType=VARCHAR}, #{applytime,jdbcType=TIMESTAMP}, 
+      #{sysid,jdbcType=VARCHAR}, #{sysqueryorgid,jdbcType=VARCHAR}, #{sysqueryuserid,jdbcType=VARCHAR}, 
+      #{orgcode,jdbcType=VARCHAR}, #{userid,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.zxjk.credit2query.pojo.Crt2COrder">
+    insert into CRT2_C_ORDER
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="orderid != null">
+        ORDERID,
+      </if>
+      <if test="applyserino != null">
+        APPLYSERINO,
+      </if>
+      <if test="applytime != null">
+        APPLYTIME,
+      </if>
+      <if test="sysid != null">
+        SYSID,
+      </if>
+      <if test="sysqueryorgid != null">
+        SYSQUERYORGID,
+      </if>
+      <if test="sysqueryuserid != null">
+        SYSQUERYUSERID,
+      </if>
+      <if test="orgcode != null">
+        ORGCODE,
+      </if>
+      <if test="userid != null">
+        USERID,
+      </if>
+      <if test="password != null">
+        PASSWORD,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="orderid != null">
+        #{orderid,jdbcType=VARCHAR},
+      </if>
+      <if test="applyserino != null">
+        #{applyserino,jdbcType=VARCHAR},
+      </if>
+      <if test="applytime != null">
+        #{applytime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sysid != null">
+        #{sysid,jdbcType=VARCHAR},
+      </if>
+      <if test="sysqueryorgid != null">
+        #{sysqueryorgid,jdbcType=VARCHAR},
+      </if>
+      <if test="sysqueryuserid != null">
+        #{sysqueryuserid,jdbcType=VARCHAR},
+      </if>
+      <if test="orgcode != null">
+        #{orgcode,jdbcType=VARCHAR},
+      </if>
+      <if test="userid != null">
+        #{userid,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        #{password,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.zxjk.credit2query.pojo.Crt2COrderExample" resultType="java.lang.Long">
+    select count(*) from CRT2_C_ORDER
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update CRT2_C_ORDER
+    <set>
+      <if test="record.orderid != null">
+        ORDERID = #{record.orderid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.applyserino != null">
+        APPLYSERINO = #{record.applyserino,jdbcType=VARCHAR},
+      </if>
+      <if test="record.applytime != null">
+        APPLYTIME = #{record.applytime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.sysid != null">
+        SYSID = #{record.sysid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sysqueryorgid != null">
+        SYSQUERYORGID = #{record.sysqueryorgid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sysqueryuserid != null">
+        SYSQUERYUSERID = #{record.sysqueryuserid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.orgcode != null">
+        ORGCODE = #{record.orgcode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userid != null">
+        USERID = #{record.userid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.password != null">
+        PASSWORD = #{record.password,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update CRT2_C_ORDER
+    set ORDERID = #{record.orderid,jdbcType=VARCHAR},
+      APPLYSERINO = #{record.applyserino,jdbcType=VARCHAR},
+      APPLYTIME = #{record.applytime,jdbcType=TIMESTAMP},
+      SYSID = #{record.sysid,jdbcType=VARCHAR},
+      SYSQUERYORGID = #{record.sysqueryorgid,jdbcType=VARCHAR},
+      SYSQUERYUSERID = #{record.sysqueryuserid,jdbcType=VARCHAR},
+      ORGCODE = #{record.orgcode,jdbcType=VARCHAR},
+      USERID = #{record.userid,jdbcType=VARCHAR},
+      PASSWORD = #{record.password,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zxjk.credit2query.pojo.Crt2COrder">
+    update CRT2_C_ORDER
+    <set>
+      <if test="applyserino != null">
+        APPLYSERINO = #{applyserino,jdbcType=VARCHAR},
+      </if>
+      <if test="applytime != null">
+        APPLYTIME = #{applytime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sysid != null">
+        SYSID = #{sysid,jdbcType=VARCHAR},
+      </if>
+      <if test="sysqueryorgid != null">
+        SYSQUERYORGID = #{sysqueryorgid,jdbcType=VARCHAR},
+      </if>
+      <if test="sysqueryuserid != null">
+        SYSQUERYUSERID = #{sysqueryuserid,jdbcType=VARCHAR},
+      </if>
+      <if test="orgcode != null">
+        ORGCODE = #{orgcode,jdbcType=VARCHAR},
+      </if>
+      <if test="userid != null">
+        USERID = #{userid,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        PASSWORD = #{password,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ORDERID = #{orderid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zxjk.credit2query.pojo.Crt2COrder">
+    update CRT2_C_ORDER
+    set APPLYSERINO = #{applyserino,jdbcType=VARCHAR},
+      APPLYTIME = #{applytime,jdbcType=TIMESTAMP},
+      SYSID = #{sysid,jdbcType=VARCHAR},
+      SYSQUERYORGID = #{sysqueryorgid,jdbcType=VARCHAR},
+      SYSQUERYUSERID = #{sysqueryuserid,jdbcType=VARCHAR},
+      ORGCODE = #{orgcode,jdbcType=VARCHAR},
+      USERID = #{userid,jdbcType=VARCHAR},
+      PASSWORD = #{password,jdbcType=VARCHAR}
+    where ORDERID = #{orderid,jdbcType=VARCHAR}
+  </update>
+  <resultMap id="BaseResultMap" type="com.zxjk.credit2query.pojo.Crt2COrder">
+    <id column="ORDERID" jdbcType="VARCHAR" property="orderid" />
+    <result column="APPLYSERINO" jdbcType="VARCHAR" property="applyserino" />
+    <result column="APPLYTIME" jdbcType="TIMESTAMP" property="applytime" />
+    <result column="SYSID" jdbcType="VARCHAR" property="sysid" />
+    <result column="SYSQUERYORGID" jdbcType="VARCHAR" property="sysqueryorgid" />
+    <result column="SYSQUERYUSERID" jdbcType="VARCHAR" property="sysqueryuserid" />
+    <result column="ORGCODE" jdbcType="VARCHAR" property="orgcode" />
+    <result column="USERID" jdbcType="VARCHAR" property="userid" />
+    <result column="PASSWORD" jdbcType="VARCHAR" property="password" />
+    <result column="ENTCERTNUM" jdbcType="VARCHAR" property="entcertnum" />
+    <result column="ENTCERTTYPE" jdbcType="VARCHAR" property="entcerttype" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    ORDERID, APPLYSERINO, APPLYTIME, SYSID, SYSQUERYORGID, SYSQUERYUSERID, ORGCODE, USERID, 
+    PASSWORD, ENTCERTNUM, ENTCERTTYPE
+  </sql>
+  <select id="selectByExample" parameterType="com.zxjk.credit2query.pojo.Crt2COrderExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from CRT2_C_ORDER
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from CRT2_C_ORDER
+    where ORDERID = #{orderid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from CRT2_C_ORDER
+    where ORDERID = #{orderid,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.zxjk.credit2query.pojo.Crt2COrderExample">
+    delete from CRT2_C_ORDER
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.zxjk.credit2query.pojo.Crt2COrder">
+    insert into CRT2_C_ORDER (ORDERID, APPLYSERINO, APPLYTIME, 
+      SYSID, SYSQUERYORGID, SYSQUERYUSERID, 
+      ORGCODE, USERID, PASSWORD, 
+      ENTCERTNUM, ENTCERTTYPE)
+    values (#{orderid,jdbcType=VARCHAR}, #{applyserino,jdbcType=VARCHAR}, #{applytime,jdbcType=TIMESTAMP}, 
+      #{sysid,jdbcType=VARCHAR}, #{sysqueryorgid,jdbcType=VARCHAR}, #{sysqueryuserid,jdbcType=VARCHAR}, 
+      #{orgcode,jdbcType=VARCHAR}, #{userid,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
+      #{entcertnum,jdbcType=VARCHAR}, #{entcerttype,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.zxjk.credit2query.pojo.Crt2COrder">
+    insert into CRT2_C_ORDER
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="orderid != null">
+        ORDERID,
+      </if>
+      <if test="applyserino != null">
+        APPLYSERINO,
+      </if>
+      <if test="applytime != null">
+        APPLYTIME,
+      </if>
+      <if test="sysid != null">
+        SYSID,
+      </if>
+      <if test="sysqueryorgid != null">
+        SYSQUERYORGID,
+      </if>
+      <if test="sysqueryuserid != null">
+        SYSQUERYUSERID,
+      </if>
+      <if test="orgcode != null">
+        ORGCODE,
+      </if>
+      <if test="userid != null">
+        USERID,
+      </if>
+      <if test="password != null">
+        PASSWORD,
+      </if>
+      <if test="entcertnum != null">
+        ENTCERTNUM,
+      </if>
+      <if test="entcerttype != null">
+        ENTCERTTYPE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="orderid != null">
+        #{orderid,jdbcType=VARCHAR},
+      </if>
+      <if test="applyserino != null">
+        #{applyserino,jdbcType=VARCHAR},
+      </if>
+      <if test="applytime != null">
+        #{applytime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sysid != null">
+        #{sysid,jdbcType=VARCHAR},
+      </if>
+      <if test="sysqueryorgid != null">
+        #{sysqueryorgid,jdbcType=VARCHAR},
+      </if>
+      <if test="sysqueryuserid != null">
+        #{sysqueryuserid,jdbcType=VARCHAR},
+      </if>
+      <if test="orgcode != null">
+        #{orgcode,jdbcType=VARCHAR},
+      </if>
+      <if test="userid != null">
+        #{userid,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="entcertnum != null">
+        #{entcertnum,jdbcType=VARCHAR},
+      </if>
+      <if test="entcerttype != null">
+        #{entcerttype,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.zxjk.credit2query.pojo.Crt2COrderExample" resultType="java.lang.Long">
+    select count(*) from CRT2_C_ORDER
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update CRT2_C_ORDER
+    <set>
+      <if test="record.orderid != null">
+        ORDERID = #{record.orderid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.applyserino != null">
+        APPLYSERINO = #{record.applyserino,jdbcType=VARCHAR},
+      </if>
+      <if test="record.applytime != null">
+        APPLYTIME = #{record.applytime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.sysid != null">
+        SYSID = #{record.sysid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sysqueryorgid != null">
+        SYSQUERYORGID = #{record.sysqueryorgid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sysqueryuserid != null">
+        SYSQUERYUSERID = #{record.sysqueryuserid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.orgcode != null">
+        ORGCODE = #{record.orgcode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userid != null">
+        USERID = #{record.userid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.password != null">
+        PASSWORD = #{record.password,jdbcType=VARCHAR},
+      </if>
+      <if test="record.entcertnum != null">
+        ENTCERTNUM = #{record.entcertnum,jdbcType=VARCHAR},
+      </if>
+      <if test="record.entcerttype != null">
+        ENTCERTTYPE = #{record.entcerttype,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update CRT2_C_ORDER
+    set ORDERID = #{record.orderid,jdbcType=VARCHAR},
+      APPLYSERINO = #{record.applyserino,jdbcType=VARCHAR},
+      APPLYTIME = #{record.applytime,jdbcType=TIMESTAMP},
+      SYSID = #{record.sysid,jdbcType=VARCHAR},
+      SYSQUERYORGID = #{record.sysqueryorgid,jdbcType=VARCHAR},
+      SYSQUERYUSERID = #{record.sysqueryuserid,jdbcType=VARCHAR},
+      ORGCODE = #{record.orgcode,jdbcType=VARCHAR},
+      USERID = #{record.userid,jdbcType=VARCHAR},
+      PASSWORD = #{record.password,jdbcType=VARCHAR},
+      ENTCERTNUM = #{record.entcertnum,jdbcType=VARCHAR},
+      ENTCERTTYPE = #{record.entcerttype,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zxjk.credit2query.pojo.Crt2COrder">
+    update CRT2_C_ORDER
+    <set>
+      <if test="applyserino != null">
+        APPLYSERINO = #{applyserino,jdbcType=VARCHAR},
+      </if>
+      <if test="applytime != null">
+        APPLYTIME = #{applytime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sysid != null">
+        SYSID = #{sysid,jdbcType=VARCHAR},
+      </if>
+      <if test="sysqueryorgid != null">
+        SYSQUERYORGID = #{sysqueryorgid,jdbcType=VARCHAR},
+      </if>
+      <if test="sysqueryuserid != null">
+        SYSQUERYUSERID = #{sysqueryuserid,jdbcType=VARCHAR},
+      </if>
+      <if test="orgcode != null">
+        ORGCODE = #{orgcode,jdbcType=VARCHAR},
+      </if>
+      <if test="userid != null">
+        USERID = #{userid,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        PASSWORD = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="entcertnum != null">
+        ENTCERTNUM = #{entcertnum,jdbcType=VARCHAR},
+      </if>
+      <if test="entcerttype != null">
+        ENTCERTTYPE = #{entcerttype,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ORDERID = #{orderid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zxjk.credit2query.pojo.Crt2COrder">
+    update CRT2_C_ORDER
+    set APPLYSERINO = #{applyserino,jdbcType=VARCHAR},
+      APPLYTIME = #{applytime,jdbcType=TIMESTAMP},
+      SYSID = #{sysid,jdbcType=VARCHAR},
+      SYSQUERYORGID = #{sysqueryorgid,jdbcType=VARCHAR},
+      SYSQUERYUSERID = #{sysqueryuserid,jdbcType=VARCHAR},
+      ORGCODE = #{orgcode,jdbcType=VARCHAR},
+      USERID = #{userid,jdbcType=VARCHAR},
+      PASSWORD = #{password,jdbcType=VARCHAR},
+      ENTCERTNUM = #{entcertnum,jdbcType=VARCHAR},
+      ENTCERTTYPE = #{entcerttype,jdbcType=VARCHAR}
+    where ORDERID = #{orderid,jdbcType=VARCHAR}
+  </update>
+</mapper>

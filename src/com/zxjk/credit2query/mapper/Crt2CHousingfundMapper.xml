@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zxjk.credit2query.mapper.Crt2CHousingfundMapper">
+  <resultMap id="BaseResultMap" type="com.zxjk.credit2query.pojo.Crt2CHousingfund">
+    <result column="REPORTID" jdbcType="VARCHAR" property="reportid" />
+    <result column="ACCOUNTID" jdbcType="VARCHAR" property="accountid" />
+    <result column="PAYDATEFIRST" jdbcType="VARCHAR" property="paydatefirst" />
+    <result column="EMPLOYEENUM" jdbcType="VARCHAR" property="employeenum" />
+    <result column="BASICMONEY" jdbcType="VARCHAR" property="basicmoney" />
+    <result column="DATERECENT" jdbcType="VARCHAR" property="daterecent" />
+    <result column="PAYDATEEND" jdbcType="VARCHAR" property="paydateend" />
+    <result column="ACCOUNTSTATUS" jdbcType="VARCHAR" property="accountstatus" />
+    <result column="ACCUMULATEDOVERDUEAMOUNT" jdbcType="VARCHAR" property="accumulatedoverdueamount" />
+    <result column="STATISTICALDATE" jdbcType="VARCHAR" property="statisticaldate" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    REPORTID, ACCOUNTID, PAYDATEFIRST, EMPLOYEENUM, BASICMONEY, DATERECENT, PAYDATEEND, 
+    ACCOUNTSTATUS, ACCUMULATEDOVERDUEAMOUNT, STATISTICALDATE
+  </sql>
+  <select id="selectByExample" parameterType="com.zxjk.credit2query.pojo.Crt2CHousingfundExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from CRT2_C_HOUSINGFUND
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <delete id="deleteByExample" parameterType="com.zxjk.credit2query.pojo.Crt2CHousingfundExample">
+    delete from CRT2_C_HOUSINGFUND
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.zxjk.credit2query.pojo.Crt2CHousingfund">
+    insert into CRT2_C_HOUSINGFUND (REPORTID, ACCOUNTID, PAYDATEFIRST, 
+      EMPLOYEENUM, BASICMONEY, DATERECENT, 
+      PAYDATEEND, ACCOUNTSTATUS, ACCUMULATEDOVERDUEAMOUNT, 
+      STATISTICALDATE)
+    values (#{reportid,jdbcType=VARCHAR}, #{accountid,jdbcType=VARCHAR}, #{paydatefirst,jdbcType=VARCHAR}, 
+      #{employeenum,jdbcType=VARCHAR}, #{basicmoney,jdbcType=VARCHAR}, #{daterecent,jdbcType=VARCHAR}, 
+      #{paydateend,jdbcType=VARCHAR}, #{accountstatus,jdbcType=VARCHAR}, #{accumulatedoverdueamount,jdbcType=VARCHAR}, 
+      #{statisticaldate,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.zxjk.credit2query.pojo.Crt2CHousingfund">
+    insert into CRT2_C_HOUSINGFUND
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="reportid != null">
+        REPORTID,
+      </if>
+      <if test="accountid != null">
+        ACCOUNTID,
+      </if>
+      <if test="paydatefirst != null">
+        PAYDATEFIRST,
+      </if>
+      <if test="employeenum != null">
+        EMPLOYEENUM,
+      </if>
+      <if test="basicmoney != null">
+        BASICMONEY,
+      </if>
+      <if test="daterecent != null">
+        DATERECENT,
+      </if>
+      <if test="paydateend != null">
+        PAYDATEEND,
+      </if>
+      <if test="accountstatus != null">
+        ACCOUNTSTATUS,
+      </if>
+      <if test="accumulatedoverdueamount != null">
+        ACCUMULATEDOVERDUEAMOUNT,
+      </if>
+      <if test="statisticaldate != null">
+        STATISTICALDATE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="reportid != null">
+        #{reportid,jdbcType=VARCHAR},
+      </if>
+      <if test="accountid != null">
+        #{accountid,jdbcType=VARCHAR},
+      </if>
+      <if test="paydatefirst != null">
+        #{paydatefirst,jdbcType=VARCHAR},
+      </if>
+      <if test="employeenum != null">
+        #{employeenum,jdbcType=VARCHAR},
+      </if>
+      <if test="basicmoney != null">
+        #{basicmoney,jdbcType=VARCHAR},
+      </if>
+      <if test="daterecent != null">
+        #{daterecent,jdbcType=VARCHAR},
+      </if>
+      <if test="paydateend != null">
+        #{paydateend,jdbcType=VARCHAR},
+      </if>
+      <if test="accountstatus != null">
+        #{accountstatus,jdbcType=VARCHAR},
+      </if>
+      <if test="accumulatedoverdueamount != null">
+        #{accumulatedoverdueamount,jdbcType=VARCHAR},
+      </if>
+      <if test="statisticaldate != null">
+        #{statisticaldate,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.zxjk.credit2query.pojo.Crt2CHousingfundExample" resultType="java.lang.Long">
+    select count(*) from CRT2_C_HOUSINGFUND
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update CRT2_C_HOUSINGFUND
+    <set>
+      <if test="record.reportid != null">
+        REPORTID = #{record.reportid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.accountid != null">
+        ACCOUNTID = #{record.accountid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.paydatefirst != null">
+        PAYDATEFIRST = #{record.paydatefirst,jdbcType=VARCHAR},
+      </if>
+      <if test="record.employeenum != null">
+        EMPLOYEENUM = #{record.employeenum,jdbcType=VARCHAR},
+      </if>
+      <if test="record.basicmoney != null">
+        BASICMONEY = #{record.basicmoney,jdbcType=VARCHAR},
+      </if>
+      <if test="record.daterecent != null">
+        DATERECENT = #{record.daterecent,jdbcType=VARCHAR},
+      </if>
+      <if test="record.paydateend != null">
+        PAYDATEEND = #{record.paydateend,jdbcType=VARCHAR},
+      </if>
+      <if test="record.accountstatus != null">
+        ACCOUNTSTATUS = #{record.accountstatus,jdbcType=VARCHAR},
+      </if>
+      <if test="record.accumulatedoverdueamount != null">
+        ACCUMULATEDOVERDUEAMOUNT = #{record.accumulatedoverdueamount,jdbcType=VARCHAR},
+      </if>
+      <if test="record.statisticaldate != null">
+        STATISTICALDATE = #{record.statisticaldate,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update CRT2_C_HOUSINGFUND
+    set REPORTID = #{record.reportid,jdbcType=VARCHAR},
+      ACCOUNTID = #{record.accountid,jdbcType=VARCHAR},
+      PAYDATEFIRST = #{record.paydatefirst,jdbcType=VARCHAR},
+      EMPLOYEENUM = #{record.employeenum,jdbcType=VARCHAR},
+      BASICMONEY = #{record.basicmoney,jdbcType=VARCHAR},
+      DATERECENT = #{record.daterecent,jdbcType=VARCHAR},
+      PAYDATEEND = #{record.paydateend,jdbcType=VARCHAR},
+      ACCOUNTSTATUS = #{record.accountstatus,jdbcType=VARCHAR},
+      ACCUMULATEDOVERDUEAMOUNT = #{record.accumulatedoverdueamount,jdbcType=VARCHAR},
+      STATISTICALDATE = #{record.statisticaldate,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+</mapper>

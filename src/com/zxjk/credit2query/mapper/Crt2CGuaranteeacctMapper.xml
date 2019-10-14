@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zxjk.credit2query.mapper.Crt2CGuaranteeacctMapper">
+  <resultMap id="BaseResultMap" type="com.zxjk.credit2query.pojo.Crt2CGuaranteeacct">
+    <result column="REPORTID" jdbcType="VARCHAR" property="reportid" />
+    <result column="GUARANTEEACCOUNTID" jdbcType="VARCHAR" property="guaranteeaccountid" />
+    <result column="MECHANISMTYPE" jdbcType="VARCHAR" property="mechanismtype" />
+    <result column="MECHANISMCODE" jdbcType="VARCHAR" property="mechanismcode" />
+    <result column="CATEGORYSUBDIVISION" jdbcType="VARCHAR" property="categorysubdivision" />
+    <result column="FIVELEVEL" jdbcType="VARCHAR" property="fivelevel" />
+    <result column="OUTSTANDINGACCOUNTS" jdbcType="VARCHAR" property="outstandingaccounts" />
+    <result column="BALANCE" jdbcType="VARCHAR" property="balance" />
+    <result column="THIRTYINTERNALBALANCE" jdbcType="VARCHAR" property="thirtyinternalbalance" />
+    <result column="SIXTYINTERNALBALANCE" jdbcType="VARCHAR" property="sixtyinternalbalance" />
+    <result column="NINETYINTERNALBALANCE" jdbcType="VARCHAR" property="ninetyinternalbalance" />
+    <result column="AFTERNINETYBALANCE" jdbcType="VARCHAR" property="afterninetybalance" />
+    <result column="CLOSEDACCOUNT" jdbcType="VARCHAR" property="closedaccount" />
+    <result column="CUSHIONSIGN" jdbcType="VARCHAR" property="cushionsign" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    REPORTID, GUARANTEEACCOUNTID, MECHANISMTYPE, MECHANISMCODE, CATEGORYSUBDIVISION, 
+    FIVELEVEL, OUTSTANDINGACCOUNTS, BALANCE, THIRTYINTERNALBALANCE, SIXTYINTERNALBALANCE, 
+    NINETYINTERNALBALANCE, AFTERNINETYBALANCE, CLOSEDACCOUNT, CUSHIONSIGN
+  </sql>
+  <select id="selectByExample" parameterType="com.zxjk.credit2query.pojo.Crt2CGuaranteeacctExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from CRT2_C_GUARANTEEACCT
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <delete id="deleteByExample" parameterType="com.zxjk.credit2query.pojo.Crt2CGuaranteeacctExample">
+    delete from CRT2_C_GUARANTEEACCT
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.zxjk.credit2query.pojo.Crt2CGuaranteeacct">
+    insert into CRT2_C_GUARANTEEACCT (REPORTID, GUARANTEEACCOUNTID, MECHANISMTYPE, 
+      MECHANISMCODE, CATEGORYSUBDIVISION, FIVELEVEL, 
+      OUTSTANDINGACCOUNTS, BALANCE, THIRTYINTERNALBALANCE, 
+      SIXTYINTERNALBALANCE, NINETYINTERNALBALANCE, 
+      AFTERNINETYBALANCE, CLOSEDACCOUNT, CUSHIONSIGN
+      )
+    values (#{reportid,jdbcType=VARCHAR}, #{guaranteeaccountid,jdbcType=VARCHAR}, #{mechanismtype,jdbcType=VARCHAR}, 
+      #{mechanismcode,jdbcType=VARCHAR}, #{categorysubdivision,jdbcType=VARCHAR}, #{fivelevel,jdbcType=VARCHAR}, 
+      #{outstandingaccounts,jdbcType=VARCHAR}, #{balance,jdbcType=VARCHAR}, #{thirtyinternalbalance,jdbcType=VARCHAR}, 
+      #{sixtyinternalbalance,jdbcType=VARCHAR}, #{ninetyinternalbalance,jdbcType=VARCHAR}, 
+      #{afterninetybalance,jdbcType=VARCHAR}, #{closedaccount,jdbcType=VARCHAR}, #{cushionsign,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.zxjk.credit2query.pojo.Crt2CGuaranteeacct">
+    insert into CRT2_C_GUARANTEEACCT
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="reportid != null">
+        REPORTID,
+      </if>
+      <if test="guaranteeaccountid != null">
+        GUARANTEEACCOUNTID,
+      </if>
+      <if test="mechanismtype != null">
+        MECHANISMTYPE,
+      </if>
+      <if test="mechanismcode != null">
+        MECHANISMCODE,
+      </if>
+      <if test="categorysubdivision != null">
+        CATEGORYSUBDIVISION,
+      </if>
+      <if test="fivelevel != null">
+        FIVELEVEL,
+      </if>
+      <if test="outstandingaccounts != null">
+        OUTSTANDINGACCOUNTS,
+      </if>
+      <if test="balance != null">
+        BALANCE,
+      </if>
+      <if test="thirtyinternalbalance != null">
+        THIRTYINTERNALBALANCE,
+      </if>
+      <if test="sixtyinternalbalance != null">
+        SIXTYINTERNALBALANCE,
+      </if>
+      <if test="ninetyinternalbalance != null">
+        NINETYINTERNALBALANCE,
+      </if>
+      <if test="afterninetybalance != null">
+        AFTERNINETYBALANCE,
+      </if>
+      <if test="closedaccount != null">
+        CLOSEDACCOUNT,
+      </if>
+      <if test="cushionsign != null">
+        CUSHIONSIGN,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="reportid != null">
+        #{reportid,jdbcType=VARCHAR},
+      </if>
+      <if test="guaranteeaccountid != null">
+        #{guaranteeaccountid,jdbcType=VARCHAR},
+      </if>
+      <if test="mechanismtype != null">
+        #{mechanismtype,jdbcType=VARCHAR},
+      </if>
+      <if test="mechanismcode != null">
+        #{mechanismcode,jdbcType=VARCHAR},
+      </if>
+      <if test="categorysubdivision != null">
+        #{categorysubdivision,jdbcType=VARCHAR},
+      </if>
+      <if test="fivelevel != null">
+        #{fivelevel,jdbcType=VARCHAR},
+      </if>
+      <if test="outstandingaccounts != null">
+        #{outstandingaccounts,jdbcType=VARCHAR},
+      </if>
+      <if test="balance != null">
+        #{balance,jdbcType=VARCHAR},
+      </if>
+      <if test="thirtyinternalbalance != null">
+        #{thirtyinternalbalance,jdbcType=VARCHAR},
+      </if>
+      <if test="sixtyinternalbalance != null">
+        #{sixtyinternalbalance,jdbcType=VARCHAR},
+      </if>
+      <if test="ninetyinternalbalance != null">
+        #{ninetyinternalbalance,jdbcType=VARCHAR},
+      </if>
+      <if test="afterninetybalance != null">
+        #{afterninetybalance,jdbcType=VARCHAR},
+      </if>
+      <if test="closedaccount != null">
+        #{closedaccount,jdbcType=VARCHAR},
+      </if>
+      <if test="cushionsign != null">
+        #{cushionsign,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.zxjk.credit2query.pojo.Crt2CGuaranteeacctExample" resultType="java.lang.Long">
+    select count(*) from CRT2_C_GUARANTEEACCT
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update CRT2_C_GUARANTEEACCT
+    <set>
+      <if test="record.reportid != null">
+        REPORTID = #{record.reportid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.guaranteeaccountid != null">
+        GUARANTEEACCOUNTID = #{record.guaranteeaccountid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.mechanismtype != null">
+        MECHANISMTYPE = #{record.mechanismtype,jdbcType=VARCHAR},
+      </if>
+      <if test="record.mechanismcode != null">
+        MECHANISMCODE = #{record.mechanismcode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.categorysubdivision != null">
+        CATEGORYSUBDIVISION = #{record.categorysubdivision,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fivelevel != null">
+        FIVELEVEL = #{record.fivelevel,jdbcType=VARCHAR},
+      </if>
+      <if test="record.outstandingaccounts != null">
+        OUTSTANDINGACCOUNTS = #{record.outstandingaccounts,jdbcType=VARCHAR},
+      </if>
+      <if test="record.balance != null">
+        BALANCE = #{record.balance,jdbcType=VARCHAR},
+      </if>
+      <if test="record.thirtyinternalbalance != null">
+        THIRTYINTERNALBALANCE = #{record.thirtyinternalbalance,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sixtyinternalbalance != null">
+        SIXTYINTERNALBALANCE = #{record.sixtyinternalbalance,jdbcType=VARCHAR},
+      </if>
+      <if test="record.ninetyinternalbalance != null">
+        NINETYINTERNALBALANCE = #{record.ninetyinternalbalance,jdbcType=VARCHAR},
+      </if>
+      <if test="record.afterninetybalance != null">
+        AFTERNINETYBALANCE = #{record.afterninetybalance,jdbcType=VARCHAR},
+      </if>
+      <if test="record.closedaccount != null">
+        CLOSEDACCOUNT = #{record.closedaccount,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cushionsign != null">
+        CUSHIONSIGN = #{record.cushionsign,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update CRT2_C_GUARANTEEACCT
+    set REPORTID = #{record.reportid,jdbcType=VARCHAR},
+      GUARANTEEACCOUNTID = #{record.guaranteeaccountid,jdbcType=VARCHAR},
+      MECHANISMTYPE = #{record.mechanismtype,jdbcType=VARCHAR},
+      MECHANISMCODE = #{record.mechanismcode,jdbcType=VARCHAR},
+      CATEGORYSUBDIVISION = #{record.categorysubdivision,jdbcType=VARCHAR},
+      FIVELEVEL = #{record.fivelevel,jdbcType=VARCHAR},
+      OUTSTANDINGACCOUNTS = #{record.outstandingaccounts,jdbcType=VARCHAR},
+      BALANCE = #{record.balance,jdbcType=VARCHAR},
+      THIRTYINTERNALBALANCE = #{record.thirtyinternalbalance,jdbcType=VARCHAR},
+      SIXTYINTERNALBALANCE = #{record.sixtyinternalbalance,jdbcType=VARCHAR},
+      NINETYINTERNALBALANCE = #{record.ninetyinternalbalance,jdbcType=VARCHAR},
+      AFTERNINETYBALANCE = #{record.afterninetybalance,jdbcType=VARCHAR},
+      CLOSEDACCOUNT = #{record.closedaccount,jdbcType=VARCHAR},
+      CUSHIONSIGN = #{record.cushionsign,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+</mapper>

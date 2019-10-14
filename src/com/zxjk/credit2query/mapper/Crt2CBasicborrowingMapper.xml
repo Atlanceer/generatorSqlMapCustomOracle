@@ -1,0 +1,728 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zxjk.credit2query.mapper.Crt2CBasicborrowingMapper">
+  <resultMap id="BaseResultMap" type="com.zxjk.credit2query.pojo.Crt2CBasicborrowing">
+    <result column="REPORTID" jdbcType="VARCHAR" property="reportid" />
+    <result column="LOANACCOUNTID" jdbcType="VARCHAR" property="loanaccountid" />
+    <result column="ACCOUNTACTIVITYSTATUS" jdbcType="VARCHAR" property="accountactivitystatus" />
+    <result column="TYPELOANACCOUNT" jdbcType="VARCHAR" property="typeloanaccount" />
+    <result column="TERMLOAN" jdbcType="VARCHAR" property="termloan" />
+    <result column="MECHANISMTYPE" jdbcType="VARCHAR" property="mechanismtype" />
+    <result column="MECHANISMCODE" jdbcType="VARCHAR" property="mechanismcode" />
+    <result column="CREDITAGREEMENT" jdbcType="VARCHAR" property="creditagreement" />
+    <result column="CATEGORYLARGECLASS" jdbcType="VARCHAR" property="categorylargeclass" />
+    <result column="CATEGORYSUBDIVISION" jdbcType="VARCHAR" property="categorysubdivision" />
+    <result column="DATEOPENED" jdbcType="VARCHAR" property="dateopened" />
+    <result column="CURRENCY" jdbcType="VARCHAR" property="currency" />
+    <result column="LOANAMOUNT" jdbcType="VARCHAR" property="loanamount" />
+    <result column="CREDITLINE" jdbcType="VARCHAR" property="creditline" />
+    <result column="DUEDATE" jdbcType="VARCHAR" property="duedate" />
+    <result column="GUARANTEEMETHOD" jdbcType="VARCHAR" property="guaranteemethod" />
+    <result column="OTHERREPAYMENT" jdbcType="VARCHAR" property="otherrepayment" />
+    <result column="FORMDISTRIBUTION" jdbcType="VARCHAR" property="formdistribution" />
+    <result column="LOANLOGO" jdbcType="VARCHAR" property="loanlogo" />
+    <result column="CLOSINGDATE" jdbcType="VARCHAR" property="closingdate" />
+    <result column="DATEREPORT" jdbcType="VARCHAR" property="datereport" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    REPORTID, LOANACCOUNTID, ACCOUNTACTIVITYSTATUS, TYPELOANACCOUNT, TERMLOAN, MECHANISMTYPE, 
+    MECHANISMCODE, CREDITAGREEMENT, CATEGORYLARGECLASS, CATEGORYSUBDIVISION, DATEOPENED, 
+    CURRENCY, LOANAMOUNT, CREDITLINE, DUEDATE, GUARANTEEMETHOD, OTHERREPAYMENT, FORMDISTRIBUTION, 
+    LOANLOGO, CLOSINGDATE, DATEREPORT
+  </sql>
+  <select id="selectByExample" parameterType="com.zxjk.credit2query.pojo.Crt2CBasicborrowingExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from CRT2_C_BASICBORROWING
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <delete id="deleteByExample" parameterType="com.zxjk.credit2query.pojo.Crt2CBasicborrowingExample">
+    delete from CRT2_C_BASICBORROWING
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.zxjk.credit2query.pojo.Crt2CBasicborrowing">
+    insert into CRT2_C_BASICBORROWING (REPORTID, LOANACCOUNTID, ACCOUNTACTIVITYSTATUS, 
+      TYPELOANACCOUNT, TERMLOAN, MECHANISMTYPE, 
+      MECHANISMCODE, CREDITAGREEMENT, CATEGORYLARGECLASS, 
+      CATEGORYSUBDIVISION, DATEOPENED, CURRENCY, 
+      LOANAMOUNT, CREDITLINE, DUEDATE, 
+      GUARANTEEMETHOD, OTHERREPAYMENT, FORMDISTRIBUTION, 
+      LOANLOGO, CLOSINGDATE, DATEREPORT
+      )
+    values (#{reportid,jdbcType=VARCHAR}, #{loanaccountid,jdbcType=VARCHAR}, #{accountactivitystatus,jdbcType=VARCHAR}, 
+      #{typeloanaccount,jdbcType=VARCHAR}, #{termloan,jdbcType=VARCHAR}, #{mechanismtype,jdbcType=VARCHAR}, 
+      #{mechanismcode,jdbcType=VARCHAR}, #{creditagreement,jdbcType=VARCHAR}, #{categorylargeclass,jdbcType=VARCHAR}, 
+      #{categorysubdivision,jdbcType=VARCHAR}, #{dateopened,jdbcType=VARCHAR}, #{currency,jdbcType=VARCHAR}, 
+      #{loanamount,jdbcType=VARCHAR}, #{creditline,jdbcType=VARCHAR}, #{duedate,jdbcType=VARCHAR}, 
+      #{guaranteemethod,jdbcType=VARCHAR}, #{otherrepayment,jdbcType=VARCHAR}, #{formdistribution,jdbcType=VARCHAR}, 
+      #{loanlogo,jdbcType=VARCHAR}, #{closingdate,jdbcType=VARCHAR}, #{datereport,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.zxjk.credit2query.pojo.Crt2CBasicborrowing">
+    insert into CRT2_C_BASICBORROWING
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="reportid != null">
+        REPORTID,
+      </if>
+      <if test="loanaccountid != null">
+        LOANACCOUNTID,
+      </if>
+      <if test="accountactivitystatus != null">
+        ACCOUNTACTIVITYSTATUS,
+      </if>
+      <if test="typeloanaccount != null">
+        TYPELOANACCOUNT,
+      </if>
+      <if test="termloan != null">
+        TERMLOAN,
+      </if>
+      <if test="mechanismtype != null">
+        MECHANISMTYPE,
+      </if>
+      <if test="mechanismcode != null">
+        MECHANISMCODE,
+      </if>
+      <if test="creditagreement != null">
+        CREDITAGREEMENT,
+      </if>
+      <if test="categorylargeclass != null">
+        CATEGORYLARGECLASS,
+      </if>
+      <if test="categorysubdivision != null">
+        CATEGORYSUBDIVISION,
+      </if>
+      <if test="dateopened != null">
+        DATEOPENED,
+      </if>
+      <if test="currency != null">
+        CURRENCY,
+      </if>
+      <if test="loanamount != null">
+        LOANAMOUNT,
+      </if>
+      <if test="creditline != null">
+        CREDITLINE,
+      </if>
+      <if test="duedate != null">
+        DUEDATE,
+      </if>
+      <if test="guaranteemethod != null">
+        GUARANTEEMETHOD,
+      </if>
+      <if test="otherrepayment != null">
+        OTHERREPAYMENT,
+      </if>
+      <if test="formdistribution != null">
+        FORMDISTRIBUTION,
+      </if>
+      <if test="loanlogo != null">
+        LOANLOGO,
+      </if>
+      <if test="closingdate != null">
+        CLOSINGDATE,
+      </if>
+      <if test="datereport != null">
+        DATEREPORT,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="reportid != null">
+        #{reportid,jdbcType=VARCHAR},
+      </if>
+      <if test="loanaccountid != null">
+        #{loanaccountid,jdbcType=VARCHAR},
+      </if>
+      <if test="accountactivitystatus != null">
+        #{accountactivitystatus,jdbcType=VARCHAR},
+      </if>
+      <if test="typeloanaccount != null">
+        #{typeloanaccount,jdbcType=VARCHAR},
+      </if>
+      <if test="termloan != null">
+        #{termloan,jdbcType=VARCHAR},
+      </if>
+      <if test="mechanismtype != null">
+        #{mechanismtype,jdbcType=VARCHAR},
+      </if>
+      <if test="mechanismcode != null">
+        #{mechanismcode,jdbcType=VARCHAR},
+      </if>
+      <if test="creditagreement != null">
+        #{creditagreement,jdbcType=VARCHAR},
+      </if>
+      <if test="categorylargeclass != null">
+        #{categorylargeclass,jdbcType=VARCHAR},
+      </if>
+      <if test="categorysubdivision != null">
+        #{categorysubdivision,jdbcType=VARCHAR},
+      </if>
+      <if test="dateopened != null">
+        #{dateopened,jdbcType=VARCHAR},
+      </if>
+      <if test="currency != null">
+        #{currency,jdbcType=VARCHAR},
+      </if>
+      <if test="loanamount != null">
+        #{loanamount,jdbcType=VARCHAR},
+      </if>
+      <if test="creditline != null">
+        #{creditline,jdbcType=VARCHAR},
+      </if>
+      <if test="duedate != null">
+        #{duedate,jdbcType=VARCHAR},
+      </if>
+      <if test="guaranteemethod != null">
+        #{guaranteemethod,jdbcType=VARCHAR},
+      </if>
+      <if test="otherrepayment != null">
+        #{otherrepayment,jdbcType=VARCHAR},
+      </if>
+      <if test="formdistribution != null">
+        #{formdistribution,jdbcType=VARCHAR},
+      </if>
+      <if test="loanlogo != null">
+        #{loanlogo,jdbcType=VARCHAR},
+      </if>
+      <if test="closingdate != null">
+        #{closingdate,jdbcType=VARCHAR},
+      </if>
+      <if test="datereport != null">
+        #{datereport,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.zxjk.credit2query.pojo.Crt2CBasicborrowingExample" resultType="java.lang.Long">
+    select count(*) from CRT2_C_BASICBORROWING
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update CRT2_C_BASICBORROWING
+    <set>
+      <if test="record.reportid != null">
+        REPORTID = #{record.reportid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.loanaccountid != null">
+        LOANACCOUNTID = #{record.loanaccountid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.accountactivitystatus != null">
+        ACCOUNTACTIVITYSTATUS = #{record.accountactivitystatus,jdbcType=VARCHAR},
+      </if>
+      <if test="record.typeloanaccount != null">
+        TYPELOANACCOUNT = #{record.typeloanaccount,jdbcType=VARCHAR},
+      </if>
+      <if test="record.termloan != null">
+        TERMLOAN = #{record.termloan,jdbcType=VARCHAR},
+      </if>
+      <if test="record.mechanismtype != null">
+        MECHANISMTYPE = #{record.mechanismtype,jdbcType=VARCHAR},
+      </if>
+      <if test="record.mechanismcode != null">
+        MECHANISMCODE = #{record.mechanismcode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.creditagreement != null">
+        CREDITAGREEMENT = #{record.creditagreement,jdbcType=VARCHAR},
+      </if>
+      <if test="record.categorylargeclass != null">
+        CATEGORYLARGECLASS = #{record.categorylargeclass,jdbcType=VARCHAR},
+      </if>
+      <if test="record.categorysubdivision != null">
+        CATEGORYSUBDIVISION = #{record.categorysubdivision,jdbcType=VARCHAR},
+      </if>
+      <if test="record.dateopened != null">
+        DATEOPENED = #{record.dateopened,jdbcType=VARCHAR},
+      </if>
+      <if test="record.currency != null">
+        CURRENCY = #{record.currency,jdbcType=VARCHAR},
+      </if>
+      <if test="record.loanamount != null">
+        LOANAMOUNT = #{record.loanamount,jdbcType=VARCHAR},
+      </if>
+      <if test="record.creditline != null">
+        CREDITLINE = #{record.creditline,jdbcType=VARCHAR},
+      </if>
+      <if test="record.duedate != null">
+        DUEDATE = #{record.duedate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.guaranteemethod != null">
+        GUARANTEEMETHOD = #{record.guaranteemethod,jdbcType=VARCHAR},
+      </if>
+      <if test="record.otherrepayment != null">
+        OTHERREPAYMENT = #{record.otherrepayment,jdbcType=VARCHAR},
+      </if>
+      <if test="record.formdistribution != null">
+        FORMDISTRIBUTION = #{record.formdistribution,jdbcType=VARCHAR},
+      </if>
+      <if test="record.loanlogo != null">
+        LOANLOGO = #{record.loanlogo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.closingdate != null">
+        CLOSINGDATE = #{record.closingdate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.datereport != null">
+        DATEREPORT = #{record.datereport,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update CRT2_C_BASICBORROWING
+    set REPORTID = #{record.reportid,jdbcType=VARCHAR},
+      LOANACCOUNTID = #{record.loanaccountid,jdbcType=VARCHAR},
+      ACCOUNTACTIVITYSTATUS = #{record.accountactivitystatus,jdbcType=VARCHAR},
+      TYPELOANACCOUNT = #{record.typeloanaccount,jdbcType=VARCHAR},
+      TERMLOAN = #{record.termloan,jdbcType=VARCHAR},
+      MECHANISMTYPE = #{record.mechanismtype,jdbcType=VARCHAR},
+      MECHANISMCODE = #{record.mechanismcode,jdbcType=VARCHAR},
+      CREDITAGREEMENT = #{record.creditagreement,jdbcType=VARCHAR},
+      CATEGORYLARGECLASS = #{record.categorylargeclass,jdbcType=VARCHAR},
+      CATEGORYSUBDIVISION = #{record.categorysubdivision,jdbcType=VARCHAR},
+      DATEOPENED = #{record.dateopened,jdbcType=VARCHAR},
+      CURRENCY = #{record.currency,jdbcType=VARCHAR},
+      LOANAMOUNT = #{record.loanamount,jdbcType=VARCHAR},
+      CREDITLINE = #{record.creditline,jdbcType=VARCHAR},
+      DUEDATE = #{record.duedate,jdbcType=VARCHAR},
+      GUARANTEEMETHOD = #{record.guaranteemethod,jdbcType=VARCHAR},
+      OTHERREPAYMENT = #{record.otherrepayment,jdbcType=VARCHAR},
+      FORMDISTRIBUTION = #{record.formdistribution,jdbcType=VARCHAR},
+      LOANLOGO = #{record.loanlogo,jdbcType=VARCHAR},
+      CLOSINGDATE = #{record.closingdate,jdbcType=VARCHAR},
+      DATEREPORT = #{record.datereport,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <resultMap id="BaseResultMap" type="com.zxjk.credit2query.pojo.Crt2CBasicborrowing">
+    <result column="REPORTID" jdbcType="VARCHAR" property="reportid" />
+    <result column="LOANACCOUNT" jdbcType="VARCHAR" property="loanaccount" />
+    <result column="ACCOUNTACTIVITYSTATUS" jdbcType="VARCHAR" property="accountactivitystatus" />
+    <result column="TYPELOANACCOUNT" jdbcType="VARCHAR" property="typeloanaccount" />
+    <result column="TERMLOAN" jdbcType="VARCHAR" property="termloan" />
+    <result column="MECHANISMTYPE" jdbcType="VARCHAR" property="mechanismtype" />
+    <result column="MECHANISMCODE" jdbcType="VARCHAR" property="mechanismcode" />
+    <result column="CREDITAGREEMENT" jdbcType="VARCHAR" property="creditagreement" />
+    <result column="CATEGORYLARGECLASS" jdbcType="VARCHAR" property="categorylargeclass" />
+    <result column="CATEGORYSUBDIVISION" jdbcType="VARCHAR" property="categorysubdivision" />
+    <result column="DATEOPENED" jdbcType="VARCHAR" property="dateopened" />
+    <result column="CURRENCY" jdbcType="VARCHAR" property="currency" />
+    <result column="LOANAMOUNT" jdbcType="VARCHAR" property="loanamount" />
+    <result column="CREDITLINE" jdbcType="VARCHAR" property="creditline" />
+    <result column="DUEDATE" jdbcType="VARCHAR" property="duedate" />
+    <result column="GUARANTEEMETHOD" jdbcType="VARCHAR" property="guaranteemethod" />
+    <result column="OTHERREPAYMENT" jdbcType="VARCHAR" property="otherrepayment" />
+    <result column="FORMDISTRIBUTION" jdbcType="VARCHAR" property="formdistribution" />
+    <result column="LOANLOGO" jdbcType="VARCHAR" property="loanlogo" />
+    <result column="CLOSINGDATE" jdbcType="VARCHAR" property="closingdate" />
+    <result column="DATEREPORT" jdbcType="VARCHAR" property="datereport" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    REPORTID, LOANACCOUNT, ACCOUNTACTIVITYSTATUS, TYPELOANACCOUNT, TERMLOAN, MECHANISMTYPE, 
+    MECHANISMCODE, CREDITAGREEMENT, CATEGORYLARGECLASS, CATEGORYSUBDIVISION, DATEOPENED, 
+    CURRENCY, LOANAMOUNT, CREDITLINE, DUEDATE, GUARANTEEMETHOD, OTHERREPAYMENT, FORMDISTRIBUTION, 
+    LOANLOGO, CLOSINGDATE, DATEREPORT
+  </sql>
+  <select id="selectByExample" parameterType="com.zxjk.credit2query.pojo.Crt2CBasicborrowingExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from CRT2_C_BASICBORROWING
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <delete id="deleteByExample" parameterType="com.zxjk.credit2query.pojo.Crt2CBasicborrowingExample">
+    delete from CRT2_C_BASICBORROWING
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.zxjk.credit2query.pojo.Crt2CBasicborrowing">
+    insert into CRT2_C_BASICBORROWING (REPORTID, LOANACCOUNT, ACCOUNTACTIVITYSTATUS, 
+      TYPELOANACCOUNT, TERMLOAN, MECHANISMTYPE, 
+      MECHANISMCODE, CREDITAGREEMENT, CATEGORYLARGECLASS, 
+      CATEGORYSUBDIVISION, DATEOPENED, CURRENCY, 
+      LOANAMOUNT, CREDITLINE, DUEDATE, 
+      GUARANTEEMETHOD, OTHERREPAYMENT, FORMDISTRIBUTION, 
+      LOANLOGO, CLOSINGDATE, DATEREPORT
+      )
+    values (#{reportid,jdbcType=VARCHAR}, #{loanaccount,jdbcType=VARCHAR}, #{accountactivitystatus,jdbcType=VARCHAR}, 
+      #{typeloanaccount,jdbcType=VARCHAR}, #{termloan,jdbcType=VARCHAR}, #{mechanismtype,jdbcType=VARCHAR}, 
+      #{mechanismcode,jdbcType=VARCHAR}, #{creditagreement,jdbcType=VARCHAR}, #{categorylargeclass,jdbcType=VARCHAR}, 
+      #{categorysubdivision,jdbcType=VARCHAR}, #{dateopened,jdbcType=VARCHAR}, #{currency,jdbcType=VARCHAR}, 
+      #{loanamount,jdbcType=VARCHAR}, #{creditline,jdbcType=VARCHAR}, #{duedate,jdbcType=VARCHAR}, 
+      #{guaranteemethod,jdbcType=VARCHAR}, #{otherrepayment,jdbcType=VARCHAR}, #{formdistribution,jdbcType=VARCHAR}, 
+      #{loanlogo,jdbcType=VARCHAR}, #{closingdate,jdbcType=VARCHAR}, #{datereport,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.zxjk.credit2query.pojo.Crt2CBasicborrowing">
+    insert into CRT2_C_BASICBORROWING
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="reportid != null">
+        REPORTID,
+      </if>
+      <if test="loanaccount != null">
+        LOANACCOUNT,
+      </if>
+      <if test="accountactivitystatus != null">
+        ACCOUNTACTIVITYSTATUS,
+      </if>
+      <if test="typeloanaccount != null">
+        TYPELOANACCOUNT,
+      </if>
+      <if test="termloan != null">
+        TERMLOAN,
+      </if>
+      <if test="mechanismtype != null">
+        MECHANISMTYPE,
+      </if>
+      <if test="mechanismcode != null">
+        MECHANISMCODE,
+      </if>
+      <if test="creditagreement != null">
+        CREDITAGREEMENT,
+      </if>
+      <if test="categorylargeclass != null">
+        CATEGORYLARGECLASS,
+      </if>
+      <if test="categorysubdivision != null">
+        CATEGORYSUBDIVISION,
+      </if>
+      <if test="dateopened != null">
+        DATEOPENED,
+      </if>
+      <if test="currency != null">
+        CURRENCY,
+      </if>
+      <if test="loanamount != null">
+        LOANAMOUNT,
+      </if>
+      <if test="creditline != null">
+        CREDITLINE,
+      </if>
+      <if test="duedate != null">
+        DUEDATE,
+      </if>
+      <if test="guaranteemethod != null">
+        GUARANTEEMETHOD,
+      </if>
+      <if test="otherrepayment != null">
+        OTHERREPAYMENT,
+      </if>
+      <if test="formdistribution != null">
+        FORMDISTRIBUTION,
+      </if>
+      <if test="loanlogo != null">
+        LOANLOGO,
+      </if>
+      <if test="closingdate != null">
+        CLOSINGDATE,
+      </if>
+      <if test="datereport != null">
+        DATEREPORT,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="reportid != null">
+        #{reportid,jdbcType=VARCHAR},
+      </if>
+      <if test="loanaccount != null">
+        #{loanaccount,jdbcType=VARCHAR},
+      </if>
+      <if test="accountactivitystatus != null">
+        #{accountactivitystatus,jdbcType=VARCHAR},
+      </if>
+      <if test="typeloanaccount != null">
+        #{typeloanaccount,jdbcType=VARCHAR},
+      </if>
+      <if test="termloan != null">
+        #{termloan,jdbcType=VARCHAR},
+      </if>
+      <if test="mechanismtype != null">
+        #{mechanismtype,jdbcType=VARCHAR},
+      </if>
+      <if test="mechanismcode != null">
+        #{mechanismcode,jdbcType=VARCHAR},
+      </if>
+      <if test="creditagreement != null">
+        #{creditagreement,jdbcType=VARCHAR},
+      </if>
+      <if test="categorylargeclass != null">
+        #{categorylargeclass,jdbcType=VARCHAR},
+      </if>
+      <if test="categorysubdivision != null">
+        #{categorysubdivision,jdbcType=VARCHAR},
+      </if>
+      <if test="dateopened != null">
+        #{dateopened,jdbcType=VARCHAR},
+      </if>
+      <if test="currency != null">
+        #{currency,jdbcType=VARCHAR},
+      </if>
+      <if test="loanamount != null">
+        #{loanamount,jdbcType=VARCHAR},
+      </if>
+      <if test="creditline != null">
+        #{creditline,jdbcType=VARCHAR},
+      </if>
+      <if test="duedate != null">
+        #{duedate,jdbcType=VARCHAR},
+      </if>
+      <if test="guaranteemethod != null">
+        #{guaranteemethod,jdbcType=VARCHAR},
+      </if>
+      <if test="otherrepayment != null">
+        #{otherrepayment,jdbcType=VARCHAR},
+      </if>
+      <if test="formdistribution != null">
+        #{formdistribution,jdbcType=VARCHAR},
+      </if>
+      <if test="loanlogo != null">
+        #{loanlogo,jdbcType=VARCHAR},
+      </if>
+      <if test="closingdate != null">
+        #{closingdate,jdbcType=VARCHAR},
+      </if>
+      <if test="datereport != null">
+        #{datereport,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.zxjk.credit2query.pojo.Crt2CBasicborrowingExample" resultType="java.lang.Long">
+    select count(*) from CRT2_C_BASICBORROWING
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update CRT2_C_BASICBORROWING
+    <set>
+      <if test="record.reportid != null">
+        REPORTID = #{record.reportid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.loanaccount != null">
+        LOANACCOUNT = #{record.loanaccount,jdbcType=VARCHAR},
+      </if>
+      <if test="record.accountactivitystatus != null">
+        ACCOUNTACTIVITYSTATUS = #{record.accountactivitystatus,jdbcType=VARCHAR},
+      </if>
+      <if test="record.typeloanaccount != null">
+        TYPELOANACCOUNT = #{record.typeloanaccount,jdbcType=VARCHAR},
+      </if>
+      <if test="record.termloan != null">
+        TERMLOAN = #{record.termloan,jdbcType=VARCHAR},
+      </if>
+      <if test="record.mechanismtype != null">
+        MECHANISMTYPE = #{record.mechanismtype,jdbcType=VARCHAR},
+      </if>
+      <if test="record.mechanismcode != null">
+        MECHANISMCODE = #{record.mechanismcode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.creditagreement != null">
+        CREDITAGREEMENT = #{record.creditagreement,jdbcType=VARCHAR},
+      </if>
+      <if test="record.categorylargeclass != null">
+        CATEGORYLARGECLASS = #{record.categorylargeclass,jdbcType=VARCHAR},
+      </if>
+      <if test="record.categorysubdivision != null">
+        CATEGORYSUBDIVISION = #{record.categorysubdivision,jdbcType=VARCHAR},
+      </if>
+      <if test="record.dateopened != null">
+        DATEOPENED = #{record.dateopened,jdbcType=VARCHAR},
+      </if>
+      <if test="record.currency != null">
+        CURRENCY = #{record.currency,jdbcType=VARCHAR},
+      </if>
+      <if test="record.loanamount != null">
+        LOANAMOUNT = #{record.loanamount,jdbcType=VARCHAR},
+      </if>
+      <if test="record.creditline != null">
+        CREDITLINE = #{record.creditline,jdbcType=VARCHAR},
+      </if>
+      <if test="record.duedate != null">
+        DUEDATE = #{record.duedate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.guaranteemethod != null">
+        GUARANTEEMETHOD = #{record.guaranteemethod,jdbcType=VARCHAR},
+      </if>
+      <if test="record.otherrepayment != null">
+        OTHERREPAYMENT = #{record.otherrepayment,jdbcType=VARCHAR},
+      </if>
+      <if test="record.formdistribution != null">
+        FORMDISTRIBUTION = #{record.formdistribution,jdbcType=VARCHAR},
+      </if>
+      <if test="record.loanlogo != null">
+        LOANLOGO = #{record.loanlogo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.closingdate != null">
+        CLOSINGDATE = #{record.closingdate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.datereport != null">
+        DATEREPORT = #{record.datereport,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update CRT2_C_BASICBORROWING
+    set REPORTID = #{record.reportid,jdbcType=VARCHAR},
+      LOANACCOUNT = #{record.loanaccount,jdbcType=VARCHAR},
+      ACCOUNTACTIVITYSTATUS = #{record.accountactivitystatus,jdbcType=VARCHAR},
+      TYPELOANACCOUNT = #{record.typeloanaccount,jdbcType=VARCHAR},
+      TERMLOAN = #{record.termloan,jdbcType=VARCHAR},
+      MECHANISMTYPE = #{record.mechanismtype,jdbcType=VARCHAR},
+      MECHANISMCODE = #{record.mechanismcode,jdbcType=VARCHAR},
+      CREDITAGREEMENT = #{record.creditagreement,jdbcType=VARCHAR},
+      CATEGORYLARGECLASS = #{record.categorylargeclass,jdbcType=VARCHAR},
+      CATEGORYSUBDIVISION = #{record.categorysubdivision,jdbcType=VARCHAR},
+      DATEOPENED = #{record.dateopened,jdbcType=VARCHAR},
+      CURRENCY = #{record.currency,jdbcType=VARCHAR},
+      LOANAMOUNT = #{record.loanamount,jdbcType=VARCHAR},
+      CREDITLINE = #{record.creditline,jdbcType=VARCHAR},
+      DUEDATE = #{record.duedate,jdbcType=VARCHAR},
+      GUARANTEEMETHOD = #{record.guaranteemethod,jdbcType=VARCHAR},
+      OTHERREPAYMENT = #{record.otherrepayment,jdbcType=VARCHAR},
+      FORMDISTRIBUTION = #{record.formdistribution,jdbcType=VARCHAR},
+      LOANLOGO = #{record.loanlogo,jdbcType=VARCHAR},
+      CLOSINGDATE = #{record.closingdate,jdbcType=VARCHAR},
+      DATEREPORT = #{record.datereport,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+</mapper>

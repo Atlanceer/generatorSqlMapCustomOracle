@@ -1,0 +1,383 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zxjk.credit2query.mapper.Crt2CExemptionMapper">
+  <resultMap id="BaseResultMap" type="com.zxjk.credit2query.pojo.Crt2CExemption">
+    <result column="REPORTID" jdbcType="VARCHAR" property="reportid" />
+    <result column="INFORMATIONID" jdbcType="VARCHAR" property="informationid" />
+    <result column="RATIFYDEPT" jdbcType="VARCHAR" property="ratifydept" />
+    <result column="PRODUCTNAME" jdbcType="VARCHAR" property="productname" />
+    <result column="EXQUAID" jdbcType="VARCHAR" property="exquaid" />
+    <result column="VALIDITYDATE" jdbcType="VARCHAR" property="validitydate" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    REPORTID, INFORMATIONID, RATIFYDEPT, PRODUCTNAME, EXQUAID, VALIDITYDATE
+  </sql>
+  <select id="selectByExample" parameterType="com.zxjk.credit2query.pojo.Crt2CExemptionExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from CRT2_C_EXEMPTION
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <delete id="deleteByExample" parameterType="com.zxjk.credit2query.pojo.Crt2CExemptionExample">
+    delete from CRT2_C_EXEMPTION
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.zxjk.credit2query.pojo.Crt2CExemption">
+    insert into CRT2_C_EXEMPTION (REPORTID, INFORMATIONID, RATIFYDEPT, 
+      PRODUCTNAME, EXQUAID, VALIDITYDATE
+      )
+    values (#{reportid,jdbcType=VARCHAR}, #{informationid,jdbcType=VARCHAR}, #{ratifydept,jdbcType=VARCHAR}, 
+      #{productname,jdbcType=VARCHAR}, #{exquaid,jdbcType=VARCHAR}, #{validitydate,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.zxjk.credit2query.pojo.Crt2CExemption">
+    insert into CRT2_C_EXEMPTION
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="reportid != null">
+        REPORTID,
+      </if>
+      <if test="informationid != null">
+        INFORMATIONID,
+      </if>
+      <if test="ratifydept != null">
+        RATIFYDEPT,
+      </if>
+      <if test="productname != null">
+        PRODUCTNAME,
+      </if>
+      <if test="exquaid != null">
+        EXQUAID,
+      </if>
+      <if test="validitydate != null">
+        VALIDITYDATE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="reportid != null">
+        #{reportid,jdbcType=VARCHAR},
+      </if>
+      <if test="informationid != null">
+        #{informationid,jdbcType=VARCHAR},
+      </if>
+      <if test="ratifydept != null">
+        #{ratifydept,jdbcType=VARCHAR},
+      </if>
+      <if test="productname != null">
+        #{productname,jdbcType=VARCHAR},
+      </if>
+      <if test="exquaid != null">
+        #{exquaid,jdbcType=VARCHAR},
+      </if>
+      <if test="validitydate != null">
+        #{validitydate,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.zxjk.credit2query.pojo.Crt2CExemptionExample" resultType="java.lang.Long">
+    select count(*) from CRT2_C_EXEMPTION
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update CRT2_C_EXEMPTION
+    <set>
+      <if test="record.reportid != null">
+        REPORTID = #{record.reportid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.informationid != null">
+        INFORMATIONID = #{record.informationid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.ratifydept != null">
+        RATIFYDEPT = #{record.ratifydept,jdbcType=VARCHAR},
+      </if>
+      <if test="record.productname != null">
+        PRODUCTNAME = #{record.productname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.exquaid != null">
+        EXQUAID = #{record.exquaid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.validitydate != null">
+        VALIDITYDATE = #{record.validitydate,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update CRT2_C_EXEMPTION
+    set REPORTID = #{record.reportid,jdbcType=VARCHAR},
+      INFORMATIONID = #{record.informationid,jdbcType=VARCHAR},
+      RATIFYDEPT = #{record.ratifydept,jdbcType=VARCHAR},
+      PRODUCTNAME = #{record.productname,jdbcType=VARCHAR},
+      EXQUAID = #{record.exquaid,jdbcType=VARCHAR},
+      VALIDITYDATE = #{record.validitydate,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <resultMap id="BaseResultMap" type="com.zxjk.credit2query.pojo.Crt2CExemption">
+    <result column="REPORTID" jdbcType="VARCHAR" property="reportid" />
+    <result column="INFORMATIONID" jdbcType="VARCHAR" property="informationid" />
+    <result column="RATIFYDEPT" jdbcType="VARCHAR" property="ratifydept" />
+    <result column="PRODUCTNAME" jdbcType="VARCHAR" property="productname" />
+    <result column="EXQUAID" jdbcType="VARCHAR" property="exquaid" />
+    <result column="EFFECTIVEDATE" jdbcType="VARCHAR" property="effectivedate" />
+    <result column="VALIDITYDATE" jdbcType="VARCHAR" property="validitydate" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    REPORTID, INFORMATIONID, RATIFYDEPT, PRODUCTNAME, EXQUAID, EFFECTIVEDATE, VALIDITYDATE
+  </sql>
+  <select id="selectByExample" parameterType="com.zxjk.credit2query.pojo.Crt2CExemptionExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from CRT2_C_EXEMPTION
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <delete id="deleteByExample" parameterType="com.zxjk.credit2query.pojo.Crt2CExemptionExample">
+    delete from CRT2_C_EXEMPTION
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.zxjk.credit2query.pojo.Crt2CExemption">
+    insert into CRT2_C_EXEMPTION (REPORTID, INFORMATIONID, RATIFYDEPT, 
+      PRODUCTNAME, EXQUAID, EFFECTIVEDATE, 
+      VALIDITYDATE)
+    values (#{reportid,jdbcType=VARCHAR}, #{informationid,jdbcType=VARCHAR}, #{ratifydept,jdbcType=VARCHAR}, 
+      #{productname,jdbcType=VARCHAR}, #{exquaid,jdbcType=VARCHAR}, #{effectivedate,jdbcType=VARCHAR}, 
+      #{validitydate,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.zxjk.credit2query.pojo.Crt2CExemption">
+    insert into CRT2_C_EXEMPTION
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="reportid != null">
+        REPORTID,
+      </if>
+      <if test="informationid != null">
+        INFORMATIONID,
+      </if>
+      <if test="ratifydept != null">
+        RATIFYDEPT,
+      </if>
+      <if test="productname != null">
+        PRODUCTNAME,
+      </if>
+      <if test="exquaid != null">
+        EXQUAID,
+      </if>
+      <if test="effectivedate != null">
+        EFFECTIVEDATE,
+      </if>
+      <if test="validitydate != null">
+        VALIDITYDATE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="reportid != null">
+        #{reportid,jdbcType=VARCHAR},
+      </if>
+      <if test="informationid != null">
+        #{informationid,jdbcType=VARCHAR},
+      </if>
+      <if test="ratifydept != null">
+        #{ratifydept,jdbcType=VARCHAR},
+      </if>
+      <if test="productname != null">
+        #{productname,jdbcType=VARCHAR},
+      </if>
+      <if test="exquaid != null">
+        #{exquaid,jdbcType=VARCHAR},
+      </if>
+      <if test="effectivedate != null">
+        #{effectivedate,jdbcType=VARCHAR},
+      </if>
+      <if test="validitydate != null">
+        #{validitydate,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.zxjk.credit2query.pojo.Crt2CExemptionExample" resultType="java.lang.Long">
+    select count(*) from CRT2_C_EXEMPTION
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update CRT2_C_EXEMPTION
+    <set>
+      <if test="record.reportid != null">
+        REPORTID = #{record.reportid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.informationid != null">
+        INFORMATIONID = #{record.informationid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.ratifydept != null">
+        RATIFYDEPT = #{record.ratifydept,jdbcType=VARCHAR},
+      </if>
+      <if test="record.productname != null">
+        PRODUCTNAME = #{record.productname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.exquaid != null">
+        EXQUAID = #{record.exquaid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.effectivedate != null">
+        EFFECTIVEDATE = #{record.effectivedate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.validitydate != null">
+        VALIDITYDATE = #{record.validitydate,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update CRT2_C_EXEMPTION
+    set REPORTID = #{record.reportid,jdbcType=VARCHAR},
+      INFORMATIONID = #{record.informationid,jdbcType=VARCHAR},
+      RATIFYDEPT = #{record.ratifydept,jdbcType=VARCHAR},
+      PRODUCTNAME = #{record.productname,jdbcType=VARCHAR},
+      EXQUAID = #{record.exquaid,jdbcType=VARCHAR},
+      EFFECTIVEDATE = #{record.effectivedate,jdbcType=VARCHAR},
+      VALIDITYDATE = #{record.validitydate,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+</mapper>

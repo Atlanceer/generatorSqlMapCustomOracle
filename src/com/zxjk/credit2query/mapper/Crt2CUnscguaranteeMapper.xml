@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zxjk.credit2query.mapper.Crt2CUnscguaranteeMapper">
+  <resultMap id="BaseResultMap" type="com.zxjk.credit2query.pojo.Crt2CUnscguarantee">
+    <result column="REPORTID" jdbcType="VARCHAR" property="reportid" />
+    <result column="BUSINESSTYPE" jdbcType="VARCHAR" property="businesstype" />
+    <result column="ASSETQUALITY" jdbcType="VARCHAR" property="assetquality" />
+    <result column="ACCOUNTNUMBER" jdbcType="VARCHAR" property="accountnumber" />
+    <result column="BALANCE" jdbcType="VARCHAR" property="balance" />
+    <result column="UNGUARANTENUM" jdbcType="VARCHAR" property="unguarantenum" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    REPORTID, BUSINESSTYPE, ASSETQUALITY, ACCOUNTNUMBER, BALANCE, UNGUARANTENUM
+  </sql>
+  <select id="selectByExample" parameterType="com.zxjk.credit2query.pojo.Crt2CUnscguaranteeExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from CRT2_C_UNSCGUARANTEE
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <delete id="deleteByExample" parameterType="com.zxjk.credit2query.pojo.Crt2CUnscguaranteeExample">
+    delete from CRT2_C_UNSCGUARANTEE
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.zxjk.credit2query.pojo.Crt2CUnscguarantee">
+    insert into CRT2_C_UNSCGUARANTEE (REPORTID, BUSINESSTYPE, ASSETQUALITY, 
+      ACCOUNTNUMBER, BALANCE, UNGUARANTENUM
+      )
+    values (#{reportid,jdbcType=VARCHAR}, #{businesstype,jdbcType=VARCHAR}, #{assetquality,jdbcType=VARCHAR}, 
+      #{accountnumber,jdbcType=VARCHAR}, #{balance,jdbcType=VARCHAR}, #{unguarantenum,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.zxjk.credit2query.pojo.Crt2CUnscguarantee">
+    insert into CRT2_C_UNSCGUARANTEE
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="reportid != null">
+        REPORTID,
+      </if>
+      <if test="businesstype != null">
+        BUSINESSTYPE,
+      </if>
+      <if test="assetquality != null">
+        ASSETQUALITY,
+      </if>
+      <if test="accountnumber != null">
+        ACCOUNTNUMBER,
+      </if>
+      <if test="balance != null">
+        BALANCE,
+      </if>
+      <if test="unguarantenum != null">
+        UNGUARANTENUM,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="reportid != null">
+        #{reportid,jdbcType=VARCHAR},
+      </if>
+      <if test="businesstype != null">
+        #{businesstype,jdbcType=VARCHAR},
+      </if>
+      <if test="assetquality != null">
+        #{assetquality,jdbcType=VARCHAR},
+      </if>
+      <if test="accountnumber != null">
+        #{accountnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="balance != null">
+        #{balance,jdbcType=VARCHAR},
+      </if>
+      <if test="unguarantenum != null">
+        #{unguarantenum,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.zxjk.credit2query.pojo.Crt2CUnscguaranteeExample" resultType="java.lang.Long">
+    select count(*) from CRT2_C_UNSCGUARANTEE
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update CRT2_C_UNSCGUARANTEE
+    <set>
+      <if test="record.reportid != null">
+        REPORTID = #{record.reportid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.businesstype != null">
+        BUSINESSTYPE = #{record.businesstype,jdbcType=VARCHAR},
+      </if>
+      <if test="record.assetquality != null">
+        ASSETQUALITY = #{record.assetquality,jdbcType=VARCHAR},
+      </if>
+      <if test="record.accountnumber != null">
+        ACCOUNTNUMBER = #{record.accountnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="record.balance != null">
+        BALANCE = #{record.balance,jdbcType=VARCHAR},
+      </if>
+      <if test="record.unguarantenum != null">
+        UNGUARANTENUM = #{record.unguarantenum,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update CRT2_C_UNSCGUARANTEE
+    set REPORTID = #{record.reportid,jdbcType=VARCHAR},
+      BUSINESSTYPE = #{record.businesstype,jdbcType=VARCHAR},
+      ASSETQUALITY = #{record.assetquality,jdbcType=VARCHAR},
+      ACCOUNTNUMBER = #{record.accountnumber,jdbcType=VARCHAR},
+      BALANCE = #{record.balance,jdbcType=VARCHAR},
+      UNGUARANTENUM = #{record.unguarantenum,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+</mapper>

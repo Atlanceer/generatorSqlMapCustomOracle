@@ -1,0 +1,407 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zxjk.credit2query.mapper.Crt2CLoanspecificMapper">
+  <resultMap id="BaseResultMap" type="com.zxjk.credit2query.pojo.Crt2CLoanspecific">
+    <result column="REPORTID" jdbcType="VARCHAR" property="reportid" />
+    <result column="SPECIFICTRANSACTIONNUMBER" jdbcType="VARCHAR" property="specifictransactionnumber" />
+    <result column="TYPETRANSACTION" jdbcType="VARCHAR" property="typetransaction" />
+    <result column="DATETRANSACTION" jdbcType="VARCHAR" property="datetransaction" />
+    <result column="TRANSACTIONAMOUNT" jdbcType="VARCHAR" property="transactionamount" />
+    <result column="CHANGETHEMONTH" jdbcType="VARCHAR" property="changethemonth" />
+    <result column="TRANSACTIONDETAILS" jdbcType="VARCHAR" property="transactiondetails" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    REPORTID, SPECIFICTRANSACTIONNUMBER, TYPETRANSACTION, DATETRANSACTION, TRANSACTIONAMOUNT, 
+    CHANGETHEMONTH, TRANSACTIONDETAILS
+  </sql>
+  <select id="selectByExample" parameterType="com.zxjk.credit2query.pojo.Crt2CLoanspecificExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from CRT2_C_LOANSPECIFIC
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <delete id="deleteByExample" parameterType="com.zxjk.credit2query.pojo.Crt2CLoanspecificExample">
+    delete from CRT2_C_LOANSPECIFIC
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.zxjk.credit2query.pojo.Crt2CLoanspecific">
+    insert into CRT2_C_LOANSPECIFIC (REPORTID, SPECIFICTRANSACTIONNUMBER, 
+      TYPETRANSACTION, DATETRANSACTION, TRANSACTIONAMOUNT, 
+      CHANGETHEMONTH, TRANSACTIONDETAILS)
+    values (#{reportid,jdbcType=VARCHAR}, #{specifictransactionnumber,jdbcType=VARCHAR}, 
+      #{typetransaction,jdbcType=VARCHAR}, #{datetransaction,jdbcType=VARCHAR}, #{transactionamount,jdbcType=VARCHAR}, 
+      #{changethemonth,jdbcType=VARCHAR}, #{transactiondetails,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.zxjk.credit2query.pojo.Crt2CLoanspecific">
+    insert into CRT2_C_LOANSPECIFIC
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="reportid != null">
+        REPORTID,
+      </if>
+      <if test="specifictransactionnumber != null">
+        SPECIFICTRANSACTIONNUMBER,
+      </if>
+      <if test="typetransaction != null">
+        TYPETRANSACTION,
+      </if>
+      <if test="datetransaction != null">
+        DATETRANSACTION,
+      </if>
+      <if test="transactionamount != null">
+        TRANSACTIONAMOUNT,
+      </if>
+      <if test="changethemonth != null">
+        CHANGETHEMONTH,
+      </if>
+      <if test="transactiondetails != null">
+        TRANSACTIONDETAILS,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="reportid != null">
+        #{reportid,jdbcType=VARCHAR},
+      </if>
+      <if test="specifictransactionnumber != null">
+        #{specifictransactionnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="typetransaction != null">
+        #{typetransaction,jdbcType=VARCHAR},
+      </if>
+      <if test="datetransaction != null">
+        #{datetransaction,jdbcType=VARCHAR},
+      </if>
+      <if test="transactionamount != null">
+        #{transactionamount,jdbcType=VARCHAR},
+      </if>
+      <if test="changethemonth != null">
+        #{changethemonth,jdbcType=VARCHAR},
+      </if>
+      <if test="transactiondetails != null">
+        #{transactiondetails,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.zxjk.credit2query.pojo.Crt2CLoanspecificExample" resultType="java.lang.Long">
+    select count(*) from CRT2_C_LOANSPECIFIC
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update CRT2_C_LOANSPECIFIC
+    <set>
+      <if test="record.reportid != null">
+        REPORTID = #{record.reportid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.specifictransactionnumber != null">
+        SPECIFICTRANSACTIONNUMBER = #{record.specifictransactionnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="record.typetransaction != null">
+        TYPETRANSACTION = #{record.typetransaction,jdbcType=VARCHAR},
+      </if>
+      <if test="record.datetransaction != null">
+        DATETRANSACTION = #{record.datetransaction,jdbcType=VARCHAR},
+      </if>
+      <if test="record.transactionamount != null">
+        TRANSACTIONAMOUNT = #{record.transactionamount,jdbcType=VARCHAR},
+      </if>
+      <if test="record.changethemonth != null">
+        CHANGETHEMONTH = #{record.changethemonth,jdbcType=VARCHAR},
+      </if>
+      <if test="record.transactiondetails != null">
+        TRANSACTIONDETAILS = #{record.transactiondetails,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update CRT2_C_LOANSPECIFIC
+    set REPORTID = #{record.reportid,jdbcType=VARCHAR},
+      SPECIFICTRANSACTIONNUMBER = #{record.specifictransactionnumber,jdbcType=VARCHAR},
+      TYPETRANSACTION = #{record.typetransaction,jdbcType=VARCHAR},
+      DATETRANSACTION = #{record.datetransaction,jdbcType=VARCHAR},
+      TRANSACTIONAMOUNT = #{record.transactionamount,jdbcType=VARCHAR},
+      CHANGETHEMONTH = #{record.changethemonth,jdbcType=VARCHAR},
+      TRANSACTIONDETAILS = #{record.transactiondetails,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <resultMap id="BaseResultMap" type="com.zxjk.credit2query.pojo.Crt2CLoanspecific">
+    <result column="REPORTID" jdbcType="VARCHAR" property="reportid" />
+    <result column="LOANACCOUNT" jdbcType="VARCHAR" property="loanaccount" />
+    <result column="TYPETRANSACTION" jdbcType="VARCHAR" property="typetransaction" />
+    <result column="DATETRANSACTION" jdbcType="VARCHAR" property="datetransaction" />
+    <result column="TRANSACTIONAMOUNT" jdbcType="VARCHAR" property="transactionamount" />
+    <result column="CHANGETHEMONTH" jdbcType="VARCHAR" property="changethemonth" />
+    <result column="TRANSACTIONDETAILS" jdbcType="VARCHAR" property="transactiondetails" />
+    <result column="SPECNUM" jdbcType="VARCHAR" property="specnum" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    REPORTID, LOANACCOUNT, TYPETRANSACTION, DATETRANSACTION, TRANSACTIONAMOUNT, CHANGETHEMONTH, 
+    TRANSACTIONDETAILS, SPECNUM
+  </sql>
+  <select id="selectByExample" parameterType="com.zxjk.credit2query.pojo.Crt2CLoanspecificExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from CRT2_C_LOANSPECIFIC
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <delete id="deleteByExample" parameterType="com.zxjk.credit2query.pojo.Crt2CLoanspecificExample">
+    delete from CRT2_C_LOANSPECIFIC
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.zxjk.credit2query.pojo.Crt2CLoanspecific">
+    insert into CRT2_C_LOANSPECIFIC (REPORTID, LOANACCOUNT, TYPETRANSACTION, 
+      DATETRANSACTION, TRANSACTIONAMOUNT, CHANGETHEMONTH, 
+      TRANSACTIONDETAILS, SPECNUM)
+    values (#{reportid,jdbcType=VARCHAR}, #{loanaccount,jdbcType=VARCHAR}, #{typetransaction,jdbcType=VARCHAR}, 
+      #{datetransaction,jdbcType=VARCHAR}, #{transactionamount,jdbcType=VARCHAR}, #{changethemonth,jdbcType=VARCHAR}, 
+      #{transactiondetails,jdbcType=VARCHAR}, #{specnum,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.zxjk.credit2query.pojo.Crt2CLoanspecific">
+    insert into CRT2_C_LOANSPECIFIC
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="reportid != null">
+        REPORTID,
+      </if>
+      <if test="loanaccount != null">
+        LOANACCOUNT,
+      </if>
+      <if test="typetransaction != null">
+        TYPETRANSACTION,
+      </if>
+      <if test="datetransaction != null">
+        DATETRANSACTION,
+      </if>
+      <if test="transactionamount != null">
+        TRANSACTIONAMOUNT,
+      </if>
+      <if test="changethemonth != null">
+        CHANGETHEMONTH,
+      </if>
+      <if test="transactiondetails != null">
+        TRANSACTIONDETAILS,
+      </if>
+      <if test="specnum != null">
+        SPECNUM,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="reportid != null">
+        #{reportid,jdbcType=VARCHAR},
+      </if>
+      <if test="loanaccount != null">
+        #{loanaccount,jdbcType=VARCHAR},
+      </if>
+      <if test="typetransaction != null">
+        #{typetransaction,jdbcType=VARCHAR},
+      </if>
+      <if test="datetransaction != null">
+        #{datetransaction,jdbcType=VARCHAR},
+      </if>
+      <if test="transactionamount != null">
+        #{transactionamount,jdbcType=VARCHAR},
+      </if>
+      <if test="changethemonth != null">
+        #{changethemonth,jdbcType=VARCHAR},
+      </if>
+      <if test="transactiondetails != null">
+        #{transactiondetails,jdbcType=VARCHAR},
+      </if>
+      <if test="specnum != null">
+        #{specnum,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.zxjk.credit2query.pojo.Crt2CLoanspecificExample" resultType="java.lang.Long">
+    select count(*) from CRT2_C_LOANSPECIFIC
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update CRT2_C_LOANSPECIFIC
+    <set>
+      <if test="record.reportid != null">
+        REPORTID = #{record.reportid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.loanaccount != null">
+        LOANACCOUNT = #{record.loanaccount,jdbcType=VARCHAR},
+      </if>
+      <if test="record.typetransaction != null">
+        TYPETRANSACTION = #{record.typetransaction,jdbcType=VARCHAR},
+      </if>
+      <if test="record.datetransaction != null">
+        DATETRANSACTION = #{record.datetransaction,jdbcType=VARCHAR},
+      </if>
+      <if test="record.transactionamount != null">
+        TRANSACTIONAMOUNT = #{record.transactionamount,jdbcType=VARCHAR},
+      </if>
+      <if test="record.changethemonth != null">
+        CHANGETHEMONTH = #{record.changethemonth,jdbcType=VARCHAR},
+      </if>
+      <if test="record.transactiondetails != null">
+        TRANSACTIONDETAILS = #{record.transactiondetails,jdbcType=VARCHAR},
+      </if>
+      <if test="record.specnum != null">
+        SPECNUM = #{record.specnum,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update CRT2_C_LOANSPECIFIC
+    set REPORTID = #{record.reportid,jdbcType=VARCHAR},
+      LOANACCOUNT = #{record.loanaccount,jdbcType=VARCHAR},
+      TYPETRANSACTION = #{record.typetransaction,jdbcType=VARCHAR},
+      DATETRANSACTION = #{record.datetransaction,jdbcType=VARCHAR},
+      TRANSACTIONAMOUNT = #{record.transactionamount,jdbcType=VARCHAR},
+      CHANGETHEMONTH = #{record.changethemonth,jdbcType=VARCHAR},
+      TRANSACTIONDETAILS = #{record.transactiondetails,jdbcType=VARCHAR},
+      SPECNUM = #{record.specnum,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+</mapper>

@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zxjk.credit2query.mapper.Crt2CUtilityexpsMapper">
+  <resultMap id="BaseResultMap" type="com.zxjk.credit2query.pojo.Crt2CUtilityexps">
+    <result column="REPORTID" jdbcType="VARCHAR" property="reportid" />
+    <result column="UTILITYACCOUNTID" jdbcType="VARCHAR" property="utilityaccountid" />
+    <result column="UNITNAME" jdbcType="VARCHAR" property="unitname" />
+    <result column="BUSINESSTYPE" jdbcType="VARCHAR" property="businesstype" />
+    <result column="PAYMENTSTATE" jdbcType="VARCHAR" property="paymentstate" />
+    <result column="ACCUMULATIVEARREARS" jdbcType="VARCHAR" property="accumulativearrears" />
+    <result column="STATISTICALYEAR" jdbcType="VARCHAR" property="statisticalyear" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    REPORTID, UTILITYACCOUNTID, UNITNAME, BUSINESSTYPE, PAYMENTSTATE, ACCUMULATIVEARREARS, 
+    STATISTICALYEAR
+  </sql>
+  <select id="selectByExample" parameterType="com.zxjk.credit2query.pojo.Crt2CUtilityexpsExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from CRT2_C_UTILITYEXPS
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <delete id="deleteByExample" parameterType="com.zxjk.credit2query.pojo.Crt2CUtilityexpsExample">
+    delete from CRT2_C_UTILITYEXPS
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.zxjk.credit2query.pojo.Crt2CUtilityexps">
+    insert into CRT2_C_UTILITYEXPS (REPORTID, UTILITYACCOUNTID, UNITNAME, 
+      BUSINESSTYPE, PAYMENTSTATE, ACCUMULATIVEARREARS, 
+      STATISTICALYEAR)
+    values (#{reportid,jdbcType=VARCHAR}, #{utilityaccountid,jdbcType=VARCHAR}, #{unitname,jdbcType=VARCHAR}, 
+      #{businesstype,jdbcType=VARCHAR}, #{paymentstate,jdbcType=VARCHAR}, #{accumulativearrears,jdbcType=VARCHAR}, 
+      #{statisticalyear,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.zxjk.credit2query.pojo.Crt2CUtilityexps">
+    insert into CRT2_C_UTILITYEXPS
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="reportid != null">
+        REPORTID,
+      </if>
+      <if test="utilityaccountid != null">
+        UTILITYACCOUNTID,
+      </if>
+      <if test="unitname != null">
+        UNITNAME,
+      </if>
+      <if test="businesstype != null">
+        BUSINESSTYPE,
+      </if>
+      <if test="paymentstate != null">
+        PAYMENTSTATE,
+      </if>
+      <if test="accumulativearrears != null">
+        ACCUMULATIVEARREARS,
+      </if>
+      <if test="statisticalyear != null">
+        STATISTICALYEAR,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="reportid != null">
+        #{reportid,jdbcType=VARCHAR},
+      </if>
+      <if test="utilityaccountid != null">
+        #{utilityaccountid,jdbcType=VARCHAR},
+      </if>
+      <if test="unitname != null">
+        #{unitname,jdbcType=VARCHAR},
+      </if>
+      <if test="businesstype != null">
+        #{businesstype,jdbcType=VARCHAR},
+      </if>
+      <if test="paymentstate != null">
+        #{paymentstate,jdbcType=VARCHAR},
+      </if>
+      <if test="accumulativearrears != null">
+        #{accumulativearrears,jdbcType=VARCHAR},
+      </if>
+      <if test="statisticalyear != null">
+        #{statisticalyear,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.zxjk.credit2query.pojo.Crt2CUtilityexpsExample" resultType="java.lang.Long">
+    select count(*) from CRT2_C_UTILITYEXPS
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update CRT2_C_UTILITYEXPS
+    <set>
+      <if test="record.reportid != null">
+        REPORTID = #{record.reportid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.utilityaccountid != null">
+        UTILITYACCOUNTID = #{record.utilityaccountid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.unitname != null">
+        UNITNAME = #{record.unitname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.businesstype != null">
+        BUSINESSTYPE = #{record.businesstype,jdbcType=VARCHAR},
+      </if>
+      <if test="record.paymentstate != null">
+        PAYMENTSTATE = #{record.paymentstate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.accumulativearrears != null">
+        ACCUMULATIVEARREARS = #{record.accumulativearrears,jdbcType=VARCHAR},
+      </if>
+      <if test="record.statisticalyear != null">
+        STATISTICALYEAR = #{record.statisticalyear,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update CRT2_C_UTILITYEXPS
+    set REPORTID = #{record.reportid,jdbcType=VARCHAR},
+      UTILITYACCOUNTID = #{record.utilityaccountid,jdbcType=VARCHAR},
+      UNITNAME = #{record.unitname,jdbcType=VARCHAR},
+      BUSINESSTYPE = #{record.businesstype,jdbcType=VARCHAR},
+      PAYMENTSTATE = #{record.paymentstate,jdbcType=VARCHAR},
+      ACCUMULATIVEARREARS = #{record.accumulativearrears,jdbcType=VARCHAR},
+      STATISTICALYEAR = #{record.statisticalyear,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+</mapper>

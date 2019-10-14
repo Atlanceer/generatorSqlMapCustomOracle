@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+    <context id="testTables" targetRuntime="MyBatis3">
+        <commentGenerator>
+            <!-- 是否去除自动生成的注释 true：是 ： false:否 -->
+            <property name="suppressAllComments" value="true" />
+        </commentGenerator>
+        <!--数据库连接的信息：驱动类、连接地址、用户名、密码 -->
+        <!--jdbc:oracle:thin:@//xin:1521/orcl-->
+        <jdbcConnection driverClass="oracle.jdbc.driver.OracleDriver"
+                        connectionURL="jdbc:oracle:thin:@//xin:1521/orcl"
+                        userId="RTDS2"
+                        password="rtds123">
+        </jdbcConnection>
+        <!-- 默认false，把JDBC DECIMAL 和 NUMERIC 类型解析为 Integer，为 true时把JDBC DECIMAL 和
+            NUMERIC 类型解析为java.math.BigDecimal -->
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false" />
+        </javaTypeResolver>
+
+        <!-- targetProject:生成PO类的位置 -->
+        <javaModelGenerator targetPackage="com.zxjk.credit2query.pojo"
+                            targetProject=".\src">
+            <!-- enableSubPackages:是否让schema作为包的后缀 -->
+            <property name="enableSubPackages" value="false" />
+            <!-- 从数据库返回的值被清理前后的空格 -->
+            <property name="trimStrings" value="true" />
+        </javaModelGenerator>
+        <!-- targetProject:mapper映射文件生成的位置 -->
+        <sqlMapGenerator targetPackage="com.zxjk.credit2query.mapper"
+                         targetProject=".\src">
+            <!-- enableSubPackages:是否让schema作为包的后缀 -->
+            <property name="enableSubPackages" value="false" />
+        </sqlMapGenerator>
+        <!-- targetPackage：mapper接口生成的位置 -->
+        <javaClientGenerator type="XMLMAPPER"
+                             targetPackage="com.zxjk.credit2query.mapper"
+                             targetProject=".\src">
+            <!-- enableSubPackages:是否让schema作为包的后缀 -->
+            <property name="enableSubPackages" value="false" />
+        </javaClientGenerator>
+        <!-- 指定数据库表 -->
+        <table schema="" tableName="Crt2_C_Order"/>
+        <table schema="" tableName="Crt2_C_OrderDetail"/>
+        <table schema="" tableName="Crt2_C_ReportMain"/>
+        <table schema="" tableName="Crt2_C_ReportParseFail"/>
+        <table schema="" tableName="Crt2_C_ReportHeader"/>
+        <table schema="" tableName="CRT2_C_EntIDInfo"/>
+        <table schema="" tableName="Crt2_C_BasicProfile"/>
+        <table schema="" tableName="Crt2_C_Investor"/>
+        <table schema="" tableName="Crt2_C_LeadingMember"/>
+        <table schema="" tableName="Crt2_C_HigherAuthority"/>
+        <table schema="" tableName="Crt2_C_ActualController"/>
+        <table schema="" tableName="Crt2_C_CreaditPrompts"/>
+        <table schema="" tableName="Crt2_C_LoanOutstanding"/>
+        <table schema="" tableName="Crt2_C_OthLoanSum"/>
+        <table schema="" tableName="Crt2_C_LoanCleared"/>
+        <table schema="" tableName="Crt2_C_OthLoanCleared"/>
+        <table schema="" tableName="Crt2_C_LoanHistory"/>
+        <table schema="" tableName="Crt2_C_UnscGuarantee"/>
+        <table schema="" tableName="Crt2_C_GuaranteeCleared"/>
+        <table schema="" tableName="Crt2_C_CreditAgreeSum"/>
+        <table schema="" tableName="Crt2_C_RRLoanSum"/>
+        <table schema="" tableName="Crt2_C_RRGuaranteeSum"/>
+        <table schema="" tableName="Crt2_C_BasicBorrowing"/>
+        <table schema="" tableName="Crt2_C_LoanRepayment"/>
+        <table schema="" tableName="Crt2_C_LoanSpecific"/>
+        <table schema="" tableName="Crt2_C_DiscountedAcct"/>
+        <table schema="" tableName="Crt2_C_DebitInterest"/>
+        <table schema="" tableName="Crt2_C_GuaranteeBasic"/>
+        <table schema="" tableName="Crt2_C_Guarantee"/>
+        <table schema="" tableName="Crt2_C_GuaranteeAcct"/>
+        <table schema="" tableName="Crt2_C_CreditAgreement"/>
+        <table schema="" tableName="Crt2_C_RRAccount"/>
+        <table schema="" tableName="Crt2_C_RRDiscounting"/>
+        <table schema="" tableName="Crt2_C_RelaSecuredAcct"/>
+        <table schema="" tableName="Crt2_C_UtilityExps"/>
+        <table schema="" tableName="Crt2_C_UtilityExpsHis"/>
+        <table schema="" tableName="Crt2_C_TaxInfo"/>
+        <table schema="" tableName="Crt2_C_VilJudgement"/>
+        <table schema="" tableName="Crt2_C_ForceExecution"/>
+        <table schema="" tableName="Crt2_C_AdminPunishment"/>
+        <table schema="" tableName="Crt2_C_Housingfund"/>
+        <table schema="" tableName="Crt2_C_HousingfundHis"/>
+        <table schema="" tableName="Crt2_C_PermitInfo"/>
+        <table schema="" tableName="Crt2_C_Certification"/>
+        <table schema="" tableName="Crt2_C_Qualification"/>
+        <table schema="" tableName="Crt2_C_RewardInfo"/>
+        <table schema="" tableName="Crt2_C_Supervision"/>
+        <table schema="" tableName="Crt2_C_Quarantine"/>
+        <table schema="" tableName="Crt2_C_Exemption"/>
+        <table schema="" tableName="Crt2_C_CommInspect"/>
+        <table schema="" tableName="Crt2_C_Financing"/>
+        <table schema="" tableName="Crt2_C_EntBLSheet02"/>
+        <table schema="" tableName="Crt2_C_EntBLSheet07"/>
+        <table schema="" tableName="Crt2_C_EntProfit02"/>
+        <table schema="" tableName="Crt2_C_EntProfit07"/>
+        <table schema="" tableName="Crt2_C_EntCashFlow02"/>
+        <table schema="" tableName="Crt2_C_EntCashFlow07"/>
+        <table schema="" tableName="Crt2_C_InstBLSheet97"/>
+        <table schema="" tableName="Crt2_C_InstBLeSheet13"/>
+        <table schema="" tableName="Crt2_C_InstIncExp97"/>
+        <table schema="" tableName="Crt2_C_InstIncExp13"/>
+        <table schema="" tableName="Crt2_C_RatingInf"/>
+        <table schema="" tableName="Crt2_C_Statement"/>
+    </context>
+</generatorConfiguration>

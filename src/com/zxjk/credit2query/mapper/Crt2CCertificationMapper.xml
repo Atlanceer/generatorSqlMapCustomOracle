@@ -1,0 +1,396 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zxjk.credit2query.mapper.Crt2CCertificationMapper">
+  <resultMap id="BaseResultMap" type="com.zxjk.credit2query.pojo.Crt2CCertification">
+    <result column="REPORTID" jdbcType="VARCHAR" property="reportid" />
+    <result column="AUTHENTICATIONID" jdbcType="VARCHAR" property="authenticationid" />
+    <result column="CERTIFICATEORG" jdbcType="VARCHAR" property="certificateorg" />
+    <result column="CERTIFICATETYPE" jdbcType="VARCHAR" property="certificatetype" />
+    <result column="CERTIFICATEDATE" jdbcType="VARCHAR" property="certificatedate" />
+    <result column="ENDDATE" jdbcType="VARCHAR" property="enddate" />
+    <result column="CONTENT" jdbcType="VARCHAR" property="content" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    REPORTID, AUTHENTICATIONID, CERTIFICATEORG, CERTIFICATETYPE, CERTIFICATEDATE, ENDDATE, 
+    CONTENT
+  </sql>
+  <select id="selectByExample" parameterType="com.zxjk.credit2query.pojo.Crt2CCertificationExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from CRT2_C_CERTIFICATION
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <delete id="deleteByExample" parameterType="com.zxjk.credit2query.pojo.Crt2CCertificationExample">
+    delete from CRT2_C_CERTIFICATION
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.zxjk.credit2query.pojo.Crt2CCertification">
+    insert into CRT2_C_CERTIFICATION (REPORTID, AUTHENTICATIONID, CERTIFICATEORG, 
+      CERTIFICATETYPE, CERTIFICATEDATE, ENDDATE, 
+      CONTENT)
+    values (#{reportid,jdbcType=VARCHAR}, #{authenticationid,jdbcType=VARCHAR}, #{certificateorg,jdbcType=VARCHAR}, 
+      #{certificatetype,jdbcType=VARCHAR}, #{certificatedate,jdbcType=VARCHAR}, #{enddate,jdbcType=VARCHAR}, 
+      #{content,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.zxjk.credit2query.pojo.Crt2CCertification">
+    insert into CRT2_C_CERTIFICATION
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="reportid != null">
+        REPORTID,
+      </if>
+      <if test="authenticationid != null">
+        AUTHENTICATIONID,
+      </if>
+      <if test="certificateorg != null">
+        CERTIFICATEORG,
+      </if>
+      <if test="certificatetype != null">
+        CERTIFICATETYPE,
+      </if>
+      <if test="certificatedate != null">
+        CERTIFICATEDATE,
+      </if>
+      <if test="enddate != null">
+        ENDDATE,
+      </if>
+      <if test="content != null">
+        CONTENT,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="reportid != null">
+        #{reportid,jdbcType=VARCHAR},
+      </if>
+      <if test="authenticationid != null">
+        #{authenticationid,jdbcType=VARCHAR},
+      </if>
+      <if test="certificateorg != null">
+        #{certificateorg,jdbcType=VARCHAR},
+      </if>
+      <if test="certificatetype != null">
+        #{certificatetype,jdbcType=VARCHAR},
+      </if>
+      <if test="certificatedate != null">
+        #{certificatedate,jdbcType=VARCHAR},
+      </if>
+      <if test="enddate != null">
+        #{enddate,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null">
+        #{content,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.zxjk.credit2query.pojo.Crt2CCertificationExample" resultType="java.lang.Long">
+    select count(*) from CRT2_C_CERTIFICATION
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update CRT2_C_CERTIFICATION
+    <set>
+      <if test="record.reportid != null">
+        REPORTID = #{record.reportid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.authenticationid != null">
+        AUTHENTICATIONID = #{record.authenticationid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.certificateorg != null">
+        CERTIFICATEORG = #{record.certificateorg,jdbcType=VARCHAR},
+      </if>
+      <if test="record.certificatetype != null">
+        CERTIFICATETYPE = #{record.certificatetype,jdbcType=VARCHAR},
+      </if>
+      <if test="record.certificatedate != null">
+        CERTIFICATEDATE = #{record.certificatedate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.enddate != null">
+        ENDDATE = #{record.enddate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.content != null">
+        CONTENT = #{record.content,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update CRT2_C_CERTIFICATION
+    set REPORTID = #{record.reportid,jdbcType=VARCHAR},
+      AUTHENTICATIONID = #{record.authenticationid,jdbcType=VARCHAR},
+      CERTIFICATEORG = #{record.certificateorg,jdbcType=VARCHAR},
+      CERTIFICATETYPE = #{record.certificatetype,jdbcType=VARCHAR},
+      CERTIFICATEDATE = #{record.certificatedate,jdbcType=VARCHAR},
+      ENDDATE = #{record.enddate,jdbcType=VARCHAR},
+      CONTENT = #{record.content,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <resultMap id="BaseResultMap" type="com.zxjk.credit2query.pojo.Crt2CCertification">
+    <result column="REPORTID" jdbcType="VARCHAR" property="reportid" />
+    <result column="AUTHENTICATIONID" jdbcType="VARCHAR" property="authenticationid" />
+    <result column="CERTIFICATEORG" jdbcType="VARCHAR" property="certificateorg" />
+    <result column="CERTIFICATETYPE" jdbcType="VARCHAR" property="certificatetype" />
+    <result column="CERTIFICATEDATE" jdbcType="VARCHAR" property="certificatedate" />
+    <result column="ENDDATE" jdbcType="VARCHAR" property="enddate" />
+    <result column="CONTENT" jdbcType="VARCHAR" property="content" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    REPORTID, AUTHENTICATIONID, CERTIFICATEORG, CERTIFICATETYPE, CERTIFICATEDATE, ENDDATE, 
+    CONTENT
+  </sql>
+  <select id="selectByExample" parameterType="com.zxjk.credit2query.pojo.Crt2CCertificationExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from CRT2_C_CERTIFICATION
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <delete id="deleteByExample" parameterType="com.zxjk.credit2query.pojo.Crt2CCertificationExample">
+    delete from CRT2_C_CERTIFICATION
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.zxjk.credit2query.pojo.Crt2CCertification">
+    insert into CRT2_C_CERTIFICATION (REPORTID, AUTHENTICATIONID, CERTIFICATEORG, 
+      CERTIFICATETYPE, CERTIFICATEDATE, ENDDATE, 
+      CONTENT)
+    values (#{reportid,jdbcType=VARCHAR}, #{authenticationid,jdbcType=VARCHAR}, #{certificateorg,jdbcType=VARCHAR}, 
+      #{certificatetype,jdbcType=VARCHAR}, #{certificatedate,jdbcType=VARCHAR}, #{enddate,jdbcType=VARCHAR}, 
+      #{content,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.zxjk.credit2query.pojo.Crt2CCertification">
+    insert into CRT2_C_CERTIFICATION
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="reportid != null">
+        REPORTID,
+      </if>
+      <if test="authenticationid != null">
+        AUTHENTICATIONID,
+      </if>
+      <if test="certificateorg != null">
+        CERTIFICATEORG,
+      </if>
+      <if test="certificatetype != null">
+        CERTIFICATETYPE,
+      </if>
+      <if test="certificatedate != null">
+        CERTIFICATEDATE,
+      </if>
+      <if test="enddate != null">
+        ENDDATE,
+      </if>
+      <if test="content != null">
+        CONTENT,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="reportid != null">
+        #{reportid,jdbcType=VARCHAR},
+      </if>
+      <if test="authenticationid != null">
+        #{authenticationid,jdbcType=VARCHAR},
+      </if>
+      <if test="certificateorg != null">
+        #{certificateorg,jdbcType=VARCHAR},
+      </if>
+      <if test="certificatetype != null">
+        #{certificatetype,jdbcType=VARCHAR},
+      </if>
+      <if test="certificatedate != null">
+        #{certificatedate,jdbcType=VARCHAR},
+      </if>
+      <if test="enddate != null">
+        #{enddate,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null">
+        #{content,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.zxjk.credit2query.pojo.Crt2CCertificationExample" resultType="java.lang.Long">
+    select count(*) from CRT2_C_CERTIFICATION
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update CRT2_C_CERTIFICATION
+    <set>
+      <if test="record.reportid != null">
+        REPORTID = #{record.reportid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.authenticationid != null">
+        AUTHENTICATIONID = #{record.authenticationid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.certificateorg != null">
+        CERTIFICATEORG = #{record.certificateorg,jdbcType=VARCHAR},
+      </if>
+      <if test="record.certificatetype != null">
+        CERTIFICATETYPE = #{record.certificatetype,jdbcType=VARCHAR},
+      </if>
+      <if test="record.certificatedate != null">
+        CERTIFICATEDATE = #{record.certificatedate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.enddate != null">
+        ENDDATE = #{record.enddate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.content != null">
+        CONTENT = #{record.content,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update CRT2_C_CERTIFICATION
+    set REPORTID = #{record.reportid,jdbcType=VARCHAR},
+      AUTHENTICATIONID = #{record.authenticationid,jdbcType=VARCHAR},
+      CERTIFICATEORG = #{record.certificateorg,jdbcType=VARCHAR},
+      CERTIFICATETYPE = #{record.certificatetype,jdbcType=VARCHAR},
+      CERTIFICATEDATE = #{record.certificatedate,jdbcType=VARCHAR},
+      ENDDATE = #{record.enddate,jdbcType=VARCHAR},
+      CONTENT = #{record.content,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+</mapper>

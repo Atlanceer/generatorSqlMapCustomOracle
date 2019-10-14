@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zxjk.credit2query.mapper.Crt2CCreditagreesumMapper">
+  <resultMap id="BaseResultMap" type="com.zxjk.credit2query.pojo.Crt2CCreditagreesum">
+    <result column="REPORTID" jdbcType="VARCHAR" property="reportid" />
+    <result column="ACYCLICCREDITLINE" jdbcType="VARCHAR" property="acycliccreditline" />
+    <result column="USEACYCLICCREDITLINE" jdbcType="VARCHAR" property="useacycliccreditline" />
+    <result column="SURPLUSACYCLICCREDITLINE" jdbcType="VARCHAR" property="surplusacycliccreditline" />
+    <result column="CIRCULATIONLINE" jdbcType="VARCHAR" property="circulationline" />
+    <result column="USECIRCULATIONLINE" jdbcType="VARCHAR" property="usecirculationline" />
+    <result column="SURPLUSCIRCULATIONLINE" jdbcType="VARCHAR" property="surpluscirculationline" />
+    <result column="CREDITLIMIT" jdbcType="VARCHAR" property="creditlimit" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    REPORTID, ACYCLICCREDITLINE, USEACYCLICCREDITLINE, SURPLUSACYCLICCREDITLINE, CIRCULATIONLINE, 
+    USECIRCULATIONLINE, SURPLUSCIRCULATIONLINE, CREDITLIMIT
+  </sql>
+  <select id="selectByExample" parameterType="com.zxjk.credit2query.pojo.Crt2CCreditagreesumExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from CRT2_C_CREDITAGREESUM
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <delete id="deleteByExample" parameterType="com.zxjk.credit2query.pojo.Crt2CCreditagreesumExample">
+    delete from CRT2_C_CREDITAGREESUM
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.zxjk.credit2query.pojo.Crt2CCreditagreesum">
+    insert into CRT2_C_CREDITAGREESUM (REPORTID, ACYCLICCREDITLINE, USEACYCLICCREDITLINE, 
+      SURPLUSACYCLICCREDITLINE, CIRCULATIONLINE, 
+      USECIRCULATIONLINE, SURPLUSCIRCULATIONLINE, 
+      CREDITLIMIT)
+    values (#{reportid,jdbcType=VARCHAR}, #{acycliccreditline,jdbcType=VARCHAR}, #{useacycliccreditline,jdbcType=VARCHAR}, 
+      #{surplusacycliccreditline,jdbcType=VARCHAR}, #{circulationline,jdbcType=VARCHAR}, 
+      #{usecirculationline,jdbcType=VARCHAR}, #{surpluscirculationline,jdbcType=VARCHAR}, 
+      #{creditlimit,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.zxjk.credit2query.pojo.Crt2CCreditagreesum">
+    insert into CRT2_C_CREDITAGREESUM
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="reportid != null">
+        REPORTID,
+      </if>
+      <if test="acycliccreditline != null">
+        ACYCLICCREDITLINE,
+      </if>
+      <if test="useacycliccreditline != null">
+        USEACYCLICCREDITLINE,
+      </if>
+      <if test="surplusacycliccreditline != null">
+        SURPLUSACYCLICCREDITLINE,
+      </if>
+      <if test="circulationline != null">
+        CIRCULATIONLINE,
+      </if>
+      <if test="usecirculationline != null">
+        USECIRCULATIONLINE,
+      </if>
+      <if test="surpluscirculationline != null">
+        SURPLUSCIRCULATIONLINE,
+      </if>
+      <if test="creditlimit != null">
+        CREDITLIMIT,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="reportid != null">
+        #{reportid,jdbcType=VARCHAR},
+      </if>
+      <if test="acycliccreditline != null">
+        #{acycliccreditline,jdbcType=VARCHAR},
+      </if>
+      <if test="useacycliccreditline != null">
+        #{useacycliccreditline,jdbcType=VARCHAR},
+      </if>
+      <if test="surplusacycliccreditline != null">
+        #{surplusacycliccreditline,jdbcType=VARCHAR},
+      </if>
+      <if test="circulationline != null">
+        #{circulationline,jdbcType=VARCHAR},
+      </if>
+      <if test="usecirculationline != null">
+        #{usecirculationline,jdbcType=VARCHAR},
+      </if>
+      <if test="surpluscirculationline != null">
+        #{surpluscirculationline,jdbcType=VARCHAR},
+      </if>
+      <if test="creditlimit != null">
+        #{creditlimit,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.zxjk.credit2query.pojo.Crt2CCreditagreesumExample" resultType="java.lang.Long">
+    select count(*) from CRT2_C_CREDITAGREESUM
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update CRT2_C_CREDITAGREESUM
+    <set>
+      <if test="record.reportid != null">
+        REPORTID = #{record.reportid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.acycliccreditline != null">
+        ACYCLICCREDITLINE = #{record.acycliccreditline,jdbcType=VARCHAR},
+      </if>
+      <if test="record.useacycliccreditline != null">
+        USEACYCLICCREDITLINE = #{record.useacycliccreditline,jdbcType=VARCHAR},
+      </if>
+      <if test="record.surplusacycliccreditline != null">
+        SURPLUSACYCLICCREDITLINE = #{record.surplusacycliccreditline,jdbcType=VARCHAR},
+      </if>
+      <if test="record.circulationline != null">
+        CIRCULATIONLINE = #{record.circulationline,jdbcType=VARCHAR},
+      </if>
+      <if test="record.usecirculationline != null">
+        USECIRCULATIONLINE = #{record.usecirculationline,jdbcType=VARCHAR},
+      </if>
+      <if test="record.surpluscirculationline != null">
+        SURPLUSCIRCULATIONLINE = #{record.surpluscirculationline,jdbcType=VARCHAR},
+      </if>
+      <if test="record.creditlimit != null">
+        CREDITLIMIT = #{record.creditlimit,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update CRT2_C_CREDITAGREESUM
+    set REPORTID = #{record.reportid,jdbcType=VARCHAR},
+      ACYCLICCREDITLINE = #{record.acycliccreditline,jdbcType=VARCHAR},
+      USEACYCLICCREDITLINE = #{record.useacycliccreditline,jdbcType=VARCHAR},
+      SURPLUSACYCLICCREDITLINE = #{record.surplusacycliccreditline,jdbcType=VARCHAR},
+      CIRCULATIONLINE = #{record.circulationline,jdbcType=VARCHAR},
+      USECIRCULATIONLINE = #{record.usecirculationline,jdbcType=VARCHAR},
+      SURPLUSCIRCULATIONLINE = #{record.surpluscirculationline,jdbcType=VARCHAR},
+      CREDITLIMIT = #{record.creditlimit,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+</mapper>

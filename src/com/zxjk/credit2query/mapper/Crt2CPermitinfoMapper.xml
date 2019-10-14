@@ -1,0 +1,394 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zxjk.credit2query.mapper.Crt2CPermitinfoMapper">
+  <resultMap id="BaseResultMap" type="com.zxjk.credit2query.pojo.Crt2CPermitinfo">
+    <result column="REPORTID" jdbcType="VARCHAR" property="reportid" />
+    <result column="LICENSEID" jdbcType="VARCHAR" property="licenseid" />
+    <result column="PERMITORGNAME" jdbcType="VARCHAR" property="permitorgname" />
+    <result column="PERMITTYPE" jdbcType="VARCHAR" property="permittype" />
+    <result column="PERMITDATE" jdbcType="VARCHAR" property="permitdate" />
+    <result column="VALIDITYDATE" jdbcType="VARCHAR" property="validitydate" />
+    <result column="PERMITCONTENT" jdbcType="VARCHAR" property="permitcontent" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    REPORTID, LICENSEID, PERMITORGNAME, PERMITTYPE, PERMITDATE, VALIDITYDATE, PERMITCONTENT
+  </sql>
+  <select id="selectByExample" parameterType="com.zxjk.credit2query.pojo.Crt2CPermitinfoExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from CRT2_C_PERMITINFO
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <delete id="deleteByExample" parameterType="com.zxjk.credit2query.pojo.Crt2CPermitinfoExample">
+    delete from CRT2_C_PERMITINFO
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.zxjk.credit2query.pojo.Crt2CPermitinfo">
+    insert into CRT2_C_PERMITINFO (REPORTID, LICENSEID, PERMITORGNAME, 
+      PERMITTYPE, PERMITDATE, VALIDITYDATE, 
+      PERMITCONTENT)
+    values (#{reportid,jdbcType=VARCHAR}, #{licenseid,jdbcType=VARCHAR}, #{permitorgname,jdbcType=VARCHAR}, 
+      #{permittype,jdbcType=VARCHAR}, #{permitdate,jdbcType=VARCHAR}, #{validitydate,jdbcType=VARCHAR}, 
+      #{permitcontent,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.zxjk.credit2query.pojo.Crt2CPermitinfo">
+    insert into CRT2_C_PERMITINFO
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="reportid != null">
+        REPORTID,
+      </if>
+      <if test="licenseid != null">
+        LICENSEID,
+      </if>
+      <if test="permitorgname != null">
+        PERMITORGNAME,
+      </if>
+      <if test="permittype != null">
+        PERMITTYPE,
+      </if>
+      <if test="permitdate != null">
+        PERMITDATE,
+      </if>
+      <if test="validitydate != null">
+        VALIDITYDATE,
+      </if>
+      <if test="permitcontent != null">
+        PERMITCONTENT,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="reportid != null">
+        #{reportid,jdbcType=VARCHAR},
+      </if>
+      <if test="licenseid != null">
+        #{licenseid,jdbcType=VARCHAR},
+      </if>
+      <if test="permitorgname != null">
+        #{permitorgname,jdbcType=VARCHAR},
+      </if>
+      <if test="permittype != null">
+        #{permittype,jdbcType=VARCHAR},
+      </if>
+      <if test="permitdate != null">
+        #{permitdate,jdbcType=VARCHAR},
+      </if>
+      <if test="validitydate != null">
+        #{validitydate,jdbcType=VARCHAR},
+      </if>
+      <if test="permitcontent != null">
+        #{permitcontent,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.zxjk.credit2query.pojo.Crt2CPermitinfoExample" resultType="java.lang.Long">
+    select count(*) from CRT2_C_PERMITINFO
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update CRT2_C_PERMITINFO
+    <set>
+      <if test="record.reportid != null">
+        REPORTID = #{record.reportid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.licenseid != null">
+        LICENSEID = #{record.licenseid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.permitorgname != null">
+        PERMITORGNAME = #{record.permitorgname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.permittype != null">
+        PERMITTYPE = #{record.permittype,jdbcType=VARCHAR},
+      </if>
+      <if test="record.permitdate != null">
+        PERMITDATE = #{record.permitdate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.validitydate != null">
+        VALIDITYDATE = #{record.validitydate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.permitcontent != null">
+        PERMITCONTENT = #{record.permitcontent,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update CRT2_C_PERMITINFO
+    set REPORTID = #{record.reportid,jdbcType=VARCHAR},
+      LICENSEID = #{record.licenseid,jdbcType=VARCHAR},
+      PERMITORGNAME = #{record.permitorgname,jdbcType=VARCHAR},
+      PERMITTYPE = #{record.permittype,jdbcType=VARCHAR},
+      PERMITDATE = #{record.permitdate,jdbcType=VARCHAR},
+      VALIDITYDATE = #{record.validitydate,jdbcType=VARCHAR},
+      PERMITCONTENT = #{record.permitcontent,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <resultMap id="BaseResultMap" type="com.zxjk.credit2query.pojo.Crt2CPermitinfo">
+    <result column="REPORTID" jdbcType="VARCHAR" property="reportid" />
+    <result column="LICENSEID" jdbcType="VARCHAR" property="licenseid" />
+    <result column="PERMITORGNAME" jdbcType="VARCHAR" property="permitorgname" />
+    <result column="PERMITTYPE" jdbcType="VARCHAR" property="permittype" />
+    <result column="PERMITDATE" jdbcType="VARCHAR" property="permitdate" />
+    <result column="VALIDITYDATE" jdbcType="VARCHAR" property="validitydate" />
+    <result column="PERMITCONTENT" jdbcType="VARCHAR" property="permitcontent" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    REPORTID, LICENSEID, PERMITORGNAME, PERMITTYPE, PERMITDATE, VALIDITYDATE, PERMITCONTENT
+  </sql>
+  <select id="selectByExample" parameterType="com.zxjk.credit2query.pojo.Crt2CPermitinfoExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from CRT2_C_PERMITINFO
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <delete id="deleteByExample" parameterType="com.zxjk.credit2query.pojo.Crt2CPermitinfoExample">
+    delete from CRT2_C_PERMITINFO
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.zxjk.credit2query.pojo.Crt2CPermitinfo">
+    insert into CRT2_C_PERMITINFO (REPORTID, LICENSEID, PERMITORGNAME, 
+      PERMITTYPE, PERMITDATE, VALIDITYDATE, 
+      PERMITCONTENT)
+    values (#{reportid,jdbcType=VARCHAR}, #{licenseid,jdbcType=VARCHAR}, #{permitorgname,jdbcType=VARCHAR}, 
+      #{permittype,jdbcType=VARCHAR}, #{permitdate,jdbcType=VARCHAR}, #{validitydate,jdbcType=VARCHAR}, 
+      #{permitcontent,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.zxjk.credit2query.pojo.Crt2CPermitinfo">
+    insert into CRT2_C_PERMITINFO
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="reportid != null">
+        REPORTID,
+      </if>
+      <if test="licenseid != null">
+        LICENSEID,
+      </if>
+      <if test="permitorgname != null">
+        PERMITORGNAME,
+      </if>
+      <if test="permittype != null">
+        PERMITTYPE,
+      </if>
+      <if test="permitdate != null">
+        PERMITDATE,
+      </if>
+      <if test="validitydate != null">
+        VALIDITYDATE,
+      </if>
+      <if test="permitcontent != null">
+        PERMITCONTENT,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="reportid != null">
+        #{reportid,jdbcType=VARCHAR},
+      </if>
+      <if test="licenseid != null">
+        #{licenseid,jdbcType=VARCHAR},
+      </if>
+      <if test="permitorgname != null">
+        #{permitorgname,jdbcType=VARCHAR},
+      </if>
+      <if test="permittype != null">
+        #{permittype,jdbcType=VARCHAR},
+      </if>
+      <if test="permitdate != null">
+        #{permitdate,jdbcType=VARCHAR},
+      </if>
+      <if test="validitydate != null">
+        #{validitydate,jdbcType=VARCHAR},
+      </if>
+      <if test="permitcontent != null">
+        #{permitcontent,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.zxjk.credit2query.pojo.Crt2CPermitinfoExample" resultType="java.lang.Long">
+    select count(*) from CRT2_C_PERMITINFO
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update CRT2_C_PERMITINFO
+    <set>
+      <if test="record.reportid != null">
+        REPORTID = #{record.reportid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.licenseid != null">
+        LICENSEID = #{record.licenseid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.permitorgname != null">
+        PERMITORGNAME = #{record.permitorgname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.permittype != null">
+        PERMITTYPE = #{record.permittype,jdbcType=VARCHAR},
+      </if>
+      <if test="record.permitdate != null">
+        PERMITDATE = #{record.permitdate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.validitydate != null">
+        VALIDITYDATE = #{record.validitydate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.permitcontent != null">
+        PERMITCONTENT = #{record.permitcontent,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update CRT2_C_PERMITINFO
+    set REPORTID = #{record.reportid,jdbcType=VARCHAR},
+      LICENSEID = #{record.licenseid,jdbcType=VARCHAR},
+      PERMITORGNAME = #{record.permitorgname,jdbcType=VARCHAR},
+      PERMITTYPE = #{record.permittype,jdbcType=VARCHAR},
+      PERMITDATE = #{record.permitdate,jdbcType=VARCHAR},
+      VALIDITYDATE = #{record.validitydate,jdbcType=VARCHAR},
+      PERMITCONTENT = #{record.permitcontent,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+</mapper>

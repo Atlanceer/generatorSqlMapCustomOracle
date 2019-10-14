@@ -1,0 +1,619 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zxjk.credit2query.mapper.Crt2CLoanrepaymentMapper">
+  <resultMap id="BaseResultMap" type="com.zxjk.credit2query.pojo.Crt2CLoanrepayment">
+    <result column="REPORTID" jdbcType="VARCHAR" property="reportid" />
+    <result column="NUMBERREPAYMENTS" jdbcType="VARCHAR" property="numberrepayments" />
+    <result column="DATEREPORT" jdbcType="VARCHAR" property="datereport" />
+    <result column="BALANCE" jdbcType="VARCHAR" property="balance" />
+    <result column="CHANGEDATEBALANCE" jdbcType="VARCHAR" property="changedatebalance" />
+    <result column="FIVELEVEL" jdbcType="VARCHAR" property="fivelevel" />
+    <result column="FIVELEVELDATE" jdbcType="VARCHAR" property="fiveleveldate" />
+    <result column="ACTUALREPAYMENTDATE" jdbcType="VARCHAR" property="actualrepaymentdate" />
+    <result column="TOTALACTUALREPAYMENT" jdbcType="VARCHAR" property="totalactualrepayment" />
+    <result column="REPAYMENTFORM" jdbcType="VARCHAR" property="repaymentform" />
+    <result column="CONTRACTREPAYMENT" jdbcType="VARCHAR" property="contractrepayment" />
+    <result column="TOTALAMOUNT" jdbcType="VARCHAR" property="totalamount" />
+    <result column="TOTALOVERDUE" jdbcType="VARCHAR" property="totaloverdue" />
+    <result column="OVERDUEPRINCIPAL" jdbcType="VARCHAR" property="overdueprincipal" />
+    <result column="OVERDUEMONTHS" jdbcType="VARCHAR" property="overduemonths" />
+    <result column="REPAYMENTMONTHS" jdbcType="VARCHAR" property="repaymentmonths" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    REPORTID, NUMBERREPAYMENTS, DATEREPORT, BALANCE, CHANGEDATEBALANCE, FIVELEVEL, FIVELEVELDATE, 
+    ACTUALREPAYMENTDATE, TOTALACTUALREPAYMENT, REPAYMENTFORM, CONTRACTREPAYMENT, TOTALAMOUNT, 
+    TOTALOVERDUE, OVERDUEPRINCIPAL, OVERDUEMONTHS, REPAYMENTMONTHS
+  </sql>
+  <select id="selectByExample" parameterType="com.zxjk.credit2query.pojo.Crt2CLoanrepaymentExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from CRT2_C_LOANREPAYMENT
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <delete id="deleteByExample" parameterType="com.zxjk.credit2query.pojo.Crt2CLoanrepaymentExample">
+    delete from CRT2_C_LOANREPAYMENT
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.zxjk.credit2query.pojo.Crt2CLoanrepayment">
+    insert into CRT2_C_LOANREPAYMENT (REPORTID, NUMBERREPAYMENTS, DATEREPORT, 
+      BALANCE, CHANGEDATEBALANCE, FIVELEVEL, 
+      FIVELEVELDATE, ACTUALREPAYMENTDATE, TOTALACTUALREPAYMENT, 
+      REPAYMENTFORM, CONTRACTREPAYMENT, TOTALAMOUNT, 
+      TOTALOVERDUE, OVERDUEPRINCIPAL, OVERDUEMONTHS, 
+      REPAYMENTMONTHS)
+    values (#{reportid,jdbcType=VARCHAR}, #{numberrepayments,jdbcType=VARCHAR}, #{datereport,jdbcType=VARCHAR}, 
+      #{balance,jdbcType=VARCHAR}, #{changedatebalance,jdbcType=VARCHAR}, #{fivelevel,jdbcType=VARCHAR}, 
+      #{fiveleveldate,jdbcType=VARCHAR}, #{actualrepaymentdate,jdbcType=VARCHAR}, #{totalactualrepayment,jdbcType=VARCHAR}, 
+      #{repaymentform,jdbcType=VARCHAR}, #{contractrepayment,jdbcType=VARCHAR}, #{totalamount,jdbcType=VARCHAR}, 
+      #{totaloverdue,jdbcType=VARCHAR}, #{overdueprincipal,jdbcType=VARCHAR}, #{overduemonths,jdbcType=VARCHAR}, 
+      #{repaymentmonths,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.zxjk.credit2query.pojo.Crt2CLoanrepayment">
+    insert into CRT2_C_LOANREPAYMENT
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="reportid != null">
+        REPORTID,
+      </if>
+      <if test="numberrepayments != null">
+        NUMBERREPAYMENTS,
+      </if>
+      <if test="datereport != null">
+        DATEREPORT,
+      </if>
+      <if test="balance != null">
+        BALANCE,
+      </if>
+      <if test="changedatebalance != null">
+        CHANGEDATEBALANCE,
+      </if>
+      <if test="fivelevel != null">
+        FIVELEVEL,
+      </if>
+      <if test="fiveleveldate != null">
+        FIVELEVELDATE,
+      </if>
+      <if test="actualrepaymentdate != null">
+        ACTUALREPAYMENTDATE,
+      </if>
+      <if test="totalactualrepayment != null">
+        TOTALACTUALREPAYMENT,
+      </if>
+      <if test="repaymentform != null">
+        REPAYMENTFORM,
+      </if>
+      <if test="contractrepayment != null">
+        CONTRACTREPAYMENT,
+      </if>
+      <if test="totalamount != null">
+        TOTALAMOUNT,
+      </if>
+      <if test="totaloverdue != null">
+        TOTALOVERDUE,
+      </if>
+      <if test="overdueprincipal != null">
+        OVERDUEPRINCIPAL,
+      </if>
+      <if test="overduemonths != null">
+        OVERDUEMONTHS,
+      </if>
+      <if test="repaymentmonths != null">
+        REPAYMENTMONTHS,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="reportid != null">
+        #{reportid,jdbcType=VARCHAR},
+      </if>
+      <if test="numberrepayments != null">
+        #{numberrepayments,jdbcType=VARCHAR},
+      </if>
+      <if test="datereport != null">
+        #{datereport,jdbcType=VARCHAR},
+      </if>
+      <if test="balance != null">
+        #{balance,jdbcType=VARCHAR},
+      </if>
+      <if test="changedatebalance != null">
+        #{changedatebalance,jdbcType=VARCHAR},
+      </if>
+      <if test="fivelevel != null">
+        #{fivelevel,jdbcType=VARCHAR},
+      </if>
+      <if test="fiveleveldate != null">
+        #{fiveleveldate,jdbcType=VARCHAR},
+      </if>
+      <if test="actualrepaymentdate != null">
+        #{actualrepaymentdate,jdbcType=VARCHAR},
+      </if>
+      <if test="totalactualrepayment != null">
+        #{totalactualrepayment,jdbcType=VARCHAR},
+      </if>
+      <if test="repaymentform != null">
+        #{repaymentform,jdbcType=VARCHAR},
+      </if>
+      <if test="contractrepayment != null">
+        #{contractrepayment,jdbcType=VARCHAR},
+      </if>
+      <if test="totalamount != null">
+        #{totalamount,jdbcType=VARCHAR},
+      </if>
+      <if test="totaloverdue != null">
+        #{totaloverdue,jdbcType=VARCHAR},
+      </if>
+      <if test="overdueprincipal != null">
+        #{overdueprincipal,jdbcType=VARCHAR},
+      </if>
+      <if test="overduemonths != null">
+        #{overduemonths,jdbcType=VARCHAR},
+      </if>
+      <if test="repaymentmonths != null">
+        #{repaymentmonths,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.zxjk.credit2query.pojo.Crt2CLoanrepaymentExample" resultType="java.lang.Long">
+    select count(*) from CRT2_C_LOANREPAYMENT
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update CRT2_C_LOANREPAYMENT
+    <set>
+      <if test="record.reportid != null">
+        REPORTID = #{record.reportid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.numberrepayments != null">
+        NUMBERREPAYMENTS = #{record.numberrepayments,jdbcType=VARCHAR},
+      </if>
+      <if test="record.datereport != null">
+        DATEREPORT = #{record.datereport,jdbcType=VARCHAR},
+      </if>
+      <if test="record.balance != null">
+        BALANCE = #{record.balance,jdbcType=VARCHAR},
+      </if>
+      <if test="record.changedatebalance != null">
+        CHANGEDATEBALANCE = #{record.changedatebalance,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fivelevel != null">
+        FIVELEVEL = #{record.fivelevel,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fiveleveldate != null">
+        FIVELEVELDATE = #{record.fiveleveldate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.actualrepaymentdate != null">
+        ACTUALREPAYMENTDATE = #{record.actualrepaymentdate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.totalactualrepayment != null">
+        TOTALACTUALREPAYMENT = #{record.totalactualrepayment,jdbcType=VARCHAR},
+      </if>
+      <if test="record.repaymentform != null">
+        REPAYMENTFORM = #{record.repaymentform,jdbcType=VARCHAR},
+      </if>
+      <if test="record.contractrepayment != null">
+        CONTRACTREPAYMENT = #{record.contractrepayment,jdbcType=VARCHAR},
+      </if>
+      <if test="record.totalamount != null">
+        TOTALAMOUNT = #{record.totalamount,jdbcType=VARCHAR},
+      </if>
+      <if test="record.totaloverdue != null">
+        TOTALOVERDUE = #{record.totaloverdue,jdbcType=VARCHAR},
+      </if>
+      <if test="record.overdueprincipal != null">
+        OVERDUEPRINCIPAL = #{record.overdueprincipal,jdbcType=VARCHAR},
+      </if>
+      <if test="record.overduemonths != null">
+        OVERDUEMONTHS = #{record.overduemonths,jdbcType=VARCHAR},
+      </if>
+      <if test="record.repaymentmonths != null">
+        REPAYMENTMONTHS = #{record.repaymentmonths,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update CRT2_C_LOANREPAYMENT
+    set REPORTID = #{record.reportid,jdbcType=VARCHAR},
+      NUMBERREPAYMENTS = #{record.numberrepayments,jdbcType=VARCHAR},
+      DATEREPORT = #{record.datereport,jdbcType=VARCHAR},
+      BALANCE = #{record.balance,jdbcType=VARCHAR},
+      CHANGEDATEBALANCE = #{record.changedatebalance,jdbcType=VARCHAR},
+      FIVELEVEL = #{record.fivelevel,jdbcType=VARCHAR},
+      FIVELEVELDATE = #{record.fiveleveldate,jdbcType=VARCHAR},
+      ACTUALREPAYMENTDATE = #{record.actualrepaymentdate,jdbcType=VARCHAR},
+      TOTALACTUALREPAYMENT = #{record.totalactualrepayment,jdbcType=VARCHAR},
+      REPAYMENTFORM = #{record.repaymentform,jdbcType=VARCHAR},
+      CONTRACTREPAYMENT = #{record.contractrepayment,jdbcType=VARCHAR},
+      TOTALAMOUNT = #{record.totalamount,jdbcType=VARCHAR},
+      TOTALOVERDUE = #{record.totaloverdue,jdbcType=VARCHAR},
+      OVERDUEPRINCIPAL = #{record.overdueprincipal,jdbcType=VARCHAR},
+      OVERDUEMONTHS = #{record.overduemonths,jdbcType=VARCHAR},
+      REPAYMENTMONTHS = #{record.repaymentmonths,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <resultMap id="BaseResultMap" type="com.zxjk.credit2query.pojo.Crt2CLoanrepayment">
+    <result column="REPORTID" jdbcType="VARCHAR" property="reportid" />
+    <result column="LOANACCOUNT" jdbcType="VARCHAR" property="loanaccount" />
+    <result column="REPORTDATE" jdbcType="VARCHAR" property="reportdate" />
+    <result column="BALANCE" jdbcType="VARCHAR" property="balance" />
+    <result column="CHANGEDATEBALANCE" jdbcType="VARCHAR" property="changedatebalance" />
+    <result column="FIVELEVEL" jdbcType="VARCHAR" property="fivelevel" />
+    <result column="FIVELEVELDATE" jdbcType="VARCHAR" property="fiveleveldate" />
+    <result column="ACTUALREPAYMENTDATE" jdbcType="VARCHAR" property="actualrepaymentdate" />
+    <result column="TOTALACTUALREPAYMENT" jdbcType="VARCHAR" property="totalactualrepayment" />
+    <result column="REPAYMENTFORM" jdbcType="VARCHAR" property="repaymentform" />
+    <result column="CONTRACTREPAYMENT" jdbcType="VARCHAR" property="contractrepayment" />
+    <result column="TOTALAMOUNT" jdbcType="VARCHAR" property="totalamount" />
+    <result column="TOTALOVERDUE" jdbcType="VARCHAR" property="totaloverdue" />
+    <result column="OVERDUEPRINCIPAL" jdbcType="VARCHAR" property="overdueprincipal" />
+    <result column="OVERDUEMONTHS" jdbcType="VARCHAR" property="overduemonths" />
+    <result column="REPAYMENTMONTHS" jdbcType="VARCHAR" property="repaymentmonths" />
+    <result column="NUMBERREPAYMENTS" jdbcType="VARCHAR" property="numberrepayments" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    REPORTID, LOANACCOUNT, REPORTDATE, BALANCE, CHANGEDATEBALANCE, FIVELEVEL, FIVELEVELDATE, 
+    ACTUALREPAYMENTDATE, TOTALACTUALREPAYMENT, REPAYMENTFORM, CONTRACTREPAYMENT, TOTALAMOUNT, 
+    TOTALOVERDUE, OVERDUEPRINCIPAL, OVERDUEMONTHS, REPAYMENTMONTHS, NUMBERREPAYMENTS
+  </sql>
+  <select id="selectByExample" parameterType="com.zxjk.credit2query.pojo.Crt2CLoanrepaymentExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from CRT2_C_LOANREPAYMENT
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <delete id="deleteByExample" parameterType="com.zxjk.credit2query.pojo.Crt2CLoanrepaymentExample">
+    delete from CRT2_C_LOANREPAYMENT
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.zxjk.credit2query.pojo.Crt2CLoanrepayment">
+    insert into CRT2_C_LOANREPAYMENT (REPORTID, LOANACCOUNT, REPORTDATE, 
+      BALANCE, CHANGEDATEBALANCE, FIVELEVEL, 
+      FIVELEVELDATE, ACTUALREPAYMENTDATE, TOTALACTUALREPAYMENT, 
+      REPAYMENTFORM, CONTRACTREPAYMENT, TOTALAMOUNT, 
+      TOTALOVERDUE, OVERDUEPRINCIPAL, OVERDUEMONTHS, 
+      REPAYMENTMONTHS, NUMBERREPAYMENTS)
+    values (#{reportid,jdbcType=VARCHAR}, #{loanaccount,jdbcType=VARCHAR}, #{reportdate,jdbcType=VARCHAR}, 
+      #{balance,jdbcType=VARCHAR}, #{changedatebalance,jdbcType=VARCHAR}, #{fivelevel,jdbcType=VARCHAR}, 
+      #{fiveleveldate,jdbcType=VARCHAR}, #{actualrepaymentdate,jdbcType=VARCHAR}, #{totalactualrepayment,jdbcType=VARCHAR}, 
+      #{repaymentform,jdbcType=VARCHAR}, #{contractrepayment,jdbcType=VARCHAR}, #{totalamount,jdbcType=VARCHAR}, 
+      #{totaloverdue,jdbcType=VARCHAR}, #{overdueprincipal,jdbcType=VARCHAR}, #{overduemonths,jdbcType=VARCHAR}, 
+      #{repaymentmonths,jdbcType=VARCHAR}, #{numberrepayments,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.zxjk.credit2query.pojo.Crt2CLoanrepayment">
+    insert into CRT2_C_LOANREPAYMENT
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="reportid != null">
+        REPORTID,
+      </if>
+      <if test="loanaccount != null">
+        LOANACCOUNT,
+      </if>
+      <if test="reportdate != null">
+        REPORTDATE,
+      </if>
+      <if test="balance != null">
+        BALANCE,
+      </if>
+      <if test="changedatebalance != null">
+        CHANGEDATEBALANCE,
+      </if>
+      <if test="fivelevel != null">
+        FIVELEVEL,
+      </if>
+      <if test="fiveleveldate != null">
+        FIVELEVELDATE,
+      </if>
+      <if test="actualrepaymentdate != null">
+        ACTUALREPAYMENTDATE,
+      </if>
+      <if test="totalactualrepayment != null">
+        TOTALACTUALREPAYMENT,
+      </if>
+      <if test="repaymentform != null">
+        REPAYMENTFORM,
+      </if>
+      <if test="contractrepayment != null">
+        CONTRACTREPAYMENT,
+      </if>
+      <if test="totalamount != null">
+        TOTALAMOUNT,
+      </if>
+      <if test="totaloverdue != null">
+        TOTALOVERDUE,
+      </if>
+      <if test="overdueprincipal != null">
+        OVERDUEPRINCIPAL,
+      </if>
+      <if test="overduemonths != null">
+        OVERDUEMONTHS,
+      </if>
+      <if test="repaymentmonths != null">
+        REPAYMENTMONTHS,
+      </if>
+      <if test="numberrepayments != null">
+        NUMBERREPAYMENTS,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="reportid != null">
+        #{reportid,jdbcType=VARCHAR},
+      </if>
+      <if test="loanaccount != null">
+        #{loanaccount,jdbcType=VARCHAR},
+      </if>
+      <if test="reportdate != null">
+        #{reportdate,jdbcType=VARCHAR},
+      </if>
+      <if test="balance != null">
+        #{balance,jdbcType=VARCHAR},
+      </if>
+      <if test="changedatebalance != null">
+        #{changedatebalance,jdbcType=VARCHAR},
+      </if>
+      <if test="fivelevel != null">
+        #{fivelevel,jdbcType=VARCHAR},
+      </if>
+      <if test="fiveleveldate != null">
+        #{fiveleveldate,jdbcType=VARCHAR},
+      </if>
+      <if test="actualrepaymentdate != null">
+        #{actualrepaymentdate,jdbcType=VARCHAR},
+      </if>
+      <if test="totalactualrepayment != null">
+        #{totalactualrepayment,jdbcType=VARCHAR},
+      </if>
+      <if test="repaymentform != null">
+        #{repaymentform,jdbcType=VARCHAR},
+      </if>
+      <if test="contractrepayment != null">
+        #{contractrepayment,jdbcType=VARCHAR},
+      </if>
+      <if test="totalamount != null">
+        #{totalamount,jdbcType=VARCHAR},
+      </if>
+      <if test="totaloverdue != null">
+        #{totaloverdue,jdbcType=VARCHAR},
+      </if>
+      <if test="overdueprincipal != null">
+        #{overdueprincipal,jdbcType=VARCHAR},
+      </if>
+      <if test="overduemonths != null">
+        #{overduemonths,jdbcType=VARCHAR},
+      </if>
+      <if test="repaymentmonths != null">
+        #{repaymentmonths,jdbcType=VARCHAR},
+      </if>
+      <if test="numberrepayments != null">
+        #{numberrepayments,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.zxjk.credit2query.pojo.Crt2CLoanrepaymentExample" resultType="java.lang.Long">
+    select count(*) from CRT2_C_LOANREPAYMENT
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update CRT2_C_LOANREPAYMENT
+    <set>
+      <if test="record.reportid != null">
+        REPORTID = #{record.reportid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.loanaccount != null">
+        LOANACCOUNT = #{record.loanaccount,jdbcType=VARCHAR},
+      </if>
+      <if test="record.reportdate != null">
+        REPORTDATE = #{record.reportdate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.balance != null">
+        BALANCE = #{record.balance,jdbcType=VARCHAR},
+      </if>
+      <if test="record.changedatebalance != null">
+        CHANGEDATEBALANCE = #{record.changedatebalance,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fivelevel != null">
+        FIVELEVEL = #{record.fivelevel,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fiveleveldate != null">
+        FIVELEVELDATE = #{record.fiveleveldate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.actualrepaymentdate != null">
+        ACTUALREPAYMENTDATE = #{record.actualrepaymentdate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.totalactualrepayment != null">
+        TOTALACTUALREPAYMENT = #{record.totalactualrepayment,jdbcType=VARCHAR},
+      </if>
+      <if test="record.repaymentform != null">
+        REPAYMENTFORM = #{record.repaymentform,jdbcType=VARCHAR},
+      </if>
+      <if test="record.contractrepayment != null">
+        CONTRACTREPAYMENT = #{record.contractrepayment,jdbcType=VARCHAR},
+      </if>
+      <if test="record.totalamount != null">
+        TOTALAMOUNT = #{record.totalamount,jdbcType=VARCHAR},
+      </if>
+      <if test="record.totaloverdue != null">
+        TOTALOVERDUE = #{record.totaloverdue,jdbcType=VARCHAR},
+      </if>
+      <if test="record.overdueprincipal != null">
+        OVERDUEPRINCIPAL = #{record.overdueprincipal,jdbcType=VARCHAR},
+      </if>
+      <if test="record.overduemonths != null">
+        OVERDUEMONTHS = #{record.overduemonths,jdbcType=VARCHAR},
+      </if>
+      <if test="record.repaymentmonths != null">
+        REPAYMENTMONTHS = #{record.repaymentmonths,jdbcType=VARCHAR},
+      </if>
+      <if test="record.numberrepayments != null">
+        NUMBERREPAYMENTS = #{record.numberrepayments,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update CRT2_C_LOANREPAYMENT
+    set REPORTID = #{record.reportid,jdbcType=VARCHAR},
+      LOANACCOUNT = #{record.loanaccount,jdbcType=VARCHAR},
+      REPORTDATE = #{record.reportdate,jdbcType=VARCHAR},
+      BALANCE = #{record.balance,jdbcType=VARCHAR},
+      CHANGEDATEBALANCE = #{record.changedatebalance,jdbcType=VARCHAR},
+      FIVELEVEL = #{record.fivelevel,jdbcType=VARCHAR},
+      FIVELEVELDATE = #{record.fiveleveldate,jdbcType=VARCHAR},
+      ACTUALREPAYMENTDATE = #{record.actualrepaymentdate,jdbcType=VARCHAR},
+      TOTALACTUALREPAYMENT = #{record.totalactualrepayment,jdbcType=VARCHAR},
+      REPAYMENTFORM = #{record.repaymentform,jdbcType=VARCHAR},
+      CONTRACTREPAYMENT = #{record.contractrepayment,jdbcType=VARCHAR},
+      TOTALAMOUNT = #{record.totalamount,jdbcType=VARCHAR},
+      TOTALOVERDUE = #{record.totaloverdue,jdbcType=VARCHAR},
+      OVERDUEPRINCIPAL = #{record.overdueprincipal,jdbcType=VARCHAR},
+      OVERDUEMONTHS = #{record.overduemonths,jdbcType=VARCHAR},
+      REPAYMENTMONTHS = #{record.repaymentmonths,jdbcType=VARCHAR},
+      NUMBERREPAYMENTS = #{record.numberrepayments,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+</mapper>

@@ -1,0 +1,622 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zxjk.credit2query.mapper.Crt2CCreaditpromptsMapper">
+  <resultMap id="BaseResultMap" type="com.zxjk.credit2query.pojo.Crt2CCreaditprompts">
+    <result column="REPORTID" jdbcType="VARCHAR" property="reportid" />
+    <result column="FIRSTCREDITYEAR" jdbcType="VARCHAR" property="firstcredityear" />
+    <result column="CREDITGENERATION" jdbcType="VARCHAR" property="creditgeneration" />
+    <result column="UNCLEAREDCREDITGENERATION" jdbcType="VARCHAR" property="unclearedcreditgeneration" />
+    <result column="BALANCELOANTRANSACTIONS" jdbcType="VARCHAR" property="balanceloantransactions" />
+    <result column="BERECOURSE" jdbcType="VARCHAR" property="berecourse" />
+    <result column="CONCERNEDABOUTLENDING" jdbcType="VARCHAR" property="concernedaboutlending" />
+    <result column="BADLOANS" jdbcType="VARCHAR" property="badloans" />
+    <result column="SECUREDTRANSACTIONS" jdbcType="VARCHAR" property="securedtransactions" />
+    <result column="CLASSGUARANTEE" jdbcType="VARCHAR" property="classguarantee" />
+    <result column="BADCLASSGUARANTEE" jdbcType="VARCHAR" property="badclassguarantee" />
+    <result column="NONCREDIT" jdbcType="VARCHAR" property="noncredit" />
+    <result column="NUMBERTAXARREARS" jdbcType="VARCHAR" property="numbertaxarrears" />
+    <result column="CIVILJUDGMENT" jdbcType="VARCHAR" property="civiljudgment" />
+    <result column="ENFORCEMENT" jdbcType="VARCHAR" property="enforcement" />
+    <result column="ADMINISTRATIVESANCTION" jdbcType="VARCHAR" property="administrativesanction" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    REPORTID, FIRSTCREDITYEAR, CREDITGENERATION, UNCLEAREDCREDITGENERATION, BALANCELOANTRANSACTIONS, 
+    BERECOURSE, CONCERNEDABOUTLENDING, BADLOANS, SECUREDTRANSACTIONS, CLASSGUARANTEE, 
+    BADCLASSGUARANTEE, NONCREDIT, NUMBERTAXARREARS, CIVILJUDGMENT, ENFORCEMENT, ADMINISTRATIVESANCTION
+  </sql>
+  <select id="selectByExample" parameterType="com.zxjk.credit2query.pojo.Crt2CCreaditpromptsExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from CRT2_C_CREADITPROMPTS
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <delete id="deleteByExample" parameterType="com.zxjk.credit2query.pojo.Crt2CCreaditpromptsExample">
+    delete from CRT2_C_CREADITPROMPTS
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.zxjk.credit2query.pojo.Crt2CCreaditprompts">
+    insert into CRT2_C_CREADITPROMPTS (REPORTID, FIRSTCREDITYEAR, CREDITGENERATION, 
+      UNCLEAREDCREDITGENERATION, BALANCELOANTRANSACTIONS, 
+      BERECOURSE, CONCERNEDABOUTLENDING, BADLOANS, 
+      SECUREDTRANSACTIONS, CLASSGUARANTEE, BADCLASSGUARANTEE, 
+      NONCREDIT, NUMBERTAXARREARS, CIVILJUDGMENT, 
+      ENFORCEMENT, ADMINISTRATIVESANCTION)
+    values (#{reportid,jdbcType=VARCHAR}, #{firstcredityear,jdbcType=VARCHAR}, #{creditgeneration,jdbcType=VARCHAR}, 
+      #{unclearedcreditgeneration,jdbcType=VARCHAR}, #{balanceloantransactions,jdbcType=VARCHAR}, 
+      #{berecourse,jdbcType=VARCHAR}, #{concernedaboutlending,jdbcType=VARCHAR}, #{badloans,jdbcType=VARCHAR}, 
+      #{securedtransactions,jdbcType=VARCHAR}, #{classguarantee,jdbcType=VARCHAR}, #{badclassguarantee,jdbcType=VARCHAR}, 
+      #{noncredit,jdbcType=VARCHAR}, #{numbertaxarrears,jdbcType=VARCHAR}, #{civiljudgment,jdbcType=VARCHAR}, 
+      #{enforcement,jdbcType=VARCHAR}, #{administrativesanction,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.zxjk.credit2query.pojo.Crt2CCreaditprompts">
+    insert into CRT2_C_CREADITPROMPTS
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="reportid != null">
+        REPORTID,
+      </if>
+      <if test="firstcredityear != null">
+        FIRSTCREDITYEAR,
+      </if>
+      <if test="creditgeneration != null">
+        CREDITGENERATION,
+      </if>
+      <if test="unclearedcreditgeneration != null">
+        UNCLEAREDCREDITGENERATION,
+      </if>
+      <if test="balanceloantransactions != null">
+        BALANCELOANTRANSACTIONS,
+      </if>
+      <if test="berecourse != null">
+        BERECOURSE,
+      </if>
+      <if test="concernedaboutlending != null">
+        CONCERNEDABOUTLENDING,
+      </if>
+      <if test="badloans != null">
+        BADLOANS,
+      </if>
+      <if test="securedtransactions != null">
+        SECUREDTRANSACTIONS,
+      </if>
+      <if test="classguarantee != null">
+        CLASSGUARANTEE,
+      </if>
+      <if test="badclassguarantee != null">
+        BADCLASSGUARANTEE,
+      </if>
+      <if test="noncredit != null">
+        NONCREDIT,
+      </if>
+      <if test="numbertaxarrears != null">
+        NUMBERTAXARREARS,
+      </if>
+      <if test="civiljudgment != null">
+        CIVILJUDGMENT,
+      </if>
+      <if test="enforcement != null">
+        ENFORCEMENT,
+      </if>
+      <if test="administrativesanction != null">
+        ADMINISTRATIVESANCTION,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="reportid != null">
+        #{reportid,jdbcType=VARCHAR},
+      </if>
+      <if test="firstcredityear != null">
+        #{firstcredityear,jdbcType=VARCHAR},
+      </if>
+      <if test="creditgeneration != null">
+        #{creditgeneration,jdbcType=VARCHAR},
+      </if>
+      <if test="unclearedcreditgeneration != null">
+        #{unclearedcreditgeneration,jdbcType=VARCHAR},
+      </if>
+      <if test="balanceloantransactions != null">
+        #{balanceloantransactions,jdbcType=VARCHAR},
+      </if>
+      <if test="berecourse != null">
+        #{berecourse,jdbcType=VARCHAR},
+      </if>
+      <if test="concernedaboutlending != null">
+        #{concernedaboutlending,jdbcType=VARCHAR},
+      </if>
+      <if test="badloans != null">
+        #{badloans,jdbcType=VARCHAR},
+      </if>
+      <if test="securedtransactions != null">
+        #{securedtransactions,jdbcType=VARCHAR},
+      </if>
+      <if test="classguarantee != null">
+        #{classguarantee,jdbcType=VARCHAR},
+      </if>
+      <if test="badclassguarantee != null">
+        #{badclassguarantee,jdbcType=VARCHAR},
+      </if>
+      <if test="noncredit != null">
+        #{noncredit,jdbcType=VARCHAR},
+      </if>
+      <if test="numbertaxarrears != null">
+        #{numbertaxarrears,jdbcType=VARCHAR},
+      </if>
+      <if test="civiljudgment != null">
+        #{civiljudgment,jdbcType=VARCHAR},
+      </if>
+      <if test="enforcement != null">
+        #{enforcement,jdbcType=VARCHAR},
+      </if>
+      <if test="administrativesanction != null">
+        #{administrativesanction,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.zxjk.credit2query.pojo.Crt2CCreaditpromptsExample" resultType="java.lang.Long">
+    select count(*) from CRT2_C_CREADITPROMPTS
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update CRT2_C_CREADITPROMPTS
+    <set>
+      <if test="record.reportid != null">
+        REPORTID = #{record.reportid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.firstcredityear != null">
+        FIRSTCREDITYEAR = #{record.firstcredityear,jdbcType=VARCHAR},
+      </if>
+      <if test="record.creditgeneration != null">
+        CREDITGENERATION = #{record.creditgeneration,jdbcType=VARCHAR},
+      </if>
+      <if test="record.unclearedcreditgeneration != null">
+        UNCLEAREDCREDITGENERATION = #{record.unclearedcreditgeneration,jdbcType=VARCHAR},
+      </if>
+      <if test="record.balanceloantransactions != null">
+        BALANCELOANTRANSACTIONS = #{record.balanceloantransactions,jdbcType=VARCHAR},
+      </if>
+      <if test="record.berecourse != null">
+        BERECOURSE = #{record.berecourse,jdbcType=VARCHAR},
+      </if>
+      <if test="record.concernedaboutlending != null">
+        CONCERNEDABOUTLENDING = #{record.concernedaboutlending,jdbcType=VARCHAR},
+      </if>
+      <if test="record.badloans != null">
+        BADLOANS = #{record.badloans,jdbcType=VARCHAR},
+      </if>
+      <if test="record.securedtransactions != null">
+        SECUREDTRANSACTIONS = #{record.securedtransactions,jdbcType=VARCHAR},
+      </if>
+      <if test="record.classguarantee != null">
+        CLASSGUARANTEE = #{record.classguarantee,jdbcType=VARCHAR},
+      </if>
+      <if test="record.badclassguarantee != null">
+        BADCLASSGUARANTEE = #{record.badclassguarantee,jdbcType=VARCHAR},
+      </if>
+      <if test="record.noncredit != null">
+        NONCREDIT = #{record.noncredit,jdbcType=VARCHAR},
+      </if>
+      <if test="record.numbertaxarrears != null">
+        NUMBERTAXARREARS = #{record.numbertaxarrears,jdbcType=VARCHAR},
+      </if>
+      <if test="record.civiljudgment != null">
+        CIVILJUDGMENT = #{record.civiljudgment,jdbcType=VARCHAR},
+      </if>
+      <if test="record.enforcement != null">
+        ENFORCEMENT = #{record.enforcement,jdbcType=VARCHAR},
+      </if>
+      <if test="record.administrativesanction != null">
+        ADMINISTRATIVESANCTION = #{record.administrativesanction,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update CRT2_C_CREADITPROMPTS
+    set REPORTID = #{record.reportid,jdbcType=VARCHAR},
+      FIRSTCREDITYEAR = #{record.firstcredityear,jdbcType=VARCHAR},
+      CREDITGENERATION = #{record.creditgeneration,jdbcType=VARCHAR},
+      UNCLEAREDCREDITGENERATION = #{record.unclearedcreditgeneration,jdbcType=VARCHAR},
+      BALANCELOANTRANSACTIONS = #{record.balanceloantransactions,jdbcType=VARCHAR},
+      BERECOURSE = #{record.berecourse,jdbcType=VARCHAR},
+      CONCERNEDABOUTLENDING = #{record.concernedaboutlending,jdbcType=VARCHAR},
+      BADLOANS = #{record.badloans,jdbcType=VARCHAR},
+      SECUREDTRANSACTIONS = #{record.securedtransactions,jdbcType=VARCHAR},
+      CLASSGUARANTEE = #{record.classguarantee,jdbcType=VARCHAR},
+      BADCLASSGUARANTEE = #{record.badclassguarantee,jdbcType=VARCHAR},
+      NONCREDIT = #{record.noncredit,jdbcType=VARCHAR},
+      NUMBERTAXARREARS = #{record.numbertaxarrears,jdbcType=VARCHAR},
+      CIVILJUDGMENT = #{record.civiljudgment,jdbcType=VARCHAR},
+      ENFORCEMENT = #{record.enforcement,jdbcType=VARCHAR},
+      ADMINISTRATIVESANCTION = #{record.administrativesanction,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <resultMap id="BaseResultMap" type="com.zxjk.credit2query.pojo.Crt2CCreaditprompts">
+    <result column="REPORTID" jdbcType="VARCHAR" property="reportid" />
+    <result column="FIRSTCREDITYEAR" jdbcType="VARCHAR" property="firstcredityear" />
+    <result column="FIRSTREPAYMENTYEAR" jdbcType="VARCHAR" property="firstrepaymentyear" />
+    <result column="CREDITGENERATION" jdbcType="VARCHAR" property="creditgeneration" />
+    <result column="UNCLEAREDCREDITGENERATION" jdbcType="VARCHAR" property="unclearedcreditgeneration" />
+    <result column="BALANCELOANTRANSACTIONS" jdbcType="VARCHAR" property="balanceloantransactions" />
+    <result column="BERECOURSE" jdbcType="VARCHAR" property="berecourse" />
+    <result column="CONCERNEDABOUTLENDING" jdbcType="VARCHAR" property="concernedaboutlending" />
+    <result column="BADLOANS" jdbcType="VARCHAR" property="badloans" />
+    <result column="SECUREDTRANSACTIONS" jdbcType="VARCHAR" property="securedtransactions" />
+    <result column="CLASSGUARANTEE" jdbcType="VARCHAR" property="classguarantee" />
+    <result column="BADCLASSGUARANTEE" jdbcType="VARCHAR" property="badclassguarantee" />
+    <result column="NONCREDIT" jdbcType="VARCHAR" property="noncredit" />
+    <result column="NUMBERTAXARREARS" jdbcType="VARCHAR" property="numbertaxarrears" />
+    <result column="CIVILJUDGMENT" jdbcType="VARCHAR" property="civiljudgment" />
+    <result column="ENFORCEMENT" jdbcType="VARCHAR" property="enforcement" />
+    <result column="ADMINISTRATIVESANCTION" jdbcType="VARCHAR" property="administrativesanction" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    REPORTID, FIRSTCREDITYEAR, FIRSTREPAYMENTYEAR, CREDITGENERATION, UNCLEAREDCREDITGENERATION, 
+    BALANCELOANTRANSACTIONS, BERECOURSE, CONCERNEDABOUTLENDING, BADLOANS, SECUREDTRANSACTIONS, 
+    CLASSGUARANTEE, BADCLASSGUARANTEE, NONCREDIT, NUMBERTAXARREARS, CIVILJUDGMENT, ENFORCEMENT, 
+    ADMINISTRATIVESANCTION
+  </sql>
+  <select id="selectByExample" parameterType="com.zxjk.credit2query.pojo.Crt2CCreaditpromptsExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from CRT2_C_CREADITPROMPTS
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <delete id="deleteByExample" parameterType="com.zxjk.credit2query.pojo.Crt2CCreaditpromptsExample">
+    delete from CRT2_C_CREADITPROMPTS
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.zxjk.credit2query.pojo.Crt2CCreaditprompts">
+    insert into CRT2_C_CREADITPROMPTS (REPORTID, FIRSTCREDITYEAR, FIRSTREPAYMENTYEAR, 
+      CREDITGENERATION, UNCLEAREDCREDITGENERATION, 
+      BALANCELOANTRANSACTIONS, BERECOURSE, CONCERNEDABOUTLENDING, 
+      BADLOANS, SECUREDTRANSACTIONS, CLASSGUARANTEE, 
+      BADCLASSGUARANTEE, NONCREDIT, NUMBERTAXARREARS, 
+      CIVILJUDGMENT, ENFORCEMENT, ADMINISTRATIVESANCTION
+      )
+    values (#{reportid,jdbcType=VARCHAR}, #{firstcredityear,jdbcType=VARCHAR}, #{firstrepaymentyear,jdbcType=VARCHAR}, 
+      #{creditgeneration,jdbcType=VARCHAR}, #{unclearedcreditgeneration,jdbcType=VARCHAR}, 
+      #{balanceloantransactions,jdbcType=VARCHAR}, #{berecourse,jdbcType=VARCHAR}, #{concernedaboutlending,jdbcType=VARCHAR}, 
+      #{badloans,jdbcType=VARCHAR}, #{securedtransactions,jdbcType=VARCHAR}, #{classguarantee,jdbcType=VARCHAR}, 
+      #{badclassguarantee,jdbcType=VARCHAR}, #{noncredit,jdbcType=VARCHAR}, #{numbertaxarrears,jdbcType=VARCHAR}, 
+      #{civiljudgment,jdbcType=VARCHAR}, #{enforcement,jdbcType=VARCHAR}, #{administrativesanction,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.zxjk.credit2query.pojo.Crt2CCreaditprompts">
+    insert into CRT2_C_CREADITPROMPTS
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="reportid != null">
+        REPORTID,
+      </if>
+      <if test="firstcredityear != null">
+        FIRSTCREDITYEAR,
+      </if>
+      <if test="firstrepaymentyear != null">
+        FIRSTREPAYMENTYEAR,
+      </if>
+      <if test="creditgeneration != null">
+        CREDITGENERATION,
+      </if>
+      <if test="unclearedcreditgeneration != null">
+        UNCLEAREDCREDITGENERATION,
+      </if>
+      <if test="balanceloantransactions != null">
+        BALANCELOANTRANSACTIONS,
+      </if>
+      <if test="berecourse != null">
+        BERECOURSE,
+      </if>
+      <if test="concernedaboutlending != null">
+        CONCERNEDABOUTLENDING,
+      </if>
+      <if test="badloans != null">
+        BADLOANS,
+      </if>
+      <if test="securedtransactions != null">
+        SECUREDTRANSACTIONS,
+      </if>
+      <if test="classguarantee != null">
+        CLASSGUARANTEE,
+      </if>
+      <if test="badclassguarantee != null">
+        BADCLASSGUARANTEE,
+      </if>
+      <if test="noncredit != null">
+        NONCREDIT,
+      </if>
+      <if test="numbertaxarrears != null">
+        NUMBERTAXARREARS,
+      </if>
+      <if test="civiljudgment != null">
+        CIVILJUDGMENT,
+      </if>
+      <if test="enforcement != null">
+        ENFORCEMENT,
+      </if>
+      <if test="administrativesanction != null">
+        ADMINISTRATIVESANCTION,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="reportid != null">
+        #{reportid,jdbcType=VARCHAR},
+      </if>
+      <if test="firstcredityear != null">
+        #{firstcredityear,jdbcType=VARCHAR},
+      </if>
+      <if test="firstrepaymentyear != null">
+        #{firstrepaymentyear,jdbcType=VARCHAR},
+      </if>
+      <if test="creditgeneration != null">
+        #{creditgeneration,jdbcType=VARCHAR},
+      </if>
+      <if test="unclearedcreditgeneration != null">
+        #{unclearedcreditgeneration,jdbcType=VARCHAR},
+      </if>
+      <if test="balanceloantransactions != null">
+        #{balanceloantransactions,jdbcType=VARCHAR},
+      </if>
+      <if test="berecourse != null">
+        #{berecourse,jdbcType=VARCHAR},
+      </if>
+      <if test="concernedaboutlending != null">
+        #{concernedaboutlending,jdbcType=VARCHAR},
+      </if>
+      <if test="badloans != null">
+        #{badloans,jdbcType=VARCHAR},
+      </if>
+      <if test="securedtransactions != null">
+        #{securedtransactions,jdbcType=VARCHAR},
+      </if>
+      <if test="classguarantee != null">
+        #{classguarantee,jdbcType=VARCHAR},
+      </if>
+      <if test="badclassguarantee != null">
+        #{badclassguarantee,jdbcType=VARCHAR},
+      </if>
+      <if test="noncredit != null">
+        #{noncredit,jdbcType=VARCHAR},
+      </if>
+      <if test="numbertaxarrears != null">
+        #{numbertaxarrears,jdbcType=VARCHAR},
+      </if>
+      <if test="civiljudgment != null">
+        #{civiljudgment,jdbcType=VARCHAR},
+      </if>
+      <if test="enforcement != null">
+        #{enforcement,jdbcType=VARCHAR},
+      </if>
+      <if test="administrativesanction != null">
+        #{administrativesanction,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.zxjk.credit2query.pojo.Crt2CCreaditpromptsExample" resultType="java.lang.Long">
+    select count(*) from CRT2_C_CREADITPROMPTS
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update CRT2_C_CREADITPROMPTS
+    <set>
+      <if test="record.reportid != null">
+        REPORTID = #{record.reportid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.firstcredityear != null">
+        FIRSTCREDITYEAR = #{record.firstcredityear,jdbcType=VARCHAR},
+      </if>
+      <if test="record.firstrepaymentyear != null">
+        FIRSTREPAYMENTYEAR = #{record.firstrepaymentyear,jdbcType=VARCHAR},
+      </if>
+      <if test="record.creditgeneration != null">
+        CREDITGENERATION = #{record.creditgeneration,jdbcType=VARCHAR},
+      </if>
+      <if test="record.unclearedcreditgeneration != null">
+        UNCLEAREDCREDITGENERATION = #{record.unclearedcreditgeneration,jdbcType=VARCHAR},
+      </if>
+      <if test="record.balanceloantransactions != null">
+        BALANCELOANTRANSACTIONS = #{record.balanceloantransactions,jdbcType=VARCHAR},
+      </if>
+      <if test="record.berecourse != null">
+        BERECOURSE = #{record.berecourse,jdbcType=VARCHAR},
+      </if>
+      <if test="record.concernedaboutlending != null">
+        CONCERNEDABOUTLENDING = #{record.concernedaboutlending,jdbcType=VARCHAR},
+      </if>
+      <if test="record.badloans != null">
+        BADLOANS = #{record.badloans,jdbcType=VARCHAR},
+      </if>
+      <if test="record.securedtransactions != null">
+        SECUREDTRANSACTIONS = #{record.securedtransactions,jdbcType=VARCHAR},
+      </if>
+      <if test="record.classguarantee != null">
+        CLASSGUARANTEE = #{record.classguarantee,jdbcType=VARCHAR},
+      </if>
+      <if test="record.badclassguarantee != null">
+        BADCLASSGUARANTEE = #{record.badclassguarantee,jdbcType=VARCHAR},
+      </if>
+      <if test="record.noncredit != null">
+        NONCREDIT = #{record.noncredit,jdbcType=VARCHAR},
+      </if>
+      <if test="record.numbertaxarrears != null">
+        NUMBERTAXARREARS = #{record.numbertaxarrears,jdbcType=VARCHAR},
+      </if>
+      <if test="record.civiljudgment != null">
+        CIVILJUDGMENT = #{record.civiljudgment,jdbcType=VARCHAR},
+      </if>
+      <if test="record.enforcement != null">
+        ENFORCEMENT = #{record.enforcement,jdbcType=VARCHAR},
+      </if>
+      <if test="record.administrativesanction != null">
+        ADMINISTRATIVESANCTION = #{record.administrativesanction,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update CRT2_C_CREADITPROMPTS
+    set REPORTID = #{record.reportid,jdbcType=VARCHAR},
+      FIRSTCREDITYEAR = #{record.firstcredityear,jdbcType=VARCHAR},
+      FIRSTREPAYMENTYEAR = #{record.firstrepaymentyear,jdbcType=VARCHAR},
+      CREDITGENERATION = #{record.creditgeneration,jdbcType=VARCHAR},
+      UNCLEAREDCREDITGENERATION = #{record.unclearedcreditgeneration,jdbcType=VARCHAR},
+      BALANCELOANTRANSACTIONS = #{record.balanceloantransactions,jdbcType=VARCHAR},
+      BERECOURSE = #{record.berecourse,jdbcType=VARCHAR},
+      CONCERNEDABOUTLENDING = #{record.concernedaboutlending,jdbcType=VARCHAR},
+      BADLOANS = #{record.badloans,jdbcType=VARCHAR},
+      SECUREDTRANSACTIONS = #{record.securedtransactions,jdbcType=VARCHAR},
+      CLASSGUARANTEE = #{record.classguarantee,jdbcType=VARCHAR},
+      BADCLASSGUARANTEE = #{record.badclassguarantee,jdbcType=VARCHAR},
+      NONCREDIT = #{record.noncredit,jdbcType=VARCHAR},
+      NUMBERTAXARREARS = #{record.numbertaxarrears,jdbcType=VARCHAR},
+      CIVILJUDGMENT = #{record.civiljudgment,jdbcType=VARCHAR},
+      ENFORCEMENT = #{record.enforcement,jdbcType=VARCHAR},
+      ADMINISTRATIVESANCTION = #{record.administrativesanction,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+</mapper>

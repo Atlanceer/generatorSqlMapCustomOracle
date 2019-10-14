@@ -1,0 +1,953 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zxjk.credit2query.mapper.Crt2CEntprofit02Mapper">
+  <resultMap id="BaseResultMap" type="com.zxjk.credit2query.pojo.Crt2CEntprofit02">
+    <result column="REPORTID" jdbcType="VARCHAR" property="reportid" />
+    <result column="FINANCEID" jdbcType="VARCHAR" property="financeid" />
+    <result column="MECHANISMTYPE" jdbcType="VARCHAR" property="mechanismtype" />
+    <result column="MECHANISMCODE" jdbcType="VARCHAR" property="mechanismcode" />
+    <result column="PROFITINFODATE" jdbcType="VARCHAR" property="profitinfodate" />
+    <result column="PROFITINFOTYPE" jdbcType="VARCHAR" property="profitinfotype" />
+    <result column="PROFITINFOSUBTYPE" jdbcType="VARCHAR" property="profitinfosubtype" />
+    <result column="EG03BJ01" jdbcType="VARCHAR" property="eg03bj01" />
+    <result column="EG03BJ02" jdbcType="VARCHAR" property="eg03bj02" />
+    <result column="EG03BJ03" jdbcType="VARCHAR" property="eg03bj03" />
+    <result column="EG03BJ04" jdbcType="VARCHAR" property="eg03bj04" />
+    <result column="EG03BJ05" jdbcType="VARCHAR" property="eg03bj05" />
+    <result column="EG03BJ06" jdbcType="VARCHAR" property="eg03bj06" />
+    <result column="EG03BJ07" jdbcType="VARCHAR" property="eg03bj07" />
+    <result column="EG03BJ08" jdbcType="VARCHAR" property="eg03bj08" />
+    <result column="EG03BJ09" jdbcType="VARCHAR" property="eg03bj09" />
+    <result column="EG03BJ10" jdbcType="VARCHAR" property="eg03bj10" />
+    <result column="EG03BJ11" jdbcType="VARCHAR" property="eg03bj11" />
+    <result column="EG03BJ12" jdbcType="VARCHAR" property="eg03bj12" />
+    <result column="EG03BJ13" jdbcType="VARCHAR" property="eg03bj13" />
+    <result column="EG03BJ14" jdbcType="VARCHAR" property="eg03bj14" />
+    <result column="EG03BJ15" jdbcType="VARCHAR" property="eg03bj15" />
+    <result column="EG03BJ16" jdbcType="VARCHAR" property="eg03bj16" />
+    <result column="EG03BJ17" jdbcType="VARCHAR" property="eg03bj17" />
+    <result column="EG03BJ18" jdbcType="VARCHAR" property="eg03bj18" />
+    <result column="EG03BJ19" jdbcType="VARCHAR" property="eg03bj19" />
+    <result column="EG03BJ20" jdbcType="VARCHAR" property="eg03bj20" />
+    <result column="EG03BJ21" jdbcType="VARCHAR" property="eg03bj21" />
+    <result column="EG03BJ22" jdbcType="VARCHAR" property="eg03bj22" />
+    <result column="EG03BJ23" jdbcType="VARCHAR" property="eg03bj23" />
+    <result column="EG03BJ24" jdbcType="VARCHAR" property="eg03bj24" />
+    <result column="EG03BJ25" jdbcType="VARCHAR" property="eg03bj25" />
+    <result column="EG03BJ26" jdbcType="VARCHAR" property="eg03bj26" />
+    <result column="EG03BJ27" jdbcType="VARCHAR" property="eg03bj27" />
+    <result column="EG03BJ28" jdbcType="VARCHAR" property="eg03bj28" />
+    <result column="EG03BJ29" jdbcType="VARCHAR" property="eg03bj29" />
+    <result column="EG03BJ30" jdbcType="VARCHAR" property="eg03bj30" />
+    <result column="EG03BJ31" jdbcType="VARCHAR" property="eg03bj31" />
+    <result column="EG03BJ32" jdbcType="VARCHAR" property="eg03bj32" />
+    <result column="EG03BJ33" jdbcType="VARCHAR" property="eg03bj33" />
+    <result column="EG03BJ34" jdbcType="VARCHAR" property="eg03bj34" />
+    <result column="EG03BJ35" jdbcType="VARCHAR" property="eg03bj35" />
+    <result column="EG03BJ36" jdbcType="VARCHAR" property="eg03bj36" />
+    <result column="EG03BJ37" jdbcType="VARCHAR" property="eg03bj37" />
+    <result column="EG03BJ38" jdbcType="VARCHAR" property="eg03bj38" />
+    <result column="EG03BJ39" jdbcType="VARCHAR" property="eg03bj39" />
+    <result column="EG03BJ40" jdbcType="VARCHAR" property="eg03bj40" />
+    <result column="EG03BJ41" jdbcType="VARCHAR" property="eg03bj41" />
+    <result column="EG03BJ42" jdbcType="VARCHAR" property="eg03bj42" />
+    <result column="EG03BJ43" jdbcType="VARCHAR" property="eg03bj43" />
+    <result column="EG03BJ44" jdbcType="VARCHAR" property="eg03bj44" />
+    <result column="EG03BJ45" jdbcType="VARCHAR" property="eg03bj45" />
+    <result column="EG03BJ46" jdbcType="VARCHAR" property="eg03bj46" />
+    <result column="EG03BJ47" jdbcType="VARCHAR" property="eg03bj47" />
+    <result column="EG03BJ48" jdbcType="VARCHAR" property="eg03bj48" />
+    <result column="EG03BJ49" jdbcType="VARCHAR" property="eg03bj49" />
+    <result column="EG03BJ50" jdbcType="VARCHAR" property="eg03bj50" />
+    <result column="EG03BJ51" jdbcType="VARCHAR" property="eg03bj51" />
+    <result column="EG03BJ52" jdbcType="VARCHAR" property="eg03bj52" />
+    <result column="EG03BJ53" jdbcType="VARCHAR" property="eg03bj53" />
+    <result column="EG03BJ54" jdbcType="VARCHAR" property="eg03bj54" />
+    <result column="EG03BJ55" jdbcType="VARCHAR" property="eg03bj55" />
+    <result column="EG03BJ56" jdbcType="VARCHAR" property="eg03bj56" />
+    <result column="EG03BJ57" jdbcType="VARCHAR" property="eg03bj57" />
+    <result column="EG03BJ58" jdbcType="VARCHAR" property="eg03bj58" />
+    <result column="EG03BJ59" jdbcType="VARCHAR" property="eg03bj59" />
+    <result column="EG03BJ60" jdbcType="VARCHAR" property="eg03bj60" />
+    <result column="EG03BJ61" jdbcType="VARCHAR" property="eg03bj61" />
+    <result column="EG03BJ62" jdbcType="VARCHAR" property="eg03bj62" />
+    <result column="EG03BJ63" jdbcType="VARCHAR" property="eg03bj63" />
+    <result column="EG03BJ64" jdbcType="VARCHAR" property="eg03bj64" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    REPORTID, FINANCEID, MECHANISMTYPE, MECHANISMCODE, PROFITINFODATE, PROFITINFOTYPE, 
+    PROFITINFOSUBTYPE, EG03BJ01, EG03BJ02, EG03BJ03, EG03BJ04, EG03BJ05, EG03BJ06, EG03BJ07, 
+    EG03BJ08, EG03BJ09, EG03BJ10, EG03BJ11, EG03BJ12, EG03BJ13, EG03BJ14, EG03BJ15, EG03BJ16, 
+    EG03BJ17, EG03BJ18, EG03BJ19, EG03BJ20, EG03BJ21, EG03BJ22, EG03BJ23, EG03BJ24, EG03BJ25, 
+    EG03BJ26, EG03BJ27, EG03BJ28, EG03BJ29, EG03BJ30, EG03BJ31, EG03BJ32, EG03BJ33, EG03BJ34, 
+    EG03BJ35, EG03BJ36, EG03BJ37, EG03BJ38, EG03BJ39, EG03BJ40, EG03BJ41, EG03BJ42, EG03BJ43, 
+    EG03BJ44, EG03BJ45, EG03BJ46, EG03BJ47, EG03BJ48, EG03BJ49, EG03BJ50, EG03BJ51, EG03BJ52, 
+    EG03BJ53, EG03BJ54, EG03BJ55, EG03BJ56, EG03BJ57, EG03BJ58, EG03BJ59, EG03BJ60, EG03BJ61, 
+    EG03BJ62, EG03BJ63, EG03BJ64
+  </sql>
+  <select id="selectByExample" parameterType="com.zxjk.credit2query.pojo.Crt2CEntprofit02Example" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from CRT2_C_ENTPROFIT02
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <delete id="deleteByExample" parameterType="com.zxjk.credit2query.pojo.Crt2CEntprofit02Example">
+    delete from CRT2_C_ENTPROFIT02
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.zxjk.credit2query.pojo.Crt2CEntprofit02">
+    insert into CRT2_C_ENTPROFIT02 (REPORTID, FINANCEID, MECHANISMTYPE, 
+      MECHANISMCODE, PROFITINFODATE, PROFITINFOTYPE, 
+      PROFITINFOSUBTYPE, EG03BJ01, EG03BJ02, 
+      EG03BJ03, EG03BJ04, EG03BJ05, 
+      EG03BJ06, EG03BJ07, EG03BJ08, 
+      EG03BJ09, EG03BJ10, EG03BJ11, 
+      EG03BJ12, EG03BJ13, EG03BJ14, 
+      EG03BJ15, EG03BJ16, EG03BJ17, 
+      EG03BJ18, EG03BJ19, EG03BJ20, 
+      EG03BJ21, EG03BJ22, EG03BJ23, 
+      EG03BJ24, EG03BJ25, EG03BJ26, 
+      EG03BJ27, EG03BJ28, EG03BJ29, 
+      EG03BJ30, EG03BJ31, EG03BJ32, 
+      EG03BJ33, EG03BJ34, EG03BJ35, 
+      EG03BJ36, EG03BJ37, EG03BJ38, 
+      EG03BJ39, EG03BJ40, EG03BJ41, 
+      EG03BJ42, EG03BJ43, EG03BJ44, 
+      EG03BJ45, EG03BJ46, EG03BJ47, 
+      EG03BJ48, EG03BJ49, EG03BJ50, 
+      EG03BJ51, EG03BJ52, EG03BJ53, 
+      EG03BJ54, EG03BJ55, EG03BJ56, 
+      EG03BJ57, EG03BJ58, EG03BJ59, 
+      EG03BJ60, EG03BJ61, EG03BJ62, 
+      EG03BJ63, EG03BJ64)
+    values (#{reportid,jdbcType=VARCHAR}, #{financeid,jdbcType=VARCHAR}, #{mechanismtype,jdbcType=VARCHAR}, 
+      #{mechanismcode,jdbcType=VARCHAR}, #{profitinfodate,jdbcType=VARCHAR}, #{profitinfotype,jdbcType=VARCHAR}, 
+      #{profitinfosubtype,jdbcType=VARCHAR}, #{eg03bj01,jdbcType=VARCHAR}, #{eg03bj02,jdbcType=VARCHAR}, 
+      #{eg03bj03,jdbcType=VARCHAR}, #{eg03bj04,jdbcType=VARCHAR}, #{eg03bj05,jdbcType=VARCHAR}, 
+      #{eg03bj06,jdbcType=VARCHAR}, #{eg03bj07,jdbcType=VARCHAR}, #{eg03bj08,jdbcType=VARCHAR}, 
+      #{eg03bj09,jdbcType=VARCHAR}, #{eg03bj10,jdbcType=VARCHAR}, #{eg03bj11,jdbcType=VARCHAR}, 
+      #{eg03bj12,jdbcType=VARCHAR}, #{eg03bj13,jdbcType=VARCHAR}, #{eg03bj14,jdbcType=VARCHAR}, 
+      #{eg03bj15,jdbcType=VARCHAR}, #{eg03bj16,jdbcType=VARCHAR}, #{eg03bj17,jdbcType=VARCHAR}, 
+      #{eg03bj18,jdbcType=VARCHAR}, #{eg03bj19,jdbcType=VARCHAR}, #{eg03bj20,jdbcType=VARCHAR}, 
+      #{eg03bj21,jdbcType=VARCHAR}, #{eg03bj22,jdbcType=VARCHAR}, #{eg03bj23,jdbcType=VARCHAR}, 
+      #{eg03bj24,jdbcType=VARCHAR}, #{eg03bj25,jdbcType=VARCHAR}, #{eg03bj26,jdbcType=VARCHAR}, 
+      #{eg03bj27,jdbcType=VARCHAR}, #{eg03bj28,jdbcType=VARCHAR}, #{eg03bj29,jdbcType=VARCHAR}, 
+      #{eg03bj30,jdbcType=VARCHAR}, #{eg03bj31,jdbcType=VARCHAR}, #{eg03bj32,jdbcType=VARCHAR}, 
+      #{eg03bj33,jdbcType=VARCHAR}, #{eg03bj34,jdbcType=VARCHAR}, #{eg03bj35,jdbcType=VARCHAR}, 
+      #{eg03bj36,jdbcType=VARCHAR}, #{eg03bj37,jdbcType=VARCHAR}, #{eg03bj38,jdbcType=VARCHAR}, 
+      #{eg03bj39,jdbcType=VARCHAR}, #{eg03bj40,jdbcType=VARCHAR}, #{eg03bj41,jdbcType=VARCHAR}, 
+      #{eg03bj42,jdbcType=VARCHAR}, #{eg03bj43,jdbcType=VARCHAR}, #{eg03bj44,jdbcType=VARCHAR}, 
+      #{eg03bj45,jdbcType=VARCHAR}, #{eg03bj46,jdbcType=VARCHAR}, #{eg03bj47,jdbcType=VARCHAR}, 
+      #{eg03bj48,jdbcType=VARCHAR}, #{eg03bj49,jdbcType=VARCHAR}, #{eg03bj50,jdbcType=VARCHAR}, 
+      #{eg03bj51,jdbcType=VARCHAR}, #{eg03bj52,jdbcType=VARCHAR}, #{eg03bj53,jdbcType=VARCHAR}, 
+      #{eg03bj54,jdbcType=VARCHAR}, #{eg03bj55,jdbcType=VARCHAR}, #{eg03bj56,jdbcType=VARCHAR}, 
+      #{eg03bj57,jdbcType=VARCHAR}, #{eg03bj58,jdbcType=VARCHAR}, #{eg03bj59,jdbcType=VARCHAR}, 
+      #{eg03bj60,jdbcType=VARCHAR}, #{eg03bj61,jdbcType=VARCHAR}, #{eg03bj62,jdbcType=VARCHAR}, 
+      #{eg03bj63,jdbcType=VARCHAR}, #{eg03bj64,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.zxjk.credit2query.pojo.Crt2CEntprofit02">
+    insert into CRT2_C_ENTPROFIT02
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="reportid != null">
+        REPORTID,
+      </if>
+      <if test="financeid != null">
+        FINANCEID,
+      </if>
+      <if test="mechanismtype != null">
+        MECHANISMTYPE,
+      </if>
+      <if test="mechanismcode != null">
+        MECHANISMCODE,
+      </if>
+      <if test="profitinfodate != null">
+        PROFITINFODATE,
+      </if>
+      <if test="profitinfotype != null">
+        PROFITINFOTYPE,
+      </if>
+      <if test="profitinfosubtype != null">
+        PROFITINFOSUBTYPE,
+      </if>
+      <if test="eg03bj01 != null">
+        EG03BJ01,
+      </if>
+      <if test="eg03bj02 != null">
+        EG03BJ02,
+      </if>
+      <if test="eg03bj03 != null">
+        EG03BJ03,
+      </if>
+      <if test="eg03bj04 != null">
+        EG03BJ04,
+      </if>
+      <if test="eg03bj05 != null">
+        EG03BJ05,
+      </if>
+      <if test="eg03bj06 != null">
+        EG03BJ06,
+      </if>
+      <if test="eg03bj07 != null">
+        EG03BJ07,
+      </if>
+      <if test="eg03bj08 != null">
+        EG03BJ08,
+      </if>
+      <if test="eg03bj09 != null">
+        EG03BJ09,
+      </if>
+      <if test="eg03bj10 != null">
+        EG03BJ10,
+      </if>
+      <if test="eg03bj11 != null">
+        EG03BJ11,
+      </if>
+      <if test="eg03bj12 != null">
+        EG03BJ12,
+      </if>
+      <if test="eg03bj13 != null">
+        EG03BJ13,
+      </if>
+      <if test="eg03bj14 != null">
+        EG03BJ14,
+      </if>
+      <if test="eg03bj15 != null">
+        EG03BJ15,
+      </if>
+      <if test="eg03bj16 != null">
+        EG03BJ16,
+      </if>
+      <if test="eg03bj17 != null">
+        EG03BJ17,
+      </if>
+      <if test="eg03bj18 != null">
+        EG03BJ18,
+      </if>
+      <if test="eg03bj19 != null">
+        EG03BJ19,
+      </if>
+      <if test="eg03bj20 != null">
+        EG03BJ20,
+      </if>
+      <if test="eg03bj21 != null">
+        EG03BJ21,
+      </if>
+      <if test="eg03bj22 != null">
+        EG03BJ22,
+      </if>
+      <if test="eg03bj23 != null">
+        EG03BJ23,
+      </if>
+      <if test="eg03bj24 != null">
+        EG03BJ24,
+      </if>
+      <if test="eg03bj25 != null">
+        EG03BJ25,
+      </if>
+      <if test="eg03bj26 != null">
+        EG03BJ26,
+      </if>
+      <if test="eg03bj27 != null">
+        EG03BJ27,
+      </if>
+      <if test="eg03bj28 != null">
+        EG03BJ28,
+      </if>
+      <if test="eg03bj29 != null">
+        EG03BJ29,
+      </if>
+      <if test="eg03bj30 != null">
+        EG03BJ30,
+      </if>
+      <if test="eg03bj31 != null">
+        EG03BJ31,
+      </if>
+      <if test="eg03bj32 != null">
+        EG03BJ32,
+      </if>
+      <if test="eg03bj33 != null">
+        EG03BJ33,
+      </if>
+      <if test="eg03bj34 != null">
+        EG03BJ34,
+      </if>
+      <if test="eg03bj35 != null">
+        EG03BJ35,
+      </if>
+      <if test="eg03bj36 != null">
+        EG03BJ36,
+      </if>
+      <if test="eg03bj37 != null">
+        EG03BJ37,
+      </if>
+      <if test="eg03bj38 != null">
+        EG03BJ38,
+      </if>
+      <if test="eg03bj39 != null">
+        EG03BJ39,
+      </if>
+      <if test="eg03bj40 != null">
+        EG03BJ40,
+      </if>
+      <if test="eg03bj41 != null">
+        EG03BJ41,
+      </if>
+      <if test="eg03bj42 != null">
+        EG03BJ42,
+      </if>
+      <if test="eg03bj43 != null">
+        EG03BJ43,
+      </if>
+      <if test="eg03bj44 != null">
+        EG03BJ44,
+      </if>
+      <if test="eg03bj45 != null">
+        EG03BJ45,
+      </if>
+      <if test="eg03bj46 != null">
+        EG03BJ46,
+      </if>
+      <if test="eg03bj47 != null">
+        EG03BJ47,
+      </if>
+      <if test="eg03bj48 != null">
+        EG03BJ48,
+      </if>
+      <if test="eg03bj49 != null">
+        EG03BJ49,
+      </if>
+      <if test="eg03bj50 != null">
+        EG03BJ50,
+      </if>
+      <if test="eg03bj51 != null">
+        EG03BJ51,
+      </if>
+      <if test="eg03bj52 != null">
+        EG03BJ52,
+      </if>
+      <if test="eg03bj53 != null">
+        EG03BJ53,
+      </if>
+      <if test="eg03bj54 != null">
+        EG03BJ54,
+      </if>
+      <if test="eg03bj55 != null">
+        EG03BJ55,
+      </if>
+      <if test="eg03bj56 != null">
+        EG03BJ56,
+      </if>
+      <if test="eg03bj57 != null">
+        EG03BJ57,
+      </if>
+      <if test="eg03bj58 != null">
+        EG03BJ58,
+      </if>
+      <if test="eg03bj59 != null">
+        EG03BJ59,
+      </if>
+      <if test="eg03bj60 != null">
+        EG03BJ60,
+      </if>
+      <if test="eg03bj61 != null">
+        EG03BJ61,
+      </if>
+      <if test="eg03bj62 != null">
+        EG03BJ62,
+      </if>
+      <if test="eg03bj63 != null">
+        EG03BJ63,
+      </if>
+      <if test="eg03bj64 != null">
+        EG03BJ64,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="reportid != null">
+        #{reportid,jdbcType=VARCHAR},
+      </if>
+      <if test="financeid != null">
+        #{financeid,jdbcType=VARCHAR},
+      </if>
+      <if test="mechanismtype != null">
+        #{mechanismtype,jdbcType=VARCHAR},
+      </if>
+      <if test="mechanismcode != null">
+        #{mechanismcode,jdbcType=VARCHAR},
+      </if>
+      <if test="profitinfodate != null">
+        #{profitinfodate,jdbcType=VARCHAR},
+      </if>
+      <if test="profitinfotype != null">
+        #{profitinfotype,jdbcType=VARCHAR},
+      </if>
+      <if test="profitinfosubtype != null">
+        #{profitinfosubtype,jdbcType=VARCHAR},
+      </if>
+      <if test="eg03bj01 != null">
+        #{eg03bj01,jdbcType=VARCHAR},
+      </if>
+      <if test="eg03bj02 != null">
+        #{eg03bj02,jdbcType=VARCHAR},
+      </if>
+      <if test="eg03bj03 != null">
+        #{eg03bj03,jdbcType=VARCHAR},
+      </if>
+      <if test="eg03bj04 != null">
+        #{eg03bj04,jdbcType=VARCHAR},
+      </if>
+      <if test="eg03bj05 != null">
+        #{eg03bj05,jdbcType=VARCHAR},
+      </if>
+      <if test="eg03bj06 != null">
+        #{eg03bj06,jdbcType=VARCHAR},
+      </if>
+      <if test="eg03bj07 != null">
+        #{eg03bj07,jdbcType=VARCHAR},
+      </if>
+      <if test="eg03bj08 != null">
+        #{eg03bj08,jdbcType=VARCHAR},
+      </if>
+      <if test="eg03bj09 != null">
+        #{eg03bj09,jdbcType=VARCHAR},
+      </if>
+      <if test="eg03bj10 != null">
+        #{eg03bj10,jdbcType=VARCHAR},
+      </if>
+      <if test="eg03bj11 != null">
+        #{eg03bj11,jdbcType=VARCHAR},
+      </if>
+      <if test="eg03bj12 != null">
+        #{eg03bj12,jdbcType=VARCHAR},
+      </if>
+      <if test="eg03bj13 != null">
+        #{eg03bj13,jdbcType=VARCHAR},
+      </if>
+      <if test="eg03bj14 != null">
+        #{eg03bj14,jdbcType=VARCHAR},
+      </if>
+      <if test="eg03bj15 != null">
+        #{eg03bj15,jdbcType=VARCHAR},
+      </if>
+      <if test="eg03bj16 != null">
+        #{eg03bj16,jdbcType=VARCHAR},
+      </if>
+      <if test="eg03bj17 != null">
+        #{eg03bj17,jdbcType=VARCHAR},
+      </if>
+      <if test="eg03bj18 != null">
+        #{eg03bj18,jdbcType=VARCHAR},
+      </if>
+      <if test="eg03bj19 != null">
+        #{eg03bj19,jdbcType=VARCHAR},
+      </if>
+      <if test="eg03bj20 != null">
+        #{eg03bj20,jdbcType=VARCHAR},
+      </if>
+      <if test="eg03bj21 != null">
+        #{eg03bj21,jdbcType=VARCHAR},
+      </if>
+      <if test="eg03bj22 != null">
+        #{eg03bj22,jdbcType=VARCHAR},
+      </if>
+      <if test="eg03bj23 != null">
+        #{eg03bj23,jdbcType=VARCHAR},
+      </if>
+      <if test="eg03bj24 != null">
+        #{eg03bj24,jdbcType=VARCHAR},
+      </if>
+      <if test="eg03bj25 != null">
+        #{eg03bj25,jdbcType=VARCHAR},
+      </if>
+      <if test="eg03bj26 != null">
+        #{eg03bj26,jdbcType=VARCHAR},
+      </if>
+      <if test="eg03bj27 != null">
+        #{eg03bj27,jdbcType=VARCHAR},
+      </if>
+      <if test="eg03bj28 != null">
+        #{eg03bj28,jdbcType=VARCHAR},
+      </if>
+      <if test="eg03bj29 != null">
+        #{eg03bj29,jdbcType=VARCHAR},
+      </if>
+      <if test="eg03bj30 != null">
+        #{eg03bj30,jdbcType=VARCHAR},
+      </if>
+      <if test="eg03bj31 != null">
+        #{eg03bj31,jdbcType=VARCHAR},
+      </if>
+      <if test="eg03bj32 != null">
+        #{eg03bj32,jdbcType=VARCHAR},
+      </if>
+      <if test="eg03bj33 != null">
+        #{eg03bj33,jdbcType=VARCHAR},
+      </if>
+      <if test="eg03bj34 != null">
+        #{eg03bj34,jdbcType=VARCHAR},
+      </if>
+      <if test="eg03bj35 != null">
+        #{eg03bj35,jdbcType=VARCHAR},
+      </if>
+      <if test="eg03bj36 != null">
+        #{eg03bj36,jdbcType=VARCHAR},
+      </if>
+      <if test="eg03bj37 != null">
+        #{eg03bj37,jdbcType=VARCHAR},
+      </if>
+      <if test="eg03bj38 != null">
+        #{eg03bj38,jdbcType=VARCHAR},
+      </if>
+      <if test="eg03bj39 != null">
+        #{eg03bj39,jdbcType=VARCHAR},
+      </if>
+      <if test="eg03bj40 != null">
+        #{eg03bj40,jdbcType=VARCHAR},
+      </if>
+      <if test="eg03bj41 != null">
+        #{eg03bj41,jdbcType=VARCHAR},
+      </if>
+      <if test="eg03bj42 != null">
+        #{eg03bj42,jdbcType=VARCHAR},
+      </if>
+      <if test="eg03bj43 != null">
+        #{eg03bj43,jdbcType=VARCHAR},
+      </if>
+      <if test="eg03bj44 != null">
+        #{eg03bj44,jdbcType=VARCHAR},
+      </if>
+      <if test="eg03bj45 != null">
+        #{eg03bj45,jdbcType=VARCHAR},
+      </if>
+      <if test="eg03bj46 != null">
+        #{eg03bj46,jdbcType=VARCHAR},
+      </if>
+      <if test="eg03bj47 != null">
+        #{eg03bj47,jdbcType=VARCHAR},
+      </if>
+      <if test="eg03bj48 != null">
+        #{eg03bj48,jdbcType=VARCHAR},
+      </if>
+      <if test="eg03bj49 != null">
+        #{eg03bj49,jdbcType=VARCHAR},
+      </if>
+      <if test="eg03bj50 != null">
+        #{eg03bj50,jdbcType=VARCHAR},
+      </if>
+      <if test="eg03bj51 != null">
+        #{eg03bj51,jdbcType=VARCHAR},
+      </if>
+      <if test="eg03bj52 != null">
+        #{eg03bj52,jdbcType=VARCHAR},
+      </if>
+      <if test="eg03bj53 != null">
+        #{eg03bj53,jdbcType=VARCHAR},
+      </if>
+      <if test="eg03bj54 != null">
+        #{eg03bj54,jdbcType=VARCHAR},
+      </if>
+      <if test="eg03bj55 != null">
+        #{eg03bj55,jdbcType=VARCHAR},
+      </if>
+      <if test="eg03bj56 != null">
+        #{eg03bj56,jdbcType=VARCHAR},
+      </if>
+      <if test="eg03bj57 != null">
+        #{eg03bj57,jdbcType=VARCHAR},
+      </if>
+      <if test="eg03bj58 != null">
+        #{eg03bj58,jdbcType=VARCHAR},
+      </if>
+      <if test="eg03bj59 != null">
+        #{eg03bj59,jdbcType=VARCHAR},
+      </if>
+      <if test="eg03bj60 != null">
+        #{eg03bj60,jdbcType=VARCHAR},
+      </if>
+      <if test="eg03bj61 != null">
+        #{eg03bj61,jdbcType=VARCHAR},
+      </if>
+      <if test="eg03bj62 != null">
+        #{eg03bj62,jdbcType=VARCHAR},
+      </if>
+      <if test="eg03bj63 != null">
+        #{eg03bj63,jdbcType=VARCHAR},
+      </if>
+      <if test="eg03bj64 != null">
+        #{eg03bj64,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.zxjk.credit2query.pojo.Crt2CEntprofit02Example" resultType="java.lang.Long">
+    select count(*) from CRT2_C_ENTPROFIT02
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update CRT2_C_ENTPROFIT02
+    <set>
+      <if test="record.reportid != null">
+        REPORTID = #{record.reportid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.financeid != null">
+        FINANCEID = #{record.financeid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.mechanismtype != null">
+        MECHANISMTYPE = #{record.mechanismtype,jdbcType=VARCHAR},
+      </if>
+      <if test="record.mechanismcode != null">
+        MECHANISMCODE = #{record.mechanismcode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.profitinfodate != null">
+        PROFITINFODATE = #{record.profitinfodate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.profitinfotype != null">
+        PROFITINFOTYPE = #{record.profitinfotype,jdbcType=VARCHAR},
+      </if>
+      <if test="record.profitinfosubtype != null">
+        PROFITINFOSUBTYPE = #{record.profitinfosubtype,jdbcType=VARCHAR},
+      </if>
+      <if test="record.eg03bj01 != null">
+        EG03BJ01 = #{record.eg03bj01,jdbcType=VARCHAR},
+      </if>
+      <if test="record.eg03bj02 != null">
+        EG03BJ02 = #{record.eg03bj02,jdbcType=VARCHAR},
+      </if>
+      <if test="record.eg03bj03 != null">
+        EG03BJ03 = #{record.eg03bj03,jdbcType=VARCHAR},
+      </if>
+      <if test="record.eg03bj04 != null">
+        EG03BJ04 = #{record.eg03bj04,jdbcType=VARCHAR},
+      </if>
+      <if test="record.eg03bj05 != null">
+        EG03BJ05 = #{record.eg03bj05,jdbcType=VARCHAR},
+      </if>
+      <if test="record.eg03bj06 != null">
+        EG03BJ06 = #{record.eg03bj06,jdbcType=VARCHAR},
+      </if>
+      <if test="record.eg03bj07 != null">
+        EG03BJ07 = #{record.eg03bj07,jdbcType=VARCHAR},
+      </if>
+      <if test="record.eg03bj08 != null">
+        EG03BJ08 = #{record.eg03bj08,jdbcType=VARCHAR},
+      </if>
+      <if test="record.eg03bj09 != null">
+        EG03BJ09 = #{record.eg03bj09,jdbcType=VARCHAR},
+      </if>
+      <if test="record.eg03bj10 != null">
+        EG03BJ10 = #{record.eg03bj10,jdbcType=VARCHAR},
+      </if>
+      <if test="record.eg03bj11 != null">
+        EG03BJ11 = #{record.eg03bj11,jdbcType=VARCHAR},
+      </if>
+      <if test="record.eg03bj12 != null">
+        EG03BJ12 = #{record.eg03bj12,jdbcType=VARCHAR},
+      </if>
+      <if test="record.eg03bj13 != null">
+        EG03BJ13 = #{record.eg03bj13,jdbcType=VARCHAR},
+      </if>
+      <if test="record.eg03bj14 != null">
+        EG03BJ14 = #{record.eg03bj14,jdbcType=VARCHAR},
+      </if>
+      <if test="record.eg03bj15 != null">
+        EG03BJ15 = #{record.eg03bj15,jdbcType=VARCHAR},
+      </if>
+      <if test="record.eg03bj16 != null">
+        EG03BJ16 = #{record.eg03bj16,jdbcType=VARCHAR},
+      </if>
+      <if test="record.eg03bj17 != null">
+        EG03BJ17 = #{record.eg03bj17,jdbcType=VARCHAR},
+      </if>
+      <if test="record.eg03bj18 != null">
+        EG03BJ18 = #{record.eg03bj18,jdbcType=VARCHAR},
+      </if>
+      <if test="record.eg03bj19 != null">
+        EG03BJ19 = #{record.eg03bj19,jdbcType=VARCHAR},
+      </if>
+      <if test="record.eg03bj20 != null">
+        EG03BJ20 = #{record.eg03bj20,jdbcType=VARCHAR},
+      </if>
+      <if test="record.eg03bj21 != null">
+        EG03BJ21 = #{record.eg03bj21,jdbcType=VARCHAR},
+      </if>
+      <if test="record.eg03bj22 != null">
+        EG03BJ22 = #{record.eg03bj22,jdbcType=VARCHAR},
+      </if>
+      <if test="record.eg03bj23 != null">
+        EG03BJ23 = #{record.eg03bj23,jdbcType=VARCHAR},
+      </if>
+      <if test="record.eg03bj24 != null">
+        EG03BJ24 = #{record.eg03bj24,jdbcType=VARCHAR},
+      </if>
+      <if test="record.eg03bj25 != null">
+        EG03BJ25 = #{record.eg03bj25,jdbcType=VARCHAR},
+      </if>
+      <if test="record.eg03bj26 != null">
+        EG03BJ26 = #{record.eg03bj26,jdbcType=VARCHAR},
+      </if>
+      <if test="record.eg03bj27 != null">
+        EG03BJ27 = #{record.eg03bj27,jdbcType=VARCHAR},
+      </if>
+      <if test="record.eg03bj28 != null">
+        EG03BJ28 = #{record.eg03bj28,jdbcType=VARCHAR},
+      </if>
+      <if test="record.eg03bj29 != null">
+        EG03BJ29 = #{record.eg03bj29,jdbcType=VARCHAR},
+      </if>
+      <if test="record.eg03bj30 != null">
+        EG03BJ30 = #{record.eg03bj30,jdbcType=VARCHAR},
+      </if>
+      <if test="record.eg03bj31 != null">
+        EG03BJ31 = #{record.eg03bj31,jdbcType=VARCHAR},
+      </if>
+      <if test="record.eg03bj32 != null">
+        EG03BJ32 = #{record.eg03bj32,jdbcType=VARCHAR},
+      </if>
+      <if test="record.eg03bj33 != null">
+        EG03BJ33 = #{record.eg03bj33,jdbcType=VARCHAR},
+      </if>
+      <if test="record.eg03bj34 != null">
+        EG03BJ34 = #{record.eg03bj34,jdbcType=VARCHAR},
+      </if>
+      <if test="record.eg03bj35 != null">
+        EG03BJ35 = #{record.eg03bj35,jdbcType=VARCHAR},
+      </if>
+      <if test="record.eg03bj36 != null">
+        EG03BJ36 = #{record.eg03bj36,jdbcType=VARCHAR},
+      </if>
+      <if test="record.eg03bj37 != null">
+        EG03BJ37 = #{record.eg03bj37,jdbcType=VARCHAR},
+      </if>
+      <if test="record.eg03bj38 != null">
+        EG03BJ38 = #{record.eg03bj38,jdbcType=VARCHAR},
+      </if>
+      <if test="record.eg03bj39 != null">
+        EG03BJ39 = #{record.eg03bj39,jdbcType=VARCHAR},
+      </if>
+      <if test="record.eg03bj40 != null">
+        EG03BJ40 = #{record.eg03bj40,jdbcType=VARCHAR},
+      </if>
+      <if test="record.eg03bj41 != null">
+        EG03BJ41 = #{record.eg03bj41,jdbcType=VARCHAR},
+      </if>
+      <if test="record.eg03bj42 != null">
+        EG03BJ42 = #{record.eg03bj42,jdbcType=VARCHAR},
+      </if>
+      <if test="record.eg03bj43 != null">
+        EG03BJ43 = #{record.eg03bj43,jdbcType=VARCHAR},
+      </if>
+      <if test="record.eg03bj44 != null">
+        EG03BJ44 = #{record.eg03bj44,jdbcType=VARCHAR},
+      </if>
+      <if test="record.eg03bj45 != null">
+        EG03BJ45 = #{record.eg03bj45,jdbcType=VARCHAR},
+      </if>
+      <if test="record.eg03bj46 != null">
+        EG03BJ46 = #{record.eg03bj46,jdbcType=VARCHAR},
+      </if>
+      <if test="record.eg03bj47 != null">
+        EG03BJ47 = #{record.eg03bj47,jdbcType=VARCHAR},
+      </if>
+      <if test="record.eg03bj48 != null">
+        EG03BJ48 = #{record.eg03bj48,jdbcType=VARCHAR},
+      </if>
+      <if test="record.eg03bj49 != null">
+        EG03BJ49 = #{record.eg03bj49,jdbcType=VARCHAR},
+      </if>
+      <if test="record.eg03bj50 != null">
+        EG03BJ50 = #{record.eg03bj50,jdbcType=VARCHAR},
+      </if>
+      <if test="record.eg03bj51 != null">
+        EG03BJ51 = #{record.eg03bj51,jdbcType=VARCHAR},
+      </if>
+      <if test="record.eg03bj52 != null">
+        EG03BJ52 = #{record.eg03bj52,jdbcType=VARCHAR},
+      </if>
+      <if test="record.eg03bj53 != null">
+        EG03BJ53 = #{record.eg03bj53,jdbcType=VARCHAR},
+      </if>
+      <if test="record.eg03bj54 != null">
+        EG03BJ54 = #{record.eg03bj54,jdbcType=VARCHAR},
+      </if>
+      <if test="record.eg03bj55 != null">
+        EG03BJ55 = #{record.eg03bj55,jdbcType=VARCHAR},
+      </if>
+      <if test="record.eg03bj56 != null">
+        EG03BJ56 = #{record.eg03bj56,jdbcType=VARCHAR},
+      </if>
+      <if test="record.eg03bj57 != null">
+        EG03BJ57 = #{record.eg03bj57,jdbcType=VARCHAR},
+      </if>
+      <if test="record.eg03bj58 != null">
+        EG03BJ58 = #{record.eg03bj58,jdbcType=VARCHAR},
+      </if>
+      <if test="record.eg03bj59 != null">
+        EG03BJ59 = #{record.eg03bj59,jdbcType=VARCHAR},
+      </if>
+      <if test="record.eg03bj60 != null">
+        EG03BJ60 = #{record.eg03bj60,jdbcType=VARCHAR},
+      </if>
+      <if test="record.eg03bj61 != null">
+        EG03BJ61 = #{record.eg03bj61,jdbcType=VARCHAR},
+      </if>
+      <if test="record.eg03bj62 != null">
+        EG03BJ62 = #{record.eg03bj62,jdbcType=VARCHAR},
+      </if>
+      <if test="record.eg03bj63 != null">
+        EG03BJ63 = #{record.eg03bj63,jdbcType=VARCHAR},
+      </if>
+      <if test="record.eg03bj64 != null">
+        EG03BJ64 = #{record.eg03bj64,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update CRT2_C_ENTPROFIT02
+    set REPORTID = #{record.reportid,jdbcType=VARCHAR},
+      FINANCEID = #{record.financeid,jdbcType=VARCHAR},
+      MECHANISMTYPE = #{record.mechanismtype,jdbcType=VARCHAR},
+      MECHANISMCODE = #{record.mechanismcode,jdbcType=VARCHAR},
+      PROFITINFODATE = #{record.profitinfodate,jdbcType=VARCHAR},
+      PROFITINFOTYPE = #{record.profitinfotype,jdbcType=VARCHAR},
+      PROFITINFOSUBTYPE = #{record.profitinfosubtype,jdbcType=VARCHAR},
+      EG03BJ01 = #{record.eg03bj01,jdbcType=VARCHAR},
+      EG03BJ02 = #{record.eg03bj02,jdbcType=VARCHAR},
+      EG03BJ03 = #{record.eg03bj03,jdbcType=VARCHAR},
+      EG03BJ04 = #{record.eg03bj04,jdbcType=VARCHAR},
+      EG03BJ05 = #{record.eg03bj05,jdbcType=VARCHAR},
+      EG03BJ06 = #{record.eg03bj06,jdbcType=VARCHAR},
+      EG03BJ07 = #{record.eg03bj07,jdbcType=VARCHAR},
+      EG03BJ08 = #{record.eg03bj08,jdbcType=VARCHAR},
+      EG03BJ09 = #{record.eg03bj09,jdbcType=VARCHAR},
+      EG03BJ10 = #{record.eg03bj10,jdbcType=VARCHAR},
+      EG03BJ11 = #{record.eg03bj11,jdbcType=VARCHAR},
+      EG03BJ12 = #{record.eg03bj12,jdbcType=VARCHAR},
+      EG03BJ13 = #{record.eg03bj13,jdbcType=VARCHAR},
+      EG03BJ14 = #{record.eg03bj14,jdbcType=VARCHAR},
+      EG03BJ15 = #{record.eg03bj15,jdbcType=VARCHAR},
+      EG03BJ16 = #{record.eg03bj16,jdbcType=VARCHAR},
+      EG03BJ17 = #{record.eg03bj17,jdbcType=VARCHAR},
+      EG03BJ18 = #{record.eg03bj18,jdbcType=VARCHAR},
+      EG03BJ19 = #{record.eg03bj19,jdbcType=VARCHAR},
+      EG03BJ20 = #{record.eg03bj20,jdbcType=VARCHAR},
+      EG03BJ21 = #{record.eg03bj21,jdbcType=VARCHAR},
+      EG03BJ22 = #{record.eg03bj22,jdbcType=VARCHAR},
+      EG03BJ23 = #{record.eg03bj23,jdbcType=VARCHAR},
+      EG03BJ24 = #{record.eg03bj24,jdbcType=VARCHAR},
+      EG03BJ25 = #{record.eg03bj25,jdbcType=VARCHAR},
+      EG03BJ26 = #{record.eg03bj26,jdbcType=VARCHAR},
+      EG03BJ27 = #{record.eg03bj27,jdbcType=VARCHAR},
+      EG03BJ28 = #{record.eg03bj28,jdbcType=VARCHAR},
+      EG03BJ29 = #{record.eg03bj29,jdbcType=VARCHAR},
+      EG03BJ30 = #{record.eg03bj30,jdbcType=VARCHAR},
+      EG03BJ31 = #{record.eg03bj31,jdbcType=VARCHAR},
+      EG03BJ32 = #{record.eg03bj32,jdbcType=VARCHAR},
+      EG03BJ33 = #{record.eg03bj33,jdbcType=VARCHAR},
+      EG03BJ34 = #{record.eg03bj34,jdbcType=VARCHAR},
+      EG03BJ35 = #{record.eg03bj35,jdbcType=VARCHAR},
+      EG03BJ36 = #{record.eg03bj36,jdbcType=VARCHAR},
+      EG03BJ37 = #{record.eg03bj37,jdbcType=VARCHAR},
+      EG03BJ38 = #{record.eg03bj38,jdbcType=VARCHAR},
+      EG03BJ39 = #{record.eg03bj39,jdbcType=VARCHAR},
+      EG03BJ40 = #{record.eg03bj40,jdbcType=VARCHAR},
+      EG03BJ41 = #{record.eg03bj41,jdbcType=VARCHAR},
+      EG03BJ42 = #{record.eg03bj42,jdbcType=VARCHAR},
+      EG03BJ43 = #{record.eg03bj43,jdbcType=VARCHAR},
+      EG03BJ44 = #{record.eg03bj44,jdbcType=VARCHAR},
+      EG03BJ45 = #{record.eg03bj45,jdbcType=VARCHAR},
+      EG03BJ46 = #{record.eg03bj46,jdbcType=VARCHAR},
+      EG03BJ47 = #{record.eg03bj47,jdbcType=VARCHAR},
+      EG03BJ48 = #{record.eg03bj48,jdbcType=VARCHAR},
+      EG03BJ49 = #{record.eg03bj49,jdbcType=VARCHAR},
+      EG03BJ50 = #{record.eg03bj50,jdbcType=VARCHAR},
+      EG03BJ51 = #{record.eg03bj51,jdbcType=VARCHAR},
+      EG03BJ52 = #{record.eg03bj52,jdbcType=VARCHAR},
+      EG03BJ53 = #{record.eg03bj53,jdbcType=VARCHAR},
+      EG03BJ54 = #{record.eg03bj54,jdbcType=VARCHAR},
+      EG03BJ55 = #{record.eg03bj55,jdbcType=VARCHAR},
+      EG03BJ56 = #{record.eg03bj56,jdbcType=VARCHAR},
+      EG03BJ57 = #{record.eg03bj57,jdbcType=VARCHAR},
+      EG03BJ58 = #{record.eg03bj58,jdbcType=VARCHAR},
+      EG03BJ59 = #{record.eg03bj59,jdbcType=VARCHAR},
+      EG03BJ60 = #{record.eg03bj60,jdbcType=VARCHAR},
+      EG03BJ61 = #{record.eg03bj61,jdbcType=VARCHAR},
+      EG03BJ62 = #{record.eg03bj62,jdbcType=VARCHAR},
+      EG03BJ63 = #{record.eg03bj63,jdbcType=VARCHAR},
+      EG03BJ64 = #{record.eg03bj64,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+</mapper>

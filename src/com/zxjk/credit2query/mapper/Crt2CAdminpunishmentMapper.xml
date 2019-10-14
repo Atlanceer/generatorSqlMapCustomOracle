@@ -1,0 +1,466 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zxjk.credit2query.mapper.Crt2CAdminpunishmentMapper">
+  <resultMap id="BaseResultMap" type="com.zxjk.credit2query.pojo.Crt2CAdminpunishment">
+    <result column="REPORTID" jdbcType="VARCHAR" property="reportid" />
+    <result column="PENALTYID" jdbcType="VARCHAR" property="penaltyid" />
+    <result column="PUNISHMENTAUTHORITY" jdbcType="VARCHAR" property="punishmentauthority" />
+    <result column="PUNISHMENTDOCUMENTNUM" jdbcType="VARCHAR" property="punishmentdocumentnum" />
+    <result column="ILLEGALACTION" jdbcType="VARCHAR" property="illegalaction" />
+    <result column="PUNISHDECIDE" jdbcType="VARCHAR" property="punishdecide" />
+    <result column="PUNISHMENTDATE" jdbcType="VARCHAR" property="punishmentdate" />
+    <result column="PUNISHMENTAMOUNT" jdbcType="VARCHAR" property="punishmentamount" />
+    <result column="PUNISHMENTIMPLEMENTATION" jdbcType="VARCHAR" property="punishmentimplementation" />
+    <result column="RESULT" jdbcType="VARCHAR" property="result" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    REPORTID, PENALTYID, PUNISHMENTAUTHORITY, PUNISHMENTDOCUMENTNUM, ILLEGALACTION, PUNISHDECIDE, 
+    PUNISHMENTDATE, PUNISHMENTAMOUNT, PUNISHMENTIMPLEMENTATION, RESULT
+  </sql>
+  <select id="selectByExample" parameterType="com.zxjk.credit2query.pojo.Crt2CAdminpunishmentExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from CRT2_C_ADMINPUNISHMENT
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <delete id="deleteByExample" parameterType="com.zxjk.credit2query.pojo.Crt2CAdminpunishmentExample">
+    delete from CRT2_C_ADMINPUNISHMENT
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.zxjk.credit2query.pojo.Crt2CAdminpunishment">
+    insert into CRT2_C_ADMINPUNISHMENT (REPORTID, PENALTYID, PUNISHMENTAUTHORITY, 
+      PUNISHMENTDOCUMENTNUM, ILLEGALACTION, PUNISHDECIDE, 
+      PUNISHMENTDATE, PUNISHMENTAMOUNT, PUNISHMENTIMPLEMENTATION, 
+      RESULT)
+    values (#{reportid,jdbcType=VARCHAR}, #{penaltyid,jdbcType=VARCHAR}, #{punishmentauthority,jdbcType=VARCHAR}, 
+      #{punishmentdocumentnum,jdbcType=VARCHAR}, #{illegalaction,jdbcType=VARCHAR}, #{punishdecide,jdbcType=VARCHAR}, 
+      #{punishmentdate,jdbcType=VARCHAR}, #{punishmentamount,jdbcType=VARCHAR}, #{punishmentimplementation,jdbcType=VARCHAR}, 
+      #{result,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.zxjk.credit2query.pojo.Crt2CAdminpunishment">
+    insert into CRT2_C_ADMINPUNISHMENT
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="reportid != null">
+        REPORTID,
+      </if>
+      <if test="penaltyid != null">
+        PENALTYID,
+      </if>
+      <if test="punishmentauthority != null">
+        PUNISHMENTAUTHORITY,
+      </if>
+      <if test="punishmentdocumentnum != null">
+        PUNISHMENTDOCUMENTNUM,
+      </if>
+      <if test="illegalaction != null">
+        ILLEGALACTION,
+      </if>
+      <if test="punishdecide != null">
+        PUNISHDECIDE,
+      </if>
+      <if test="punishmentdate != null">
+        PUNISHMENTDATE,
+      </if>
+      <if test="punishmentamount != null">
+        PUNISHMENTAMOUNT,
+      </if>
+      <if test="punishmentimplementation != null">
+        PUNISHMENTIMPLEMENTATION,
+      </if>
+      <if test="result != null">
+        RESULT,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="reportid != null">
+        #{reportid,jdbcType=VARCHAR},
+      </if>
+      <if test="penaltyid != null">
+        #{penaltyid,jdbcType=VARCHAR},
+      </if>
+      <if test="punishmentauthority != null">
+        #{punishmentauthority,jdbcType=VARCHAR},
+      </if>
+      <if test="punishmentdocumentnum != null">
+        #{punishmentdocumentnum,jdbcType=VARCHAR},
+      </if>
+      <if test="illegalaction != null">
+        #{illegalaction,jdbcType=VARCHAR},
+      </if>
+      <if test="punishdecide != null">
+        #{punishdecide,jdbcType=VARCHAR},
+      </if>
+      <if test="punishmentdate != null">
+        #{punishmentdate,jdbcType=VARCHAR},
+      </if>
+      <if test="punishmentamount != null">
+        #{punishmentamount,jdbcType=VARCHAR},
+      </if>
+      <if test="punishmentimplementation != null">
+        #{punishmentimplementation,jdbcType=VARCHAR},
+      </if>
+      <if test="result != null">
+        #{result,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.zxjk.credit2query.pojo.Crt2CAdminpunishmentExample" resultType="java.lang.Long">
+    select count(*) from CRT2_C_ADMINPUNISHMENT
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update CRT2_C_ADMINPUNISHMENT
+    <set>
+      <if test="record.reportid != null">
+        REPORTID = #{record.reportid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.penaltyid != null">
+        PENALTYID = #{record.penaltyid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.punishmentauthority != null">
+        PUNISHMENTAUTHORITY = #{record.punishmentauthority,jdbcType=VARCHAR},
+      </if>
+      <if test="record.punishmentdocumentnum != null">
+        PUNISHMENTDOCUMENTNUM = #{record.punishmentdocumentnum,jdbcType=VARCHAR},
+      </if>
+      <if test="record.illegalaction != null">
+        ILLEGALACTION = #{record.illegalaction,jdbcType=VARCHAR},
+      </if>
+      <if test="record.punishdecide != null">
+        PUNISHDECIDE = #{record.punishdecide,jdbcType=VARCHAR},
+      </if>
+      <if test="record.punishmentdate != null">
+        PUNISHMENTDATE = #{record.punishmentdate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.punishmentamount != null">
+        PUNISHMENTAMOUNT = #{record.punishmentamount,jdbcType=VARCHAR},
+      </if>
+      <if test="record.punishmentimplementation != null">
+        PUNISHMENTIMPLEMENTATION = #{record.punishmentimplementation,jdbcType=VARCHAR},
+      </if>
+      <if test="record.result != null">
+        RESULT = #{record.result,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update CRT2_C_ADMINPUNISHMENT
+    set REPORTID = #{record.reportid,jdbcType=VARCHAR},
+      PENALTYID = #{record.penaltyid,jdbcType=VARCHAR},
+      PUNISHMENTAUTHORITY = #{record.punishmentauthority,jdbcType=VARCHAR},
+      PUNISHMENTDOCUMENTNUM = #{record.punishmentdocumentnum,jdbcType=VARCHAR},
+      ILLEGALACTION = #{record.illegalaction,jdbcType=VARCHAR},
+      PUNISHDECIDE = #{record.punishdecide,jdbcType=VARCHAR},
+      PUNISHMENTDATE = #{record.punishmentdate,jdbcType=VARCHAR},
+      PUNISHMENTAMOUNT = #{record.punishmentamount,jdbcType=VARCHAR},
+      PUNISHMENTIMPLEMENTATION = #{record.punishmentimplementation,jdbcType=VARCHAR},
+      RESULT = #{record.result,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <resultMap id="BaseResultMap" type="com.zxjk.credit2query.pojo.Crt2CAdminpunishment">
+    <result column="REPORTID" jdbcType="VARCHAR" property="reportid" />
+    <result column="PENALTYID" jdbcType="VARCHAR" property="penaltyid" />
+    <result column="PUNISHMENTAUTHORITY" jdbcType="VARCHAR" property="punishmentauthority" />
+    <result column="PUNISHMENTDOCUMENTNUM" jdbcType="VARCHAR" property="punishmentdocumentnum" />
+    <result column="ILLEGALACTION" jdbcType="VARCHAR" property="illegalaction" />
+    <result column="PUNISHMENTDATE" jdbcType="VARCHAR" property="punishmentdate" />
+    <result column="PUNISHDECIDE" jdbcType="VARCHAR" property="punishdecide" />
+    <result column="PUNISHMENTAMOUNT" jdbcType="VARCHAR" property="punishmentamount" />
+    <result column="PUNISHMENTIMPLEMENTATION" jdbcType="VARCHAR" property="punishmentimplementation" />
+    <result column="RESULT" jdbcType="VARCHAR" property="result" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    REPORTID, PENALTYID, PUNISHMENTAUTHORITY, PUNISHMENTDOCUMENTNUM, ILLEGALACTION, PUNISHMENTDATE, 
+    PUNISHDECIDE, PUNISHMENTAMOUNT, PUNISHMENTIMPLEMENTATION, RESULT
+  </sql>
+  <select id="selectByExample" parameterType="com.zxjk.credit2query.pojo.Crt2CAdminpunishmentExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from CRT2_C_ADMINPUNISHMENT
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <delete id="deleteByExample" parameterType="com.zxjk.credit2query.pojo.Crt2CAdminpunishmentExample">
+    delete from CRT2_C_ADMINPUNISHMENT
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.zxjk.credit2query.pojo.Crt2CAdminpunishment">
+    insert into CRT2_C_ADMINPUNISHMENT (REPORTID, PENALTYID, PUNISHMENTAUTHORITY, 
+      PUNISHMENTDOCUMENTNUM, ILLEGALACTION, PUNISHMENTDATE, 
+      PUNISHDECIDE, PUNISHMENTAMOUNT, PUNISHMENTIMPLEMENTATION, 
+      RESULT)
+    values (#{reportid,jdbcType=VARCHAR}, #{penaltyid,jdbcType=VARCHAR}, #{punishmentauthority,jdbcType=VARCHAR}, 
+      #{punishmentdocumentnum,jdbcType=VARCHAR}, #{illegalaction,jdbcType=VARCHAR}, #{punishmentdate,jdbcType=VARCHAR}, 
+      #{punishdecide,jdbcType=VARCHAR}, #{punishmentamount,jdbcType=VARCHAR}, #{punishmentimplementation,jdbcType=VARCHAR}, 
+      #{result,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.zxjk.credit2query.pojo.Crt2CAdminpunishment">
+    insert into CRT2_C_ADMINPUNISHMENT
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="reportid != null">
+        REPORTID,
+      </if>
+      <if test="penaltyid != null">
+        PENALTYID,
+      </if>
+      <if test="punishmentauthority != null">
+        PUNISHMENTAUTHORITY,
+      </if>
+      <if test="punishmentdocumentnum != null">
+        PUNISHMENTDOCUMENTNUM,
+      </if>
+      <if test="illegalaction != null">
+        ILLEGALACTION,
+      </if>
+      <if test="punishmentdate != null">
+        PUNISHMENTDATE,
+      </if>
+      <if test="punishdecide != null">
+        PUNISHDECIDE,
+      </if>
+      <if test="punishmentamount != null">
+        PUNISHMENTAMOUNT,
+      </if>
+      <if test="punishmentimplementation != null">
+        PUNISHMENTIMPLEMENTATION,
+      </if>
+      <if test="result != null">
+        RESULT,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="reportid != null">
+        #{reportid,jdbcType=VARCHAR},
+      </if>
+      <if test="penaltyid != null">
+        #{penaltyid,jdbcType=VARCHAR},
+      </if>
+      <if test="punishmentauthority != null">
+        #{punishmentauthority,jdbcType=VARCHAR},
+      </if>
+      <if test="punishmentdocumentnum != null">
+        #{punishmentdocumentnum,jdbcType=VARCHAR},
+      </if>
+      <if test="illegalaction != null">
+        #{illegalaction,jdbcType=VARCHAR},
+      </if>
+      <if test="punishmentdate != null">
+        #{punishmentdate,jdbcType=VARCHAR},
+      </if>
+      <if test="punishdecide != null">
+        #{punishdecide,jdbcType=VARCHAR},
+      </if>
+      <if test="punishmentamount != null">
+        #{punishmentamount,jdbcType=VARCHAR},
+      </if>
+      <if test="punishmentimplementation != null">
+        #{punishmentimplementation,jdbcType=VARCHAR},
+      </if>
+      <if test="result != null">
+        #{result,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.zxjk.credit2query.pojo.Crt2CAdminpunishmentExample" resultType="java.lang.Long">
+    select count(*) from CRT2_C_ADMINPUNISHMENT
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update CRT2_C_ADMINPUNISHMENT
+    <set>
+      <if test="record.reportid != null">
+        REPORTID = #{record.reportid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.penaltyid != null">
+        PENALTYID = #{record.penaltyid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.punishmentauthority != null">
+        PUNISHMENTAUTHORITY = #{record.punishmentauthority,jdbcType=VARCHAR},
+      </if>
+      <if test="record.punishmentdocumentnum != null">
+        PUNISHMENTDOCUMENTNUM = #{record.punishmentdocumentnum,jdbcType=VARCHAR},
+      </if>
+      <if test="record.illegalaction != null">
+        ILLEGALACTION = #{record.illegalaction,jdbcType=VARCHAR},
+      </if>
+      <if test="record.punishmentdate != null">
+        PUNISHMENTDATE = #{record.punishmentdate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.punishdecide != null">
+        PUNISHDECIDE = #{record.punishdecide,jdbcType=VARCHAR},
+      </if>
+      <if test="record.punishmentamount != null">
+        PUNISHMENTAMOUNT = #{record.punishmentamount,jdbcType=VARCHAR},
+      </if>
+      <if test="record.punishmentimplementation != null">
+        PUNISHMENTIMPLEMENTATION = #{record.punishmentimplementation,jdbcType=VARCHAR},
+      </if>
+      <if test="record.result != null">
+        RESULT = #{record.result,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update CRT2_C_ADMINPUNISHMENT
+    set REPORTID = #{record.reportid,jdbcType=VARCHAR},
+      PENALTYID = #{record.penaltyid,jdbcType=VARCHAR},
+      PUNISHMENTAUTHORITY = #{record.punishmentauthority,jdbcType=VARCHAR},
+      PUNISHMENTDOCUMENTNUM = #{record.punishmentdocumentnum,jdbcType=VARCHAR},
+      ILLEGALACTION = #{record.illegalaction,jdbcType=VARCHAR},
+      PUNISHMENTDATE = #{record.punishmentdate,jdbcType=VARCHAR},
+      PUNISHDECIDE = #{record.punishdecide,jdbcType=VARCHAR},
+      PUNISHMENTAMOUNT = #{record.punishmentamount,jdbcType=VARCHAR},
+      PUNISHMENTIMPLEMENTATION = #{record.punishmentimplementation,jdbcType=VARCHAR},
+      RESULT = #{record.result,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+</mapper>

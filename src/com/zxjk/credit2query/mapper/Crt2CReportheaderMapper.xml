@@ -1,0 +1,559 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zxjk.credit2query.mapper.Crt2CReportheaderMapper">
+  <resultMap id="BaseResultMap" type="com.zxjk.credit2query.pojo.Crt2CReportheader">
+    <result column="REPORTID" jdbcType="VARCHAR" property="reportid" />
+    <result column="REPORTDATE" jdbcType="VARCHAR" property="reportdate" />
+    <result column="QUERYORGCODE" jdbcType="VARCHAR" property="queryorgcode" />
+    <result column="QUERYREASON" jdbcType="VARCHAR" property="queryreason" />
+    <result column="ENTERPRISENAME" jdbcType="VARCHAR" property="enterprisename" />
+    <result column="ENTERPRISEIDNUM" jdbcType="VARCHAR" property="enterpriseidnum" />
+    <result column="ENTERPRISEIDTYPE" jdbcType="VARCHAR" property="enterpriseidtype" />
+    <result column="ENTERPRISEIDNUMBER" jdbcType="VARCHAR" property="enterpriseidnumber" />
+    <result column="NUMOBJECTIONS" jdbcType="VARCHAR" property="numobjections" />
+    <result column="EXCHANGERATE" jdbcType="VARCHAR" property="exchangerate" />
+    <result column="EXCHANGERATEDATE" jdbcType="VARCHAR" property="exchangeratedate" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    REPORTID, REPORTDATE, QUERYORGCODE, QUERYREASON, ENTERPRISENAME, ENTERPRISEIDNUM, 
+    ENTERPRISEIDTYPE, ENTERPRISEIDNUMBER, NUMOBJECTIONS, EXCHANGERATE, EXCHANGERATEDATE
+  </sql>
+  <select id="selectByExample" parameterType="com.zxjk.credit2query.pojo.Crt2CReportheaderExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from CRT2_C_REPORTHEADER
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <delete id="deleteByExample" parameterType="com.zxjk.credit2query.pojo.Crt2CReportheaderExample">
+    delete from CRT2_C_REPORTHEADER
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.zxjk.credit2query.pojo.Crt2CReportheader">
+    insert into CRT2_C_REPORTHEADER (REPORTID, REPORTDATE, QUERYORGCODE, 
+      QUERYREASON, ENTERPRISENAME, ENTERPRISEIDNUM, 
+      ENTERPRISEIDTYPE, ENTERPRISEIDNUMBER, NUMOBJECTIONS, 
+      EXCHANGERATE, EXCHANGERATEDATE)
+    values (#{reportid,jdbcType=VARCHAR}, #{reportdate,jdbcType=VARCHAR}, #{queryorgcode,jdbcType=VARCHAR}, 
+      #{queryreason,jdbcType=VARCHAR}, #{enterprisename,jdbcType=VARCHAR}, #{enterpriseidnum,jdbcType=VARCHAR}, 
+      #{enterpriseidtype,jdbcType=VARCHAR}, #{enterpriseidnumber,jdbcType=VARCHAR}, #{numobjections,jdbcType=VARCHAR}, 
+      #{exchangerate,jdbcType=VARCHAR}, #{exchangeratedate,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.zxjk.credit2query.pojo.Crt2CReportheader">
+    insert into CRT2_C_REPORTHEADER
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="reportid != null">
+        REPORTID,
+      </if>
+      <if test="reportdate != null">
+        REPORTDATE,
+      </if>
+      <if test="queryorgcode != null">
+        QUERYORGCODE,
+      </if>
+      <if test="queryreason != null">
+        QUERYREASON,
+      </if>
+      <if test="enterprisename != null">
+        ENTERPRISENAME,
+      </if>
+      <if test="enterpriseidnum != null">
+        ENTERPRISEIDNUM,
+      </if>
+      <if test="enterpriseidtype != null">
+        ENTERPRISEIDTYPE,
+      </if>
+      <if test="enterpriseidnumber != null">
+        ENTERPRISEIDNUMBER,
+      </if>
+      <if test="numobjections != null">
+        NUMOBJECTIONS,
+      </if>
+      <if test="exchangerate != null">
+        EXCHANGERATE,
+      </if>
+      <if test="exchangeratedate != null">
+        EXCHANGERATEDATE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="reportid != null">
+        #{reportid,jdbcType=VARCHAR},
+      </if>
+      <if test="reportdate != null">
+        #{reportdate,jdbcType=VARCHAR},
+      </if>
+      <if test="queryorgcode != null">
+        #{queryorgcode,jdbcType=VARCHAR},
+      </if>
+      <if test="queryreason != null">
+        #{queryreason,jdbcType=VARCHAR},
+      </if>
+      <if test="enterprisename != null">
+        #{enterprisename,jdbcType=VARCHAR},
+      </if>
+      <if test="enterpriseidnum != null">
+        #{enterpriseidnum,jdbcType=VARCHAR},
+      </if>
+      <if test="enterpriseidtype != null">
+        #{enterpriseidtype,jdbcType=VARCHAR},
+      </if>
+      <if test="enterpriseidnumber != null">
+        #{enterpriseidnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="numobjections != null">
+        #{numobjections,jdbcType=VARCHAR},
+      </if>
+      <if test="exchangerate != null">
+        #{exchangerate,jdbcType=VARCHAR},
+      </if>
+      <if test="exchangeratedate != null">
+        #{exchangeratedate,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.zxjk.credit2query.pojo.Crt2CReportheaderExample" resultType="java.lang.Long">
+    select count(*) from CRT2_C_REPORTHEADER
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update CRT2_C_REPORTHEADER
+    <set>
+      <if test="record.reportid != null">
+        REPORTID = #{record.reportid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.reportdate != null">
+        REPORTDATE = #{record.reportdate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.queryorgcode != null">
+        QUERYORGCODE = #{record.queryorgcode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.queryreason != null">
+        QUERYREASON = #{record.queryreason,jdbcType=VARCHAR},
+      </if>
+      <if test="record.enterprisename != null">
+        ENTERPRISENAME = #{record.enterprisename,jdbcType=VARCHAR},
+      </if>
+      <if test="record.enterpriseidnum != null">
+        ENTERPRISEIDNUM = #{record.enterpriseidnum,jdbcType=VARCHAR},
+      </if>
+      <if test="record.enterpriseidtype != null">
+        ENTERPRISEIDTYPE = #{record.enterpriseidtype,jdbcType=VARCHAR},
+      </if>
+      <if test="record.enterpriseidnumber != null">
+        ENTERPRISEIDNUMBER = #{record.enterpriseidnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="record.numobjections != null">
+        NUMOBJECTIONS = #{record.numobjections,jdbcType=VARCHAR},
+      </if>
+      <if test="record.exchangerate != null">
+        EXCHANGERATE = #{record.exchangerate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.exchangeratedate != null">
+        EXCHANGERATEDATE = #{record.exchangeratedate,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update CRT2_C_REPORTHEADER
+    set REPORTID = #{record.reportid,jdbcType=VARCHAR},
+      REPORTDATE = #{record.reportdate,jdbcType=VARCHAR},
+      QUERYORGCODE = #{record.queryorgcode,jdbcType=VARCHAR},
+      QUERYREASON = #{record.queryreason,jdbcType=VARCHAR},
+      ENTERPRISENAME = #{record.enterprisename,jdbcType=VARCHAR},
+      ENTERPRISEIDNUM = #{record.enterpriseidnum,jdbcType=VARCHAR},
+      ENTERPRISEIDTYPE = #{record.enterpriseidtype,jdbcType=VARCHAR},
+      ENTERPRISEIDNUMBER = #{record.enterpriseidnumber,jdbcType=VARCHAR},
+      NUMOBJECTIONS = #{record.numobjections,jdbcType=VARCHAR},
+      EXCHANGERATE = #{record.exchangerate,jdbcType=VARCHAR},
+      EXCHANGERATEDATE = #{record.exchangeratedate,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <resultMap id="BaseResultMap" type="com.zxjk.credit2query.pojo.Crt2CReportheader">
+    <result column="REPORTID" jdbcType="VARCHAR" property="reportid" />
+    <result column="REPORTSN" jdbcType="VARCHAR" property="reportsn" />
+    <result column="REPORTTYPE" jdbcType="VARCHAR" property="reporttype" />
+    <result column="COMPANYNAME" jdbcType="VARCHAR" property="companyname" />
+    <result column="CREDITCODE" jdbcType="VARCHAR" property="creditcode" />
+    <result column="LOANCARDNO" jdbcType="VARCHAR" property="loancardno" />
+    <result column="QUERYREASON" jdbcType="VARCHAR" property="queryreason" />
+    <result column="QUERYORGCODE" jdbcType="VARCHAR" property="queryorgcode" />
+    <result column="USERCODE" jdbcType="VARCHAR" property="usercode" />
+    <result column="REPORTDATE" jdbcType="VARCHAR" property="reportdate" />
+    <result column="ENTERPRISENAME" jdbcType="VARCHAR" property="enterprisename" />
+    <result column="ENTERPRISEIDNUM" jdbcType="VARCHAR" property="enterpriseidnum" />
+    <result column="ENTERPRISEIDTYPE" jdbcType="VARCHAR" property="enterpriseidtype" />
+    <result column="ENTERPRISEIDNUMBER" jdbcType="VARCHAR" property="enterpriseidnumber" />
+    <result column="NUMOBJECTIONS" jdbcType="VARCHAR" property="numobjections" />
+    <result column="EXCHANGERATE" jdbcType="VARCHAR" property="exchangerate" />
+    <result column="EXCHANGERATEDATE" jdbcType="VARCHAR" property="exchangeratedate" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    REPORTID, REPORTSN, REPORTTYPE, COMPANYNAME, CREDITCODE, LOANCARDNO, QUERYREASON, 
+    QUERYORGCODE, USERCODE, REPORTDATE, ENTERPRISENAME, ENTERPRISEIDNUM, ENTERPRISEIDTYPE, 
+    ENTERPRISEIDNUMBER, NUMOBJECTIONS, EXCHANGERATE, EXCHANGERATEDATE
+  </sql>
+  <select id="selectByExample" parameterType="com.zxjk.credit2query.pojo.Crt2CReportheaderExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from CRT2_C_REPORTHEADER
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <delete id="deleteByExample" parameterType="com.zxjk.credit2query.pojo.Crt2CReportheaderExample">
+    delete from CRT2_C_REPORTHEADER
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.zxjk.credit2query.pojo.Crt2CReportheader">
+    insert into CRT2_C_REPORTHEADER (REPORTID, REPORTSN, REPORTTYPE, 
+      COMPANYNAME, CREDITCODE, LOANCARDNO, 
+      QUERYREASON, QUERYORGCODE, USERCODE, 
+      REPORTDATE, ENTERPRISENAME, ENTERPRISEIDNUM, 
+      ENTERPRISEIDTYPE, ENTERPRISEIDNUMBER, NUMOBJECTIONS, 
+      EXCHANGERATE, EXCHANGERATEDATE)
+    values (#{reportid,jdbcType=VARCHAR}, #{reportsn,jdbcType=VARCHAR}, #{reporttype,jdbcType=VARCHAR}, 
+      #{companyname,jdbcType=VARCHAR}, #{creditcode,jdbcType=VARCHAR}, #{loancardno,jdbcType=VARCHAR}, 
+      #{queryreason,jdbcType=VARCHAR}, #{queryorgcode,jdbcType=VARCHAR}, #{usercode,jdbcType=VARCHAR}, 
+      #{reportdate,jdbcType=VARCHAR}, #{enterprisename,jdbcType=VARCHAR}, #{enterpriseidnum,jdbcType=VARCHAR}, 
+      #{enterpriseidtype,jdbcType=VARCHAR}, #{enterpriseidnumber,jdbcType=VARCHAR}, #{numobjections,jdbcType=VARCHAR}, 
+      #{exchangerate,jdbcType=VARCHAR}, #{exchangeratedate,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.zxjk.credit2query.pojo.Crt2CReportheader">
+    insert into CRT2_C_REPORTHEADER
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="reportid != null">
+        REPORTID,
+      </if>
+      <if test="reportsn != null">
+        REPORTSN,
+      </if>
+      <if test="reporttype != null">
+        REPORTTYPE,
+      </if>
+      <if test="companyname != null">
+        COMPANYNAME,
+      </if>
+      <if test="creditcode != null">
+        CREDITCODE,
+      </if>
+      <if test="loancardno != null">
+        LOANCARDNO,
+      </if>
+      <if test="queryreason != null">
+        QUERYREASON,
+      </if>
+      <if test="queryorgcode != null">
+        QUERYORGCODE,
+      </if>
+      <if test="usercode != null">
+        USERCODE,
+      </if>
+      <if test="reportdate != null">
+        REPORTDATE,
+      </if>
+      <if test="enterprisename != null">
+        ENTERPRISENAME,
+      </if>
+      <if test="enterpriseidnum != null">
+        ENTERPRISEIDNUM,
+      </if>
+      <if test="enterpriseidtype != null">
+        ENTERPRISEIDTYPE,
+      </if>
+      <if test="enterpriseidnumber != null">
+        ENTERPRISEIDNUMBER,
+      </if>
+      <if test="numobjections != null">
+        NUMOBJECTIONS,
+      </if>
+      <if test="exchangerate != null">
+        EXCHANGERATE,
+      </if>
+      <if test="exchangeratedate != null">
+        EXCHANGERATEDATE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="reportid != null">
+        #{reportid,jdbcType=VARCHAR},
+      </if>
+      <if test="reportsn != null">
+        #{reportsn,jdbcType=VARCHAR},
+      </if>
+      <if test="reporttype != null">
+        #{reporttype,jdbcType=VARCHAR},
+      </if>
+      <if test="companyname != null">
+        #{companyname,jdbcType=VARCHAR},
+      </if>
+      <if test="creditcode != null">
+        #{creditcode,jdbcType=VARCHAR},
+      </if>
+      <if test="loancardno != null">
+        #{loancardno,jdbcType=VARCHAR},
+      </if>
+      <if test="queryreason != null">
+        #{queryreason,jdbcType=VARCHAR},
+      </if>
+      <if test="queryorgcode != null">
+        #{queryorgcode,jdbcType=VARCHAR},
+      </if>
+      <if test="usercode != null">
+        #{usercode,jdbcType=VARCHAR},
+      </if>
+      <if test="reportdate != null">
+        #{reportdate,jdbcType=VARCHAR},
+      </if>
+      <if test="enterprisename != null">
+        #{enterprisename,jdbcType=VARCHAR},
+      </if>
+      <if test="enterpriseidnum != null">
+        #{enterpriseidnum,jdbcType=VARCHAR},
+      </if>
+      <if test="enterpriseidtype != null">
+        #{enterpriseidtype,jdbcType=VARCHAR},
+      </if>
+      <if test="enterpriseidnumber != null">
+        #{enterpriseidnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="numobjections != null">
+        #{numobjections,jdbcType=VARCHAR},
+      </if>
+      <if test="exchangerate != null">
+        #{exchangerate,jdbcType=VARCHAR},
+      </if>
+      <if test="exchangeratedate != null">
+        #{exchangeratedate,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.zxjk.credit2query.pojo.Crt2CReportheaderExample" resultType="java.lang.Long">
+    select count(*) from CRT2_C_REPORTHEADER
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update CRT2_C_REPORTHEADER
+    <set>
+      <if test="record.reportid != null">
+        REPORTID = #{record.reportid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.reportsn != null">
+        REPORTSN = #{record.reportsn,jdbcType=VARCHAR},
+      </if>
+      <if test="record.reporttype != null">
+        REPORTTYPE = #{record.reporttype,jdbcType=VARCHAR},
+      </if>
+      <if test="record.companyname != null">
+        COMPANYNAME = #{record.companyname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.creditcode != null">
+        CREDITCODE = #{record.creditcode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.loancardno != null">
+        LOANCARDNO = #{record.loancardno,jdbcType=VARCHAR},
+      </if>
+      <if test="record.queryreason != null">
+        QUERYREASON = #{record.queryreason,jdbcType=VARCHAR},
+      </if>
+      <if test="record.queryorgcode != null">
+        QUERYORGCODE = #{record.queryorgcode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.usercode != null">
+        USERCODE = #{record.usercode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.reportdate != null">
+        REPORTDATE = #{record.reportdate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.enterprisename != null">
+        ENTERPRISENAME = #{record.enterprisename,jdbcType=VARCHAR},
+      </if>
+      <if test="record.enterpriseidnum != null">
+        ENTERPRISEIDNUM = #{record.enterpriseidnum,jdbcType=VARCHAR},
+      </if>
+      <if test="record.enterpriseidtype != null">
+        ENTERPRISEIDTYPE = #{record.enterpriseidtype,jdbcType=VARCHAR},
+      </if>
+      <if test="record.enterpriseidnumber != null">
+        ENTERPRISEIDNUMBER = #{record.enterpriseidnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="record.numobjections != null">
+        NUMOBJECTIONS = #{record.numobjections,jdbcType=VARCHAR},
+      </if>
+      <if test="record.exchangerate != null">
+        EXCHANGERATE = #{record.exchangerate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.exchangeratedate != null">
+        EXCHANGERATEDATE = #{record.exchangeratedate,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update CRT2_C_REPORTHEADER
+    set REPORTID = #{record.reportid,jdbcType=VARCHAR},
+      REPORTSN = #{record.reportsn,jdbcType=VARCHAR},
+      REPORTTYPE = #{record.reporttype,jdbcType=VARCHAR},
+      COMPANYNAME = #{record.companyname,jdbcType=VARCHAR},
+      CREDITCODE = #{record.creditcode,jdbcType=VARCHAR},
+      LOANCARDNO = #{record.loancardno,jdbcType=VARCHAR},
+      QUERYREASON = #{record.queryreason,jdbcType=VARCHAR},
+      QUERYORGCODE = #{record.queryorgcode,jdbcType=VARCHAR},
+      USERCODE = #{record.usercode,jdbcType=VARCHAR},
+      REPORTDATE = #{record.reportdate,jdbcType=VARCHAR},
+      ENTERPRISENAME = #{record.enterprisename,jdbcType=VARCHAR},
+      ENTERPRISEIDNUM = #{record.enterpriseidnum,jdbcType=VARCHAR},
+      ENTERPRISEIDTYPE = #{record.enterpriseidtype,jdbcType=VARCHAR},
+      ENTERPRISEIDNUMBER = #{record.enterpriseidnumber,jdbcType=VARCHAR},
+      NUMOBJECTIONS = #{record.numobjections,jdbcType=VARCHAR},
+      EXCHANGERATE = #{record.exchangerate,jdbcType=VARCHAR},
+      EXCHANGERATEDATE = #{record.exchangeratedate,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+</mapper>

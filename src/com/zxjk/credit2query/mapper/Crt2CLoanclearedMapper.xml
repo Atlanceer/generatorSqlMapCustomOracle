@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zxjk.credit2query.mapper.Crt2CLoanclearedMapper">
+  <resultMap id="BaseResultMap" type="com.zxjk.credit2query.pojo.Crt2CLoancleared">
+    <result column="REPORTID" jdbcType="VARCHAR" property="reportid" />
+    <result column="ASSETSACCOUNTNUMBER" jdbcType="VARCHAR" property="assetsaccountnumber" />
+    <result column="BALANCEASSETS" jdbcType="VARCHAR" property="balanceassets" />
+    <result column="COMPLETIONDATE" jdbcType="VARCHAR" property="completiondate" />
+    <result column="CLEARDATE" jdbcType="VARCHAR" property="cleardate" />
+    <result column="ADVANCEACCOUNTNUMBER" jdbcType="VARCHAR" property="advanceaccountnumber" />
+    <result column="SUMMONEY" jdbcType="VARCHAR" property="summoney" />
+    <result column="OTHERLOANS" jdbcType="VARCHAR" property="otherloans" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    REPORTID, ASSETSACCOUNTNUMBER, BALANCEASSETS, COMPLETIONDATE, CLEARDATE, ADVANCEACCOUNTNUMBER, 
+    SUMMONEY, OTHERLOANS
+  </sql>
+  <select id="selectByExample" parameterType="com.zxjk.credit2query.pojo.Crt2CLoanclearedExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from CRT2_C_LOANCLEARED
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <delete id="deleteByExample" parameterType="com.zxjk.credit2query.pojo.Crt2CLoanclearedExample">
+    delete from CRT2_C_LOANCLEARED
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.zxjk.credit2query.pojo.Crt2CLoancleared">
+    insert into CRT2_C_LOANCLEARED (REPORTID, ASSETSACCOUNTNUMBER, BALANCEASSETS, 
+      COMPLETIONDATE, CLEARDATE, ADVANCEACCOUNTNUMBER, 
+      SUMMONEY, OTHERLOANS)
+    values (#{reportid,jdbcType=VARCHAR}, #{assetsaccountnumber,jdbcType=VARCHAR}, #{balanceassets,jdbcType=VARCHAR}, 
+      #{completiondate,jdbcType=VARCHAR}, #{cleardate,jdbcType=VARCHAR}, #{advanceaccountnumber,jdbcType=VARCHAR}, 
+      #{summoney,jdbcType=VARCHAR}, #{otherloans,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.zxjk.credit2query.pojo.Crt2CLoancleared">
+    insert into CRT2_C_LOANCLEARED
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="reportid != null">
+        REPORTID,
+      </if>
+      <if test="assetsaccountnumber != null">
+        ASSETSACCOUNTNUMBER,
+      </if>
+      <if test="balanceassets != null">
+        BALANCEASSETS,
+      </if>
+      <if test="completiondate != null">
+        COMPLETIONDATE,
+      </if>
+      <if test="cleardate != null">
+        CLEARDATE,
+      </if>
+      <if test="advanceaccountnumber != null">
+        ADVANCEACCOUNTNUMBER,
+      </if>
+      <if test="summoney != null">
+        SUMMONEY,
+      </if>
+      <if test="otherloans != null">
+        OTHERLOANS,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="reportid != null">
+        #{reportid,jdbcType=VARCHAR},
+      </if>
+      <if test="assetsaccountnumber != null">
+        #{assetsaccountnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="balanceassets != null">
+        #{balanceassets,jdbcType=VARCHAR},
+      </if>
+      <if test="completiondate != null">
+        #{completiondate,jdbcType=VARCHAR},
+      </if>
+      <if test="cleardate != null">
+        #{cleardate,jdbcType=VARCHAR},
+      </if>
+      <if test="advanceaccountnumber != null">
+        #{advanceaccountnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="summoney != null">
+        #{summoney,jdbcType=VARCHAR},
+      </if>
+      <if test="otherloans != null">
+        #{otherloans,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.zxjk.credit2query.pojo.Crt2CLoanclearedExample" resultType="java.lang.Long">
+    select count(*) from CRT2_C_LOANCLEARED
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update CRT2_C_LOANCLEARED
+    <set>
+      <if test="record.reportid != null">
+        REPORTID = #{record.reportid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.assetsaccountnumber != null">
+        ASSETSACCOUNTNUMBER = #{record.assetsaccountnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="record.balanceassets != null">
+        BALANCEASSETS = #{record.balanceassets,jdbcType=VARCHAR},
+      </if>
+      <if test="record.completiondate != null">
+        COMPLETIONDATE = #{record.completiondate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cleardate != null">
+        CLEARDATE = #{record.cleardate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.advanceaccountnumber != null">
+        ADVANCEACCOUNTNUMBER = #{record.advanceaccountnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="record.summoney != null">
+        SUMMONEY = #{record.summoney,jdbcType=VARCHAR},
+      </if>
+      <if test="record.otherloans != null">
+        OTHERLOANS = #{record.otherloans,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update CRT2_C_LOANCLEARED
+    set REPORTID = #{record.reportid,jdbcType=VARCHAR},
+      ASSETSACCOUNTNUMBER = #{record.assetsaccountnumber,jdbcType=VARCHAR},
+      BALANCEASSETS = #{record.balanceassets,jdbcType=VARCHAR},
+      COMPLETIONDATE = #{record.completiondate,jdbcType=VARCHAR},
+      CLEARDATE = #{record.cleardate,jdbcType=VARCHAR},
+      ADVANCEACCOUNTNUMBER = #{record.advanceaccountnumber,jdbcType=VARCHAR},
+      SUMMONEY = #{record.summoney,jdbcType=VARCHAR},
+      OTHERLOANS = #{record.otherloans,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+</mapper>

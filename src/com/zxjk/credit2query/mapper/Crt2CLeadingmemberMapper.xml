@@ -1,0 +1,394 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zxjk.credit2query.mapper.Crt2CLeadingmemberMapper">
+  <resultMap id="BaseResultMap" type="com.zxjk.credit2query.pojo.Crt2CLeadingmember">
+    <result column="REPORTID" jdbcType="VARCHAR" property="reportid" />
+    <result column="PRINCIPALMEMBERS" jdbcType="VARCHAR" property="principalmembers" />
+    <result column="NAME" jdbcType="VARCHAR" property="name" />
+    <result column="DOCUMENTTYPE" jdbcType="VARCHAR" property="documenttype" />
+    <result column="DOCUMENTNUMBER" jdbcType="VARCHAR" property="documentnumber" />
+    <result column="POSITION" jdbcType="VARCHAR" property="position" />
+    <result column="UPDATEDATE" jdbcType="VARCHAR" property="updatedate" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    REPORTID, PRINCIPALMEMBERS, NAME, DOCUMENTTYPE, DOCUMENTNUMBER, POSITION, UPDATEDATE
+  </sql>
+  <select id="selectByExample" parameterType="com.zxjk.credit2query.pojo.Crt2CLeadingmemberExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from CRT2_C_LEADINGMEMBER
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <delete id="deleteByExample" parameterType="com.zxjk.credit2query.pojo.Crt2CLeadingmemberExample">
+    delete from CRT2_C_LEADINGMEMBER
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.zxjk.credit2query.pojo.Crt2CLeadingmember">
+    insert into CRT2_C_LEADINGMEMBER (REPORTID, PRINCIPALMEMBERS, NAME, 
+      DOCUMENTTYPE, DOCUMENTNUMBER, POSITION, 
+      UPDATEDATE)
+    values (#{reportid,jdbcType=VARCHAR}, #{principalmembers,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
+      #{documenttype,jdbcType=VARCHAR}, #{documentnumber,jdbcType=VARCHAR}, #{position,jdbcType=VARCHAR}, 
+      #{updatedate,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.zxjk.credit2query.pojo.Crt2CLeadingmember">
+    insert into CRT2_C_LEADINGMEMBER
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="reportid != null">
+        REPORTID,
+      </if>
+      <if test="principalmembers != null">
+        PRINCIPALMEMBERS,
+      </if>
+      <if test="name != null">
+        NAME,
+      </if>
+      <if test="documenttype != null">
+        DOCUMENTTYPE,
+      </if>
+      <if test="documentnumber != null">
+        DOCUMENTNUMBER,
+      </if>
+      <if test="position != null">
+        POSITION,
+      </if>
+      <if test="updatedate != null">
+        UPDATEDATE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="reportid != null">
+        #{reportid,jdbcType=VARCHAR},
+      </if>
+      <if test="principalmembers != null">
+        #{principalmembers,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="documenttype != null">
+        #{documenttype,jdbcType=VARCHAR},
+      </if>
+      <if test="documentnumber != null">
+        #{documentnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="position != null">
+        #{position,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedate != null">
+        #{updatedate,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.zxjk.credit2query.pojo.Crt2CLeadingmemberExample" resultType="java.lang.Long">
+    select count(*) from CRT2_C_LEADINGMEMBER
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update CRT2_C_LEADINGMEMBER
+    <set>
+      <if test="record.reportid != null">
+        REPORTID = #{record.reportid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.principalmembers != null">
+        PRINCIPALMEMBERS = #{record.principalmembers,jdbcType=VARCHAR},
+      </if>
+      <if test="record.name != null">
+        NAME = #{record.name,jdbcType=VARCHAR},
+      </if>
+      <if test="record.documenttype != null">
+        DOCUMENTTYPE = #{record.documenttype,jdbcType=VARCHAR},
+      </if>
+      <if test="record.documentnumber != null">
+        DOCUMENTNUMBER = #{record.documentnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="record.position != null">
+        POSITION = #{record.position,jdbcType=VARCHAR},
+      </if>
+      <if test="record.updatedate != null">
+        UPDATEDATE = #{record.updatedate,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update CRT2_C_LEADINGMEMBER
+    set REPORTID = #{record.reportid,jdbcType=VARCHAR},
+      PRINCIPALMEMBERS = #{record.principalmembers,jdbcType=VARCHAR},
+      NAME = #{record.name,jdbcType=VARCHAR},
+      DOCUMENTTYPE = #{record.documenttype,jdbcType=VARCHAR},
+      DOCUMENTNUMBER = #{record.documentnumber,jdbcType=VARCHAR},
+      POSITION = #{record.position,jdbcType=VARCHAR},
+      UPDATEDATE = #{record.updatedate,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <resultMap id="BaseResultMap" type="com.zxjk.credit2query.pojo.Crt2CLeadingmember">
+    <result column="REPORTID" jdbcType="VARCHAR" property="reportid" />
+    <result column="NAME" jdbcType="VARCHAR" property="name" />
+    <result column="DOCUMENTTYPE" jdbcType="VARCHAR" property="documenttype" />
+    <result column="DOCUMENTNUMBER" jdbcType="VARCHAR" property="documentnumber" />
+    <result column="POSITION" jdbcType="VARCHAR" property="position" />
+    <result column="UPDATEDATE" jdbcType="VARCHAR" property="updatedate" />
+    <result column="PRINCIPALMEMBERS" jdbcType="VARCHAR" property="principalmembers" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    REPORTID, NAME, DOCUMENTTYPE, DOCUMENTNUMBER, POSITION, UPDATEDATE, PRINCIPALMEMBERS
+  </sql>
+  <select id="selectByExample" parameterType="com.zxjk.credit2query.pojo.Crt2CLeadingmemberExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from CRT2_C_LEADINGMEMBER
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <delete id="deleteByExample" parameterType="com.zxjk.credit2query.pojo.Crt2CLeadingmemberExample">
+    delete from CRT2_C_LEADINGMEMBER
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.zxjk.credit2query.pojo.Crt2CLeadingmember">
+    insert into CRT2_C_LEADINGMEMBER (REPORTID, NAME, DOCUMENTTYPE, 
+      DOCUMENTNUMBER, POSITION, UPDATEDATE, 
+      PRINCIPALMEMBERS)
+    values (#{reportid,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{documenttype,jdbcType=VARCHAR}, 
+      #{documentnumber,jdbcType=VARCHAR}, #{position,jdbcType=VARCHAR}, #{updatedate,jdbcType=VARCHAR}, 
+      #{principalmembers,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.zxjk.credit2query.pojo.Crt2CLeadingmember">
+    insert into CRT2_C_LEADINGMEMBER
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="reportid != null">
+        REPORTID,
+      </if>
+      <if test="name != null">
+        NAME,
+      </if>
+      <if test="documenttype != null">
+        DOCUMENTTYPE,
+      </if>
+      <if test="documentnumber != null">
+        DOCUMENTNUMBER,
+      </if>
+      <if test="position != null">
+        POSITION,
+      </if>
+      <if test="updatedate != null">
+        UPDATEDATE,
+      </if>
+      <if test="principalmembers != null">
+        PRINCIPALMEMBERS,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="reportid != null">
+        #{reportid,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="documenttype != null">
+        #{documenttype,jdbcType=VARCHAR},
+      </if>
+      <if test="documentnumber != null">
+        #{documentnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="position != null">
+        #{position,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedate != null">
+        #{updatedate,jdbcType=VARCHAR},
+      </if>
+      <if test="principalmembers != null">
+        #{principalmembers,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.zxjk.credit2query.pojo.Crt2CLeadingmemberExample" resultType="java.lang.Long">
+    select count(*) from CRT2_C_LEADINGMEMBER
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update CRT2_C_LEADINGMEMBER
+    <set>
+      <if test="record.reportid != null">
+        REPORTID = #{record.reportid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.name != null">
+        NAME = #{record.name,jdbcType=VARCHAR},
+      </if>
+      <if test="record.documenttype != null">
+        DOCUMENTTYPE = #{record.documenttype,jdbcType=VARCHAR},
+      </if>
+      <if test="record.documentnumber != null">
+        DOCUMENTNUMBER = #{record.documentnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="record.position != null">
+        POSITION = #{record.position,jdbcType=VARCHAR},
+      </if>
+      <if test="record.updatedate != null">
+        UPDATEDATE = #{record.updatedate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.principalmembers != null">
+        PRINCIPALMEMBERS = #{record.principalmembers,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update CRT2_C_LEADINGMEMBER
+    set REPORTID = #{record.reportid,jdbcType=VARCHAR},
+      NAME = #{record.name,jdbcType=VARCHAR},
+      DOCUMENTTYPE = #{record.documenttype,jdbcType=VARCHAR},
+      DOCUMENTNUMBER = #{record.documentnumber,jdbcType=VARCHAR},
+      POSITION = #{record.position,jdbcType=VARCHAR},
+      UPDATEDATE = #{record.updatedate,jdbcType=VARCHAR},
+      PRINCIPALMEMBERS = #{record.principalmembers,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+</mapper>
