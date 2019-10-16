@@ -31,7 +31,7 @@
             <property name="trimStrings" value="true" />
         </javaModelGenerator>
         <!-- targetProject:mapper映射文件生成的位置 -->
-        <sqlMapGenerator targetPackage="com.zxjk.credit2query.mapper"
+        <sqlMapGenerator targetPackage="com.zxjk.credit2query.mapper.xml"
                          targetProject=".\src">
             <!-- enableSubPackages:是否让schema作为包的后缀 -->
             <property name="enableSubPackages" value="false" />
@@ -44,68 +44,383 @@
             <property name="enableSubPackages" value="false" />
         </javaClientGenerator>
         <!-- 指定数据库表 -->
-        <table schema="" tableName="Crt2_C_Order"/>
-        <table schema="" tableName="Crt2_C_OrderDetail"/>
-        <table schema="" tableName="Crt2_C_ReportMain"/>
-        <table schema="" tableName="Crt2_C_ReportParseFail"/>
-        <table schema="" tableName="Crt2_C_ReportHeader"/>
-        <table schema="" tableName="CRT2_C_EntIDInfo"/>
-        <table schema="" tableName="Crt2_C_BasicProfile"/>
-        <table schema="" tableName="Crt2_C_Investor"/>
-        <table schema="" tableName="Crt2_C_LeadingMember"/>
-        <table schema="" tableName="Crt2_C_HigherAuthority"/>
-        <table schema="" tableName="Crt2_C_ActualController"/>
-        <table schema="" tableName="Crt2_C_CreaditPrompts"/>
-        <table schema="" tableName="Crt2_C_LoanOutstanding"/>
-        <table schema="" tableName="Crt2_C_OthLoanSum"/>
-        <table schema="" tableName="Crt2_C_LoanCleared"/>
-        <table schema="" tableName="Crt2_C_OthLoanCleared"/>
-        <table schema="" tableName="Crt2_C_LoanHistory"/>
-        <table schema="" tableName="Crt2_C_UnscGuarantee"/>
-        <table schema="" tableName="Crt2_C_GuaranteeCleared"/>
-        <table schema="" tableName="Crt2_C_CreditAgreeSum"/>
-        <table schema="" tableName="Crt2_C_RRLoanSum"/>
-        <table schema="" tableName="Crt2_C_RRGuaranteeSum"/>
-        <table schema="" tableName="Crt2_C_BasicBorrowing"/>
-        <table schema="" tableName="Crt2_C_LoanRepayment"/>
-        <table schema="" tableName="Crt2_C_LoanSpecific"/>
-        <table schema="" tableName="Crt2_C_DiscountedAcct"/>
-        <table schema="" tableName="Crt2_C_DebitInterest"/>
-        <table schema="" tableName="Crt2_C_GuaranteeBasic"/>
-        <table schema="" tableName="Crt2_C_Guarantee"/>
-        <table schema="" tableName="Crt2_C_GuaranteeAcct"/>
-        <table schema="" tableName="Crt2_C_CreditAgreement"/>
-        <table schema="" tableName="Crt2_C_RRAccount"/>
-        <table schema="" tableName="Crt2_C_RRDiscounting"/>
-        <table schema="" tableName="Crt2_C_RelaSecuredAcct"/>
-        <table schema="" tableName="Crt2_C_UtilityExps"/>
-        <table schema="" tableName="Crt2_C_UtilityExpsHis"/>
-        <table schema="" tableName="Crt2_C_TaxInfo"/>
-        <table schema="" tableName="Crt2_C_VilJudgement"/>
-        <table schema="" tableName="Crt2_C_ForceExecution"/>
-        <table schema="" tableName="Crt2_C_AdminPunishment"/>
-        <table schema="" tableName="Crt2_C_Housingfund"/>
-        <table schema="" tableName="Crt2_C_HousingfundHis"/>
-        <table schema="" tableName="Crt2_C_PermitInfo"/>
-        <table schema="" tableName="Crt2_C_Certification"/>
-        <table schema="" tableName="Crt2_C_Qualification"/>
-        <table schema="" tableName="Crt2_C_RewardInfo"/>
-        <table schema="" tableName="Crt2_C_Supervision"/>
-        <table schema="" tableName="Crt2_C_Quarantine"/>
-        <table schema="" tableName="Crt2_C_Exemption"/>
-        <table schema="" tableName="Crt2_C_CommInspect"/>
-        <table schema="" tableName="Crt2_C_Financing"/>
-        <table schema="" tableName="Crt2_C_EntBLSheet02"/>
-        <table schema="" tableName="Crt2_C_EntBLSheet07"/>
-        <table schema="" tableName="Crt2_C_EntProfit02"/>
-        <table schema="" tableName="Crt2_C_EntProfit07"/>
-        <table schema="" tableName="Crt2_C_EntCashFlow02"/>
-        <table schema="" tableName="Crt2_C_EntCashFlow07"/>
-        <table schema="" tableName="Crt2_C_InstBLSheet97"/>
-        <table schema="" tableName="Crt2_C_InstBLeSheet13"/>
-        <table schema="" tableName="Crt2_C_InstIncExp97"/>
-        <table schema="" tableName="Crt2_C_InstIncExp13"/>
-        <table schema="" tableName="Crt2_C_RatingInf"/>
-        <table schema="" tableName="Crt2_C_Statement"/>
+        <table schema="" tableName="Crt2_C_Order" domainObjectName="Order"
+               enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false"
+               selectByExampleQueryId="false"/>
+        <table schema="" tableName="Crt2_C_OrderDetail" domainObjectName="OrderDetail"
+               enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false"
+               selectByExampleQueryId="false"/>
+        <table schema="" tableName="Crt2_C_ReportMain" domainObjectName="ReportMain"
+               enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false"
+               selectByExampleQueryId="false"/>
+        <table schema="" tableName="Crt2_C_ReportParseFail" domainObjectName="ReportParseFail"
+               enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false"
+               selectByExampleQueryId="false"/>
+        <table schema="" tableName="Crt2_C_ReportHeader" domainObjectName="ReportHeader"
+               enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false"
+               selectByExampleQueryId="false"/>
+        <table schema="" tableName="CRT2_C_EntIDInfo" domainObjectName="EntIDInfo"
+               enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false"
+               selectByExampleQueryId="false"/>
+        <table schema="" tableName="Crt2_C_BasicProfile" domainObjectName="BasicProfile"
+               enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false"
+               selectByExampleQueryId="false"/>
+        <table schema="" tableName="Crt2_C_Investor" domainObjectName="Investor"
+               enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false"
+               selectByExampleQueryId="false"/>
+        <table schema="" tableName="Crt2_C_LeadingMember" domainObjectName="LeadingMember"
+               enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false"
+               selectByExampleQueryId="false"/>
+        <table schema="" tableName="Crt2_C_HigherAuthority" domainObjectName="HigherAuthority"
+               enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false"
+               selectByExampleQueryId="false"/>
+        <table schema="" tableName="Crt2_C_ActualController" domainObjectName="ActualController"
+               enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false"
+               selectByExampleQueryId="false"/>
+        <table schema="" tableName="Crt2_C_CreaditPrompts" domainObjectName="CreaditPrompts"
+               enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false"
+               selectByExampleQueryId="false"/>
+        <table schema="" tableName="Crt2_C_LoanOutstanding" domainObjectName="LoanOutstanding"
+               enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false"
+               selectByExampleQueryId="false"/>
+        <table schema="" tableName="Crt2_C_OthLoanSum" domainObjectName="OthLoanSum"
+               enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false"
+               selectByExampleQueryId="false"/>
+        <table schema="" tableName="Crt2_C_LoanCleared" domainObjectName="LoanCleared"
+               enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false"
+               selectByExampleQueryId="false"/>
+        <table schema="" tableName="Crt2_C_OthLoanCleared" domainObjectName="OthLoanCleared"
+               enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false"
+               selectByExampleQueryId="false"/>
+        <table schema="" tableName="Crt2_C_LoanHistory" domainObjectName="LoanHistory"
+               enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false"
+               selectByExampleQueryId="false"/>
+        <table schema="" tableName="Crt2_C_UnscGuarantee" domainObjectName="UnscGuarantee"
+               enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false"
+               selectByExampleQueryId="false"/>
+        <table schema="" tableName="Crt2_C_GuaranteeCleared" domainObjectName="GuaranteeCleared"
+               enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false"
+               selectByExampleQueryId="false"/>
+        <table schema="" tableName="Crt2_C_CreditAgreeSum" domainObjectName="CreditAgreeSum"
+               enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false"
+               selectByExampleQueryId="false"/>
+        <table schema="" tableName="Crt2_C_RRLoanSum" domainObjectName="RRLoanSum"
+               enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false"
+               selectByExampleQueryId="false"/>
+        <table schema="" tableName="Crt2_C_RRGuaranteeSum" domainObjectName="RRGuaranteeSum"
+               enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false"
+               selectByExampleQueryId="false"/>
+        <table schema="" tableName="Crt2_C_BasicBorrowing" domainObjectName="BasicBorrowing"
+               enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false"
+               selectByExampleQueryId="false"/>
+        <table schema="" tableName="Crt2_C_LoanRepayment" domainObjectName="LoanRepayment"
+               enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false"
+               selectByExampleQueryId="false"/>
+        <table schema="" tableName="Crt2_C_LoanSpecific" domainObjectName="LoanSpecific"
+               enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false"
+               selectByExampleQueryId="false"/>
+        <table schema="" tableName="Crt2_C_DiscountedAcct" domainObjectName="DiscountedAcct"
+               enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false"
+               selectByExampleQueryId="false"/>
+        <table schema="" tableName="Crt2_C_DebitInterest" domainObjectName="DebitInterest"
+               enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false"
+               selectByExampleQueryId="false"/>
+        <table schema="" tableName="Crt2_C_GuaranteeBasic" domainObjectName="GuaranteeBasic"
+               enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false"
+               selectByExampleQueryId="false"/>
+        <table schema="" tableName="Crt2_C_Guarantee" domainObjectName="Guarantee"
+               enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false"
+               selectByExampleQueryId="false"/>
+        <table schema="" tableName="Crt2_C_GuaranteeAcct" domainObjectName="GuaranteeAcct"
+               enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false"
+               selectByExampleQueryId="false"/>
+        <table schema="" tableName="Crt2_C_CreditAgreement" domainObjectName="CreditAgreement"
+               enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false"
+               selectByExampleQueryId="false"/>
+        <table schema="" tableName="Crt2_C_RRAccount" domainObjectName="RRAccount"
+               enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false"
+               selectByExampleQueryId="false"/>
+        <table schema="" tableName="Crt2_C_RRDiscounting" domainObjectName="RRDiscounting"
+               enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false"
+               selectByExampleQueryId="false"/>
+        <table schema="" tableName="Crt2_C_RelaSecuredAcct" domainObjectName="RelaSecuredAcct"
+               enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false"
+               selectByExampleQueryId="false"/>
+        <table schema="" tableName="Crt2_C_UtilityExps" domainObjectName="UtilityExps"
+               enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false"
+               selectByExampleQueryId="false"/>
+        <table schema="" tableName="Crt2_C_UtilityExpsHis" domainObjectName=""
+               enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false"
+               selectByExampleQueryId="false"/>
+        <table schema="" tableName="Crt2_C_TaxInfo" domainObjectName="TaxInfo"
+               enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false"
+               selectByExampleQueryId="false"/>
+        <table schema="" tableName="Crt2_C_VilJudgement" domainObjectName="VilJudgement"
+               enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false"
+               selectByExampleQueryId="false"/>
+        <table schema="" tableName="Crt2_C_ForceExecution" domainObjectName="ForceExecution"
+               enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false"
+               selectByExampleQueryId="false"/>
+        <table schema="" tableName="Crt2_C_AdminPunishment" domainObjectName="AdminPunishment"
+               enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false"
+               selectByExampleQueryId="false"/>
+        <table schema="" tableName="Crt2_C_Housingfund" domainObjectName="Housingfund"
+               enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false"
+               selectByExampleQueryId="false"/>
+        <table schema="" tableName="Crt2_C_HousingfundHis" domainObjectName="HousingfundHis"
+               enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false"
+               selectByExampleQueryId="false"/>
+        <table schema="" tableName="Crt2_C_PermitInfo" domainObjectName="PermitInfo"
+               enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false"
+               selectByExampleQueryId="false"/>
+        <table schema="" tableName="Crt2_C_Certification" domainObjectName="Certification"
+               enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false"
+               selectByExampleQueryId="false"/>
+        <table schema="" tableName="Crt2_C_Qualification" domainObjectName="Qualification"
+               enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false"
+               selectByExampleQueryId="false"/>
+        <table schema="" tableName="Crt2_C_RewardInfo" domainObjectName="RewardInfo"
+               enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false"
+               selectByExampleQueryId="false"/>
+        <table schema="" tableName="Crt2_C_Supervision" domainObjectName="Supervision"
+               enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false"
+               selectByExampleQueryId="false"/>
+        <table schema="" tableName="Crt2_C_Quarantine" domainObjectName="Quarantine"
+               enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false"
+               selectByExampleQueryId="false"/>
+        <table schema="" tableName="Crt2_C_Exemption" domainObjectName="Exemption"
+               enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false"
+               selectByExampleQueryId="false"/>
+        <table schema="" tableName="Crt2_C_CommInspect" domainObjectName="CommInspect"
+               enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false"
+               selectByExampleQueryId="false"/>
+        <table schema="" tableName="Crt2_C_Financing" domainObjectName="Financing"
+               enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false"
+               selectByExampleQueryId="false"/>
+        <table schema="" tableName="Crt2_C_EntBLSheet02" domainObjectName="EntBLSheet02"
+               enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false"
+               selectByExampleQueryId="false"/>
+        <table schema="" tableName="Crt2_C_EntBLSheet07" domainObjectName="EntBLSheet07"
+               enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false"
+               selectByExampleQueryId="false"/>
+        <table schema="" tableName="Crt2_C_EntProfit02" domainObjectName="EntProfit02"
+               enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false"
+               selectByExampleQueryId="false"/>
+        <table schema="" tableName="Crt2_C_EntProfit07" domainObjectName="EntProfit07"
+               enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false"
+               selectByExampleQueryId="false"/>
+        <table schema="" tableName="Crt2_C_EntCashFlow02" domainObjectName="EntCashFlow02"
+               enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false"
+               selectByExampleQueryId="false"/>
+        <table schema="" tableName="Crt2_C_EntCashFlow07" domainObjectName="EntCashFlow07"
+               enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false"
+               selectByExampleQueryId="false"/>
+        <table schema="" tableName="Crt2_C_InstBLSheet97" domainObjectName="InstBLSheet97"
+               enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false"
+               selectByExampleQueryId="false"/>
+        <table schema="" tableName="Crt2_C_InstBLeSheet13" domainObjectName="InstBLeSheet13"
+               enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false"
+               selectByExampleQueryId="false"/>
+        <table schema="" tableName="Crt2_C_InstIncExp97" domainObjectName="InstIncExp97"
+               enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false"
+               selectByExampleQueryId="false"/>
+        <table schema="" tableName="Crt2_C_InstIncExp13" domainObjectName="InstIncExp13"
+               enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false"
+               selectByExampleQueryId="false"/>
+        <table schema="" tableName="Crt2_C_RatingInf" domainObjectName="RatingInf"
+               enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false"
+               selectByExampleQueryId="false"/>
+        <table schema="" tableName="Crt2_C_Statement" domainObjectName="Statement"
+               enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false"
+               selectByExampleQueryId="false"/>
     </context>
 </generatorConfiguration>
